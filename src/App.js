@@ -32,8 +32,8 @@ export default function App() {
       <Switch>
         <Route component={IntroScreen} exact path="/"/>
         <Route component={MainScreen} exact path="/main"/>
-        <Route component={ReceiverOptionsScreen} path ="/receiverOption/:userID"/>
-        <Route component={MonthOptionsScreen} path ="/month/:userID/:receiver"/>
+        <Route component={ReceiverOptionsScreen} path ="/option/:userID"/>
+        <Route component={MonthOptionsScreen} exact path ="/month"/>
         <Route component={FontOptionsScreen} path="/font"/>
         <Route component={TopicOptionsScreen} path="/topic"/>
         <Route component={LetterPaperOptionsScreen} exact path="/letterPaper"/>

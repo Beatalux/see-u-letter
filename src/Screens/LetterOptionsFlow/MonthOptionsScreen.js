@@ -1,59 +1,96 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import {BodyText,SubtitleText,YellowButton,TitleText} from '../../commons/text'
+import { BodyText, SubtitleText, YellowButton, TitleText } from '../../commons/text'
 import Header from '../../commons/Header';
 import bar from '../../images/bar1.png';
-import tome from '../../images/letterSelect/tome.png';
-import toothers from '../../images/letterSelect/toothers.png';
-import dimtome from '../../images/letterSelect/dimtome.png';
-import dimtoothers from '../../images/letterSelect/dimtoothers.png';
-import { Link } from 'react-router-dom';
 
-const ImagesList=[[tome,dimtome],[toothers,dimtoothers]]
-const MonthOptionsScreen = ({match}) => {
-    const UserID=match.params.UserID;
+import dimJanuary from '../../images/letterSelect/dimJanuary.png';
+import dimJune from '../../images/letterSelect/dimJune.png';
+import january from '../../images/letterSelect/january.png';
+import june from '../../images/letterSelect/june.png';
+import march from '../../images/letterSelect/march.png';
+import dimMarch from '../../images/letterSelect/dimMarch.png';
+import { Link, useLocation } from 'react-router-dom';
 
-    const [isMeSelected,setIsMeSelected]=useState(true);
-    const [receiver,setReceiver]=useState('myself');
+const MonthList=[[march,dimMarch],[june,dimJune],[january,dimJanuary]];
 
-    const handleClick=(bool)=>{
-        setIsMeSelected(bool);
-        if(isMeSelected){
-           setReceiver("myself");
-        }else{
-            setReceiver("others");
+const MonthOptionsScreen = ({ match }) => {
+    const UserID = match.params.UserID;
+    const receiver = match.params.receiver;
+
+    let location = useLocation();
+
+    console.log(location, "UI");
+
+    const [selectedMonth, setSelectedMonth] = useState('march');
+    const [isMarch,setIsMarch]=useState(0);
+    const [isJune,setIsJune]=useState(1);
+    const [isJanuary,setIsJanuary]=useState(1);
+
+    const handleClick = (value) => {
+    
+        switch(value){
+            case 'march':setSelectedMonth('march');setIsMarch(0);setIsJune(1);setIsJanuary(1);break;
+            case 'june':setSelectedMonth('june');setIsMarch(1);setIsJune(0);setIsJanuary(1);break;
+            case 'jan':setSelectedMonth('january');setIsMarch(1);setIsJune(1);setIsJanuary(0);break;
         }
+    
     }
+    //It works ouside of handleclick function!
+    console.log("result",selectedMonth)
 
     return (
         <div>
-            <Header/>
-           <BarImage></BarImage>
-           <TitleText top="141px" size="18px" left="24px">이 편지는 누구에게 쓰나요?</TitleText>         
-       
+            <Header />
+            <BarImage></BarImage>
+            <TitleText top="141px" size="18px" left="24px">편지를 언제로 보내고 싶은가요?</TitleText>
+            <Wrapper>
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <ImageBox left="-35px" img={MonthList[0][isMarch]} onClick={() => handleClick('march')}></ImageBox>
+                    <ImageBox img={MonthList[1][isJune]} onClick={() => handleClick('june')}></ImageBox>
+                </div>
+                <ImageBox top="40px" left="100px" img={MonthList[2][isJanuary]} onClick={() => handleClick('jan')}></ImageBox>
 
-        {isMeSelected?
-        <React.Fragment>
-           <ImageBox top="180px"img={tome} onClick={()=>handleClick(true)}></ImageBox>
-           <ImageBox top="450px"img={dimtoothers} onClick={()=>handleClick(false)}></ImageBox>
-      </React.Fragment>
-       :
-       <React.Fragment>
-           <ImageBox top="180px"img={dimtome} onClick={()=>handleClick(true)}></ImageBox>
-           <ImageBox top="450px"img={toothers} onClick={()=>handleClick(false)}></ImageBox>
-     </React.Fragment>
-       
-       }
-       <StyledLink to={`month/${UserID}/${receiver}`}> 
-          <YellowButton top="785px" left='22px'>선택</YellowButton>
-          </StyledLink>
+            </Wrapper>
+
+
+
+
+
+            <StyledLink to={`month/${UserID}/${receiver}/${selectedMonth}`}>
+                <YellowButton top="785px" left='22px'>선택</YellowButton>
+            </StyledLink>
         </div>
     )
 }
 
 export default MonthOptionsScreen
 
-const BarImage=styled.div`
+const Wrapper = styled.div`
+
+position: absolute;
+width: 380px;
+height: 540px;
+left: 24px;
+top: 300px;
+
+`;
+
+const ImageBox = styled.div`
+background:url(${props => props.img});
+background-repeat:no-repeat;
+position:relative;
+width: 180px;
+height: 170px;
+margin-left: ${props => props.left};
+margin-top:${props => props.top};
+
+left:28px;
+border-radius: 0px;
+`
+
+
+const BarImage = styled.div`
 background:url(${bar});
 position:absolute;
 height: 3.0000152587890625px;
@@ -64,17 +101,6 @@ top: 106px;
 border-radius: 0px;
 `
 
-const ImageBox=styled.div`
-background:url(${props=>props.img});
-position:absolute;
-height: 272px;
-width: 366px;
-left: 28px;
-top: ${props=>props.top};
-border-radius: 0px;
-
-
-`
 
 
 const StyledLink = styled(Link)`

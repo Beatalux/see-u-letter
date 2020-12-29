@@ -65,14 +65,16 @@ function SenderInfoScreen() {
         if(handleError(e)===true){
      history.push(`receiverOption/:${UserID}`);
      postSenderEmail(senderEmail,setCookie);
-     console.log("ck?",cookies.token);
+
     }
      else{
          history.push('/senderInfo')
      }
         //post로 정보 보내고 쿠키 받아오기
+        console.log("ck in func?",cookies.token);
       
     }
+    console.log("ck outside?",cookies.token);
     const UserID="abc123";
     return (
         <div>
@@ -106,7 +108,7 @@ function SenderInfoScreen() {
                 {!confirmEmailForm&&<AlertDiv top="550px">
                         이메일 입력 형식을 맞춰주세요
                     </AlertDiv>}
-                <StyledLink to={`receiverOption/${UserID}`}>
+                <StyledLink to={`option/${UserID}`}>
                 <YellowButton bottom="44px" onClick={handleSenderInfoSubmit} on>완료</YellowButton>
                 </StyledLink>
             

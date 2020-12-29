@@ -1,6 +1,6 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import {BodyText,SubtitleText,YellowButton,TitleText} from '../../commons/text'
+import { BodyText, SubtitleText, YellowButton, TitleText } from '../../commons/text'
 import Header from '../../commons/Header';
 import bar from '../../images/bar1.png';
 import tome from '../../images/letterSelect/tome.png';
@@ -9,40 +9,23 @@ import dimtome from '../../images/letterSelect/dimtome.png';
 import dimtoothers from '../../images/letterSelect/dimtoothers.png';
 import { Link } from 'react-router-dom';
 
-const ReceiverOptionsScreen = ({match}) => {
-    const UserID=match.params.userID;
-
-    
-    const [isMeSelected,setIsMeSelected]=useState('myself');
-   const [receiver,setReceiver]=useState('myself');
-
-    /*
-  useEffect(() => {
-    const getCandidateList = async () => {
-      try {
-        const response = await axios.get(
-          candiadateURL
-        );
-        setCandidates(response.data);
-       
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    getCandidateList();
-  }, [candidates]);
-  */
+const ReceiverOptionsScreen = ({ match }) => {
+    const UserID = match.params.userID;
 
 
-  
-/*console.log 이유 무조건 알아내기!!*/
-    const handleClick=(v)=>{
-        console.log('v',v)
+    const [isMeSelected, setIsMeSelected] = useState('myself');
+    const [receiver, setReceiver] = useState('myself');
+
+
+
+    /*console.log 이유 무조건 알아내기!!*/
+    const handleClick = (v) => {
+        console.log('v', v)
         setReceiver(v);
-        let temp=(v==="myself")?true:false;
+        let temp = (v === "myself") ? true : false;
         setIsMeSelected(temp)
-        
-     
+
+
         /*
         if(isMeSelected){
            setReceiver("others");
@@ -50,38 +33,46 @@ const ReceiverOptionsScreen = ({match}) => {
             setReceiver("myself");
         }
 */
-        console.log('here', isMeSelected,receiver)
+        console.log('here', isMeSelected, receiver)
     }
 
+    
     return (
         <div>
-            <Header/>
-           <BarImage></BarImage>
-           <TitleText top="141px" size="18px" left="24px">이 편지는 누구에게 쓰나요?</TitleText>         
-       
+            <Header />
+            <BarImage></BarImage>
+            <TitleText top="141px" size="18px" left="24px">이 편지는 누구에게 쓰나요?</TitleText>
 
-        {isMeSelected?
-        <React.Fragment>
-           <ImageBox top="180px"img={tome} ></ImageBox>
-           <ImageBox top="450px"img={dimtoothers} onClick={()=>handleClick('others')}></ImageBox>
-      </React.Fragment>
-       :
-       <React.Fragment>
-           <ImageBox top="180px"img={dimtome} onClick={()=>handleClick('myself')}></ImageBox>
-           <ImageBox top="450px"img={toothers}></ImageBox>
-     </React.Fragment>
-       
-       }
-       <StyledLink to={`month/${UserID}/${receiver}`}> 
-          <YellowButton top="785px" left='22px'>선택</YellowButton>
-          </StyledLink>
+
+            {isMeSelected ?
+                <React.Fragment>
+                    <ImageBox top="180px" img={tome} ></ImageBox>
+                    <ImageBox top="450px" img={dimtoothers} onClick={() => handleClick('others')}></ImageBox>
+                </React.Fragment>
+                :
+                <React.Fragment>
+                    <ImageBox top="180px" img={dimtome} onClick={() => handleClick('myself')}></ImageBox>
+                    <ImageBox top="450px" img={toothers}></ImageBox>
+                </React.Fragment>
+
+            }
+            <StyledLink to={{
+                pathname:`/month`,
+                state:{
+                    UserID:this.UserID,
+                    receiver:this.receiver
+                }
+                }}
+                >
+                <YellowButton top="785px" left='22px'>선택</YellowButton>
+            </StyledLink>
         </div>
     )
 }
 
 export default ReceiverOptionsScreen
 
-const BarImage=styled.div`
+const BarImage = styled.div`
 background:url(${bar});
 position:absolute;
 height: 3.0000152587890625px;
@@ -92,13 +83,13 @@ top: 106px;
 border-radius: 0px;
 `
 
-const ImageBox=styled.div`
-background:url(${props=>props.img});
+const ImageBox = styled.div`
+background:url(${props => props.img});
 position:absolute;
 height: 272px;
 width: 366px;
 left: 28px;
-top: ${props=>props.top};
+top: ${props => props.top};
 border-radius: 0px;
 
 
