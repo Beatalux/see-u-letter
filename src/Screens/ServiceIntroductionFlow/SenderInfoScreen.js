@@ -63,7 +63,7 @@ function SenderInfoScreen() {
     const handleSenderInfoSubmit=(e)=>{
         e.preventDefault();
         if(handleError(e)===true){
-     history.push(`receiverOption/:${dummydata}`);
+     history.push(`receiverOption/:${UserID}`);
      postSenderEmail(senderEmail,setCookie);
      console.log("ck?",cookies.token);
     }

@@ -27,6 +27,7 @@ const [letterPaper,setLetterPaper]=useState(0);
 
   const handleLetterPaper=(index)=>{
     setLetterPaper(index);  
+    console.log(index)
 
   }
 

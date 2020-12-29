@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import styled from 'styled-components'
 import {BodyText,SubtitleText,YellowButton,TitleText} from '../../commons/text'
 import Header from '../../commons/Header';
@@ -9,48 +9,20 @@ import dimtome from '../../images/letterSelect/dimtome.png';
 import dimtoothers from '../../images/letterSelect/dimtoothers.png';
 import { Link } from 'react-router-dom';
 
-const ReceiverOptionsScreen = ({match}) => {
-    const UserID=match.params.userID;
+const ImagesList=[[tome,dimtome],[toothers,dimtoothers]]
+const MonthOptionsScreen = ({match}) => {
+    const UserID=match.params.UserID;
 
-    
-    const [isMeSelected,setIsMeSelected]=useState('myself');
-   const [receiver,setReceiver]=useState('myself');
+    const [isMeSelected,setIsMeSelected]=useState(true);
+    const [receiver,setReceiver]=useState('myself');
 
-    /*
-  useEffect(() => {
-    const getCandidateList = async () => {
-      try {
-        const response = await axios.get(
-          candiadateURL
-        );
-        setCandidates(response.data);
-       
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    getCandidateList();
-  }, [candidates]);
-  */
-
-
-  
-/*console.log 이유 무조건 알아내기!!*/
-    const handleClick=(v)=>{
-        console.log('v',v)
-        setReceiver(v);
-        let temp=(v==="myself")?true:false;
-        setIsMeSelected(temp)
-        
-     
-        /*
+    const handleClick=(bool)=>{
+        setIsMeSelected(bool);
         if(isMeSelected){
-           setReceiver("others");
+           setReceiver("myself");
         }else{
-            setReceiver("myself");
+            setReceiver("others");
         }
-*/
-        console.log('here', isMeSelected,receiver)
     }
 
     return (
@@ -62,13 +34,13 @@ const ReceiverOptionsScreen = ({match}) => {
 
         {isMeSelected?
         <React.Fragment>
-           <ImageBox top="180px"img={tome} ></ImageBox>
-           <ImageBox top="450px"img={dimtoothers} onClick={()=>handleClick('others')}></ImageBox>
+           <ImageBox top="180px"img={tome} onClick={()=>handleClick(true)}></ImageBox>
+           <ImageBox top="450px"img={dimtoothers} onClick={()=>handleClick(false)}></ImageBox>
       </React.Fragment>
        :
        <React.Fragment>
-           <ImageBox top="180px"img={dimtome} onClick={()=>handleClick('myself')}></ImageBox>
-           <ImageBox top="450px"img={toothers}></ImageBox>
+           <ImageBox top="180px"img={dimtome} onClick={()=>handleClick(true)}></ImageBox>
+           <ImageBox top="450px"img={toothers} onClick={()=>handleClick(false)}></ImageBox>
      </React.Fragment>
        
        }
@@ -79,7 +51,7 @@ const ReceiverOptionsScreen = ({match}) => {
     )
 }
 
-export default ReceiverOptionsScreen
+export default MonthOptionsScreen
 
 const BarImage=styled.div`
 background:url(${bar});

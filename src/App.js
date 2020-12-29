@@ -10,6 +10,8 @@ import MainScreen from './Screens/ServiceIntroductionFlow/MainScreen';
 import ReceiverOptionsScreen from './Screens/LetterOptionsFlow/ReceiverOptionsScreen';
 import FontOptionsScreen from './Screens/LetterOptionsFlow/FontOptionsScreen'
 import TopicOptionsScreen from './Screens/LetterOptionsFlow/TopicOptionsScreen'
+import MonthOptionsScreen from './Screens/LetterOptionsFlow/MonthOptionsScreen'
+
 import LetterPaperOptionsScreen from './Screens/LetterOptionsFlow/LetterPaperOptionsScreen';
 import FaQScreen from './Screens/ServiceIntroductionFlow/FaQScreen'
 //import WritingLetterScreen from './Screens/WritingLetterScreen'
@@ -31,6 +33,7 @@ export default function App() {
         <Route component={IntroScreen} exact path="/"/>
         <Route component={MainScreen} exact path="/main"/>
         <Route component={ReceiverOptionsScreen} path ="/receiverOption/:userID"/>
+        <Route component={MonthOptionsScreen} path ="/month/:userID/:receiver"/>
         <Route component={FontOptionsScreen} path="/font"/>
         <Route component={TopicOptionsScreen} path="/topic"/>
         <Route component={LetterPaperOptionsScreen} exact path="/letterPaper"/>
