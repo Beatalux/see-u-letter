@@ -10,17 +10,17 @@ import MainScreen from './Screens/ServiceIntroductionFlow/MainScreen';
 import ReceiverOptionsScreen from './Screens/LetterOptionsFlow/ReceiverOptionsScreen';
 import FontOptionsScreen from './Screens/LetterOptionsFlow/FontOptionsScreen'
 import TopicOptionsScreen from './Screens/LetterOptionsFlow/TopicOptionsScreen'
-import PhotoSelectScreen from './Screens/PhotoSelectScreen';
+import LetterPaperOptionsScreen from './Screens/LetterOptionsFlow/LetterPaperOptionsScreen';
 import FaQScreen from './Screens/ServiceIntroductionFlow/FaQScreen'
-import WritingLetterScreen from './Screens/WritingLetterScreen'
+//import WritingLetterScreen from './Screens/WritingLetterScreen'
 import sidebar from './components/forMainScreen/Sidebar'
 import WritingCopy from './Screens/Writingcopy';
 import DeliveryInfoScreen from './Screens/PayFlow/DeliveryInfoScreen';
 //import PhotoUploadScreen from './Screens/PhotoUploadScreen'
 import PhotoUploadScreen from './components/forPhotoUploadScreen/index'
 import TermsOfServiceScreen from './Screens/ServiceIntroductionFlow/TermsOfServiceScreen'
-import SenderInfoScreen from './Screens/LetterOptionsFlow/SenderInfoScreen'
-import TopicOptionIntroScreen from './Screens/LetterOptionsFlow/TopicOptionIntroScreen'
+import SenderInfoScreen from './Screens/ServiceIntroductionFlow/SenderInfoScreen'
+import TopicOptionIntroScreen from './Screens/LetterOptionsFlow/TopicOptionsIntroScreen'
 //import LicenseScreen from 
 export default function App() {
   return (
@@ -33,9 +33,9 @@ export default function App() {
         <Route component={ReceiverOptionsScreen} path ="/receiverOption/:userID"/>
         <Route component={FontOptionsScreen} path="/font"/>
         <Route component={TopicOptionsScreen} path="/topic"/>
-        <Route component={PhotoSelectScreen} exact path="/photoSelect"/>
+        <Route component={LetterPaperOptionsScreen} exact path="/letterPaper"/>
         <Route component={FaQScreen} exact path="/faq"/>
-        <Route component={WritingLetterScreen} exact path="/writingLetter"/>
+       
         <Route component={DeliveryInfoScreen} path="/deliveryInfo"/>
         <Route component={PhotoUploadScreen} path="/photoUpload"/>
         <Route component={TermsOfServiceScreen} path="/serviceTerms"/>

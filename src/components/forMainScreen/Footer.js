@@ -48,7 +48,7 @@ height: 363px;
 
 background: #C0C0C0;
 
-color: #FFFFFF;
+color: 7C5B42;
 `
 const QuestionText=styled.p`
 

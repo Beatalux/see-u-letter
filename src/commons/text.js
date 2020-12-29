@@ -78,7 +78,7 @@ font-weight: normal;
 font-size: 12px;
 line-height: 24px;
 
-color: #000000;
+color: ${props=>props.fontColor||'#000000'};
 position:absolute;
 background:${props=>props.color};
 
@@ -106,6 +106,9 @@ border-style:none;
 position:absolute;
 top:${props=>props.top};
 bottom:${props=>props.bottom};
+
+left:${props=>props.left||"24px"};
+
 margin-left:2px;
 width:365px;
 height:60px;

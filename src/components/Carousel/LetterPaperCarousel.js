@@ -3,9 +3,10 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
+import { BodyText, SubtitleText, YellowButton } from '../../commons/text'
 
 import bc from './let.png'
-import bc2 from './sample.png'
+import p1 from '../../images/p1.png'
 
 import i from './butsample.png'
 const useStyles = makeStyles((theme) => ({
@@ -13,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       '& > *': {
         margin: theme.spacing(1),
-      },
+      },     
+    
     },
   }));
   
@@ -29,7 +31,7 @@ const [letterPaper,setLetterPaper]=useState(0);
   }
 
   const PaperLetterList=[
-      bc,bc2
+      bc,p1
   ]
   return (
     <Wrapper background={PaperLetterList[letterPaper]}>
@@ -39,9 +41,10 @@ const [letterPaper,setLetterPaper]=useState(0);
         aria-label="vertical outlined primary button group"
       >
         <LetterPaperButton onClick={()=>handleLetterPaper(0)} img={i}>One</LetterPaperButton>
-        <LetterPaperButton  onClick={()=>handleLetterPaper(1)} img={bc2}>Two</LetterPaperButton>
-        <LetterPaperButton>Three</LetterPaperButton>
+        <LetterPaperButton  onClick={()=>handleLetterPaper(1)} img={i}>Two</LetterPaperButton>
+      
       </ButtonGroup>
+      <YellowButton top="565px" left='22px'>선택</YellowButton>
     </Wrapper>
   );
 }
@@ -52,16 +55,24 @@ const Wrapper=styled.div.attrs(props=>({
 
 } ))`
 background:url(${props=>props.background});
+position: absolute;
+width: 414px;
+height: 530px;
+left: 0px;
+top: 220px;
 
-width:370px;
-height:466px;
 
 `
 const LetterPaperButton=styled(Button)`
-background-image:url(${props=>props.img});
-
+background:url(${props=>props.img});
+margin:30px 0 0 30px;
 width:40px;
 height:40px;
+border:solid 2px white;
+border-radius:0px;
+&:hover {
+  border: solid 2px #31FF10;
+}
 
 `
 

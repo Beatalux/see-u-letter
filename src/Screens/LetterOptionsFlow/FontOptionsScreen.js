@@ -109,7 +109,7 @@ const FontRow = ({ change }) => {
                     checked={selectedValue === 'a'}
                     onChange={handleChange}
                     value="a"
-                    name="radio-button-demo"
+                    name="radio-button"
                     inputProps={{ 'aria-label': 'A' }}
                 />
             </FontR>
@@ -130,7 +130,7 @@ const FontRow = ({ change }) => {
                     checked={selectedValue === 'c'}
                     onChange={handleChange}
                     value="c"
-                    name="radio-button-demo"
+                    name="radio-button"
                     inputProps={{ 'aria-label': 'C' }}
                 />
             </FontR>
