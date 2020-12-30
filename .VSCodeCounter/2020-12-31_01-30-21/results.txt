@@ -1,0 +1,96 @@
+Date : 2020-12-31 01:30:21
+Directory : c:\React\see-u-letter\src
+Total : 55 files,  3752 codes, 332 comments, 936 blanks, all 5020 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |         47 |      3,304 |        315 |        862 |      4,481 |
+| CSS        |          7 |        447 |         17 |         74 |        538 |
+| XML        |          1 |          1 |          0 |          0 |          1 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                              | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                 |         55 |      3,752 |        332 |        936 |      5,020 |
+| Screens                                                                           |         22 |      2,003 |        181 |        554 |      2,738 |
+| Screens\LetterOptionsFlow                                                         |          6 |        566 |         39 |        154 |        759 |
+| Screens\PayFlow                                                                   |          1 |        180 |         13 |         67 |        260 |
+| Screens\ServiceIntroductionFlow                                                   |          7 |        692 |          7 |        183 |        882 |
+| Screens\WritingLetterFlow                                                         |          2 |        265 |         67 |         89 |        421 |
+| axios                                                                             |          1 |         20 |          0 |          5 |         25 |
+| commons                                                                           |          4 |        134 |         16 |         43 |        193 |
+| components                                                                        |         22 |      1,471 |        132 |        307 |      1,910 |
+| components\Carousel                                                               |          6 |        547 |         67 |         95 |        709 |
+| components\Modal                                                                  |          5 |        190 |          4 |         57 |        251 |
+| components\TryModal                                                               |          2 |        106 |          1 |         17 |        124 |
+| components\forMainScreen                                                          |          3 |        274 |          0 |         86 |        360 |
+| components\forPhotoUploadScreen                                                   |          6 |        354 |         60 |         52 |        466 |
+| contexts                                                                          |          1 |          5 |          0 |          1 |          6 |
+| fonts                                                                             |          1 |         10 |          0 |          4 |         14 |
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                          | language   | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\React\see-u-letter\src\App.js                                                  | JavaScript |         53 |          3 |         11 |         67 |
+| c:\React\see-u-letter\src\Screens\LetterOptionsFlow\FontOptionsScreen.js          | JavaScript |        221 |         25 |         49 |        295 |
+| c:\React\see-u-letter\src\Screens\LetterOptionsFlow\LetterPaperOptionsScreen.js   | JavaScript |         36 |          0 |         13 |         49 |
+| c:\React\see-u-letter\src\Screens\LetterOptionsFlow\MonthOptionsScreen.js         | JavaScript |         83 |          1 |         28 |        112 |
+| c:\React\see-u-letter\src\Screens\LetterOptionsFlow\ReceiverOptionsScreen.js      | JavaScript |         73 |          8 |         23 |        104 |
+| c:\React\see-u-letter\src\Screens\LetterOptionsFlow\TopicOptionsIntroScreen.js    | JavaScript |         67 |          1 |         20 |         88 |
+| c:\React\see-u-letter\src\Screens\LetterOptionsFlow\TopicOptionsScreen.js         | JavaScript |         86 |          4 |         21 |        111 |
+| c:\React\see-u-letter\src\Screens\PayFlow\DeliveryInfoScreen.js                   | JavaScript |        180 |         13 |         67 |        260 |
+| c:\React\see-u-letter\src\Screens\PhotoUploadScreen.js                            | JavaScript |         86 |          2 |         31 |        119 |
+| c:\React\see-u-letter\src\Screens\ServiceIntroductionFlow\FaQData.js              | JavaScript |         13 |          0 |          3 |         16 |
+| c:\React\see-u-letter\src\Screens\ServiceIntroductionFlow\FaQScreen.js            | JavaScript |        178 |          1 |         51 |        230 |
+| c:\React\see-u-letter\src\Screens\ServiceIntroductionFlow\IntroScreen.js          | JavaScript |         64 |          0 |         16 |         80 |
+| c:\React\see-u-letter\src\Screens\ServiceIntroductionFlow\LandingScreen.js        | JavaScript |         12 |          0 |          4 |         16 |
+| c:\React\see-u-letter\src\Screens\ServiceIntroductionFlow\MainScreen.js           | JavaScript |        205 |          5 |         55 |        265 |
+| c:\React\see-u-letter\src\Screens\ServiceIntroductionFlow\SenderInfoScreen.js     | JavaScript |        136 |          1 |         29 |        166 |
+| c:\React\see-u-letter\src\Screens\ServiceIntroductionFlow\TermsOfServiceScreen.js | JavaScript |         84 |          0 |         25 |        109 |
+| c:\React\see-u-letter\src\Screens\WritingLetterFlow\TryQuill.js                   | JavaScript |        105 |         21 |         30 |        156 |
+| c:\React\see-u-letter\src\Screens\WritingLetterFlow\WritingLetter.js              | JavaScript |        160 |         46 |         59 |        265 |
+| c:\React\see-u-letter\src\Screens\WritingLetterScreen.js                          | JavaScript |          0 |         34 |          0 |         34 |
+| c:\React\see-u-letter\src\Screens\Writingcopy.js                                  | JavaScript |         28 |          0 |          8 |         36 |
+| c:\React\see-u-letter\src\Screens\t.css                                           | CSS        |         55 |          0 |          8 |         63 |
+| c:\React\see-u-letter\src\Screens\testModalS.js                                   | JavaScript |         12 |          1 |          5 |         18 |
+| c:\React\see-u-letter\src\Screens\tt.js                                           | JavaScript |        119 |         18 |          9 |        146 |
+| c:\React\see-u-letter\src\axios\auth.js                                           | JavaScript |         20 |          0 |          5 |         25 |
+| c:\React\see-u-letter\src\commons\Header.js                                       | JavaScript |         35 |          0 |          9 |         44 |
+| c:\React\see-u-letter\src\commons\StyledLink.js                                   | JavaScript |          0 |          0 |          1 |          1 |
+| c:\React\see-u-letter\src\commons\text.js                                         | JavaScript |         97 |         16 |         33 |        146 |
+| c:\React\see-u-letter\src\commons\topicsToMe.js                                   | JavaScript |          2 |          0 |          0 |          2 |
+| c:\React\see-u-letter\src\components\Carousel\Carousel.js                         | JavaScript |         98 |          0 |         11 |        109 |
+| c:\React\see-u-letter\src\components\Carousel\Carousels.js                        | JavaScript |        119 |         50 |         16 |        185 |
+| c:\React\see-u-letter\src\components\Carousel\LetterPaperCarousel.js              | JavaScript |         62 |          0 |         20 |         82 |
+| c:\React\see-u-letter\src\components\Carousel\slick-theme.css                     | CSS        |        157 |         16 |         32 |        205 |
+| c:\React\see-u-letter\src\components\Carousel\slick.css                           | CSS        |        104 |          1 |         14 |        119 |
+| c:\React\see-u-letter\src\components\Carousel\test.css                            | CSS        |          7 |          0 |          2 |          9 |
+| c:\React\see-u-letter\src\components\Modal\app.js                                 | JavaScript |         20 |          1 |          6 |         27 |
+| c:\React\see-u-letter\src\components\Modal\component.js                           | JavaScript |        102 |          3 |         36 |        141 |
+| c:\React\see-u-letter\src\components\Modal\modal.js                               | JavaScript |         41 |          0 |          8 |         49 |
+| c:\React\see-u-letter\src\components\Modal\modalContext.js                        | JavaScript |         15 |          0 |          3 |         18 |
+| c:\React\see-u-letter\src\components\Modal\useModal.js                            | JavaScript |         12 |          0 |          4 |         16 |
+| c:\React\see-u-letter\src\components\TryModal\Modal.js                            | JavaScript |         31 |          1 |         10 |         42 |
+| c:\React\see-u-letter\src\components\TryModal\style.css                           | CSS        |         75 |          0 |          7 |         82 |
+| c:\React\see-u-letter\src\components\forMainScreen\Footer.js                      | JavaScript |         71 |          0 |         21 |         92 |
+| c:\React\see-u-letter\src\components\forMainScreen\Sidebar.js                     | JavaScript |        121 |          0 |         43 |        164 |
+| c:\React\see-u-letter\src\components\forMainScreen\SwipeableTemporaryDrawer.js    | JavaScript |         82 |          0 |         22 |        104 |
+| c:\React\see-u-letter\src\components\forPhotoUploadScreen\App.css                 | CSS        |          7 |          0 |          2 |          9 |
+| c:\React\see-u-letter\src\components\forPhotoUploadScreen\CropImage.js            | JavaScript |         79 |         23 |         12 |        114 |
+| c:\React\see-u-letter\src\components\forPhotoUploadScreen\ImgDialog.js            | JavaScript |         77 |          0 |          9 |         86 |
+| c:\React\see-u-letter\src\components\forPhotoUploadScreen\canvasUtils.js          | JavaScript |         63 |         15 |         15 |         93 |
+| c:\React\see-u-letter\src\components\forPhotoUploadScreen\index.js                | JavaScript |         84 |         22 |         13 |        119 |
+| c:\React\see-u-letter\src\components\forPhotoUploadScreen\styles.js               | JavaScript |         44 |          0 |          1 |         45 |
+| c:\React\see-u-letter\src\contexts\ExtraPages.js                                  | JavaScript |          5 |          0 |          1 |          6 |
+| c:\React\see-u-letter\src\fonts\font.js                                           | JavaScript |         10 |          0 |          4 |         14 |
+| c:\React\see-u-letter\src\index.css                                               | CSS        |         42 |          0 |          9 |         51 |
+| c:\React\see-u-letter\src\index.js                                                | JavaScript |         13 |          0 |          2 |         15 |
+| c:\React\see-u-letter\src\logo.svg                                                | XML        |          1 |          0 |          0 |          1 |
+| Total                                                                             |            |      3,752 |        332 |        936 |      5,020 |
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

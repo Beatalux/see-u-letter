@@ -29,6 +29,7 @@ height: 100%;
 top: 0;
 left: 0;
 background: rgba(0,0,0,0.6);
+z-index: 9999999;
 }
   
 
@@ -38,9 +39,11 @@ const ModalContainer=styled.div`
 border-radius:8px;
 background-color:white;
 justify-content: center;
+align-items:center;
+padding:0 0 15px 0;
 position: absolute;
 width: 331px;
-height: 364px;
+height: 358px;
 left: 42px;
 top: 200px;
 `

@@ -15,16 +15,14 @@ function SenderInfoScreen() {
     let history = useHistory();
 
 
-    const [senderName,setSenderName]=useState("");
+   
     const [senderPhone,setSenderPhone] =useState("");
     const [senderEmail, setSenderEmail]=useState("");
     const [confirmPhoneForm,setComfirmPhoneForm]=useState(true);
     const [confirmEmailForm,setComfirmEmailForm]=useState(true);
     const [cookies, setCookie,removeCookie] = useCookies(['token']);
    
-    const handleSenderName=(e)=>{
-        setSenderName(e.target.value);
-    }
+
     const handleSenderPhone=(e)=>{
         let regexp=/^[0-9]*$/;
 
@@ -48,7 +46,7 @@ function SenderInfoScreen() {
     }
 
     const handleError=(e)=>{
-        if(senderName===""||senderPhone===""||senderEmail===""){
+        if(senderPhone===""||senderEmail===""){
             alert("모든 항목을 채워주세요");
             return false;
         }
@@ -108,7 +106,7 @@ function SenderInfoScreen() {
                 {!confirmEmailForm&&<AlertDiv top="550px">
                         이메일 입력 형식을 맞춰주세요
                     </AlertDiv>}
-                <StyledLink to={`option/${UserID}`}>
+                <StyledLink to={`receiver`}>
                 <YellowButton bottom="44px" onClick={handleSenderInfoSubmit} on>완료</YellowButton>
                 </StyledLink>
             

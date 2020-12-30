@@ -5,7 +5,6 @@ import { BodyText, SubtitleText, Button, TitleText } from './text'
 import logo from '../images/logo.png';
 
 function Header({pageTitle}) {
-    console.log('t',pageTitle);
     return (
         <Wrapper>
             <ArrowBackIcon/>

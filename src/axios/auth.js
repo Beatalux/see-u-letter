@@ -10,7 +10,7 @@ import qs from 'qs';
         senderEmail: `${senderEmail}`,
  
       }),
-      url:`https://12b61a1befd4.ngrok.io/letter/users/`  };
+      url:`https://8bcb864e5df8.ngrok.io/letter/users/`  };
     axios(options)
       .then((res) => {
         alert('로그인을 축하드립니다');

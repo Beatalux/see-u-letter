@@ -8,6 +8,7 @@ import toothers from '../../images/letterSelect/toothers.png';
 import dimtome from '../../images/letterSelect/dimtome.png';
 import dimtoothers from '../../images/letterSelect/dimtoothers.png';
 import { Link } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 const ReceiverOptionsScreen = ({ match }) => {
     const UserID = match.params.userID;
@@ -16,7 +17,10 @@ const ReceiverOptionsScreen = ({ match }) => {
     const [isMeSelected, setIsMeSelected] = useState('myself');
     const [receiver, setReceiver] = useState('myself');
 
+    const [cookies, setCookie,removeCookie] = useCookies(['token']);
+   
 
+    console.log("plz",cookies.token)
 
     /*console.log 이유 무조건 알아내기!!*/
     const handleClick = (v) => {
@@ -38,7 +42,9 @@ const ReceiverOptionsScreen = ({ match }) => {
 
     
     return (
+
         <div>
+                    { console.log("plzplz",cookies.token)}
             <Header />
             <BarImage></BarImage>
             <TitleText top="141px" size="18px" left="24px">이 편지는 누구에게 쓰나요?</TitleText>
@@ -56,14 +62,7 @@ const ReceiverOptionsScreen = ({ match }) => {
                 </React.Fragment>
 
             }
-            <StyledLink to={{
-                pathname:`/month`,
-                state:{
-                    UserID:this.UserID,
-                    receiver:this.receiver
-                }
-                }}
-                >
+            <StyledLink >
                 <YellowButton top="785px" left='22px'>선택</YellowButton>
             </StyledLink>
         </div>
