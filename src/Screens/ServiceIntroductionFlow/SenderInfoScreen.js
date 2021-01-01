@@ -45,7 +45,7 @@ function SenderInfoScreen() {
         
     }
 
-    const handleError=(e)=>{
+    const handleErrorStatus=(e)=>{
         if(senderPhone===""||senderEmail===""){
             alert("모든 항목을 채워주세요");
             return false;
@@ -60,19 +60,18 @@ function SenderInfoScreen() {
     }
     const handleSenderInfoSubmit=(e)=>{
         e.preventDefault();
-        if(handleError(e)===true){
-     history.push(`receiverOption/:${UserID}`);
-     postSenderEmail(senderEmail,setCookie);
+        if(handleErrorStatus(e)===true){
+    history.push(`/receiver`);//!필수     postSenderEmail(senderEmail,setCookie);
 
     }
      else{
          history.push('/senderInfo')
      }
         //post로 정보 보내고 쿠키 받아오기
-        console.log("ck in func?",cookies.token);
+      
       
     }
-    console.log("ck outside?",cookies.token);
+  
     const UserID="abc123";
     return (
         <div>
@@ -106,7 +105,7 @@ function SenderInfoScreen() {
                 {!confirmEmailForm&&<AlertDiv top="550px">
                         이메일 입력 형식을 맞춰주세요
                     </AlertDiv>}
-                <StyledLink to={`receiver`}>
+                <StyledLink to={`/receiver`}>
                 <YellowButton bottom="44px" onClick={handleSenderInfoSubmit} on>완료</YellowButton>
                 </StyledLink>
             

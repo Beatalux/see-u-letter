@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useContext, createContext } from 'react'
-import { ExtraWordsContext } from '../../contexts/ExtraPagesContext'
 
 import styled from 'styled-components'
 import { BodyText, SubtitleText, WarningText, YellowButton, TitleText } from '../../commons/text'
-import { Link } from 'react-router-dom';
+import { Link ,useLocation,useHistory} from 'react-router-dom';
 import { ArrowBack } from '@styled-icons/boxicons-regular/ArrowBack'
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -24,7 +23,12 @@ const ExtraLetterPage = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 export default function WritingLetter(value) {
 
-   
+    const history=useHistory();
+    const { search } = useLocation();
+    const query = new URLSearchParams(search);
+
+    console.log("wrt",query.get('topic'))
+
     let MaxCount = 10;//1248
     const selectedq = "Blah";
     const [countedWords, setCountedWords] = useState(0);

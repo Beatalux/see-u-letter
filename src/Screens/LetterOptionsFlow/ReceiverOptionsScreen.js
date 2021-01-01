@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
 const ReceiverOptionsScreen = ({ match }) => {
-    const UserID = match.params.userID;
+   // const UserID = match.params.userID;
 
 
     const [isMeSelected, setIsMeSelected] = useState('myself');
@@ -29,22 +29,17 @@ const ReceiverOptionsScreen = ({ match }) => {
         let temp = (v === "myself") ? true : false;
         setIsMeSelected(temp)
 
+  }
 
-        /*
-        if(isMeSelected){
-           setReceiver("others");
-        }else{
-            setReceiver("myself");
-        }
-*/
+    const handlingAPI=()=>{
+        //API보내기
+
         console.log('here', isMeSelected, receiver)
     }
-
-    
     return (
 
         <div>
-                    { console.log("plzplz",cookies.token)}
+                    { console.log("plzplz",cookies.token)}//ok
             <Header />
             <BarImage></BarImage>
             <TitleText top="141px" size="18px" left="24px">이 편지는 누구에게 쓰나요?</TitleText>
@@ -62,8 +57,8 @@ const ReceiverOptionsScreen = ({ match }) => {
                 </React.Fragment>
 
             }
-            <StyledLink >
-                <YellowButton top="785px" left='22px'>선택</YellowButton>
+            <StyledLink to={`/month?receiver=${receiver}`}>
+                <YellowButton top="785px" left='22px' >선택</YellowButton>
             </StyledLink>
         </div>
     )

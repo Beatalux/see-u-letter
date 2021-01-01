@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import * as Icon from "react-icons/fi";
 import Checkbox from "react-custom-checkbox";
-import { QuestionsToMySelfList as QuestionsList } from '../../commons/topicsToMe';
+import { QuestionsToMySelfList,QuestionsToOthersList } from '../../commons/LetterTopics';
 import styled from 'styled-components'
-import { Link } from 'react-router-dom';
+import { Link,useLocation,useHistory } from 'react-router-dom';
 import { BodyText, SubtitleText, YellowButton, TitleText } from '../../commons/text'
 import bar from '../../images/bar1.png';
 
@@ -14,8 +14,29 @@ import Header from '../../commons/Header';
 //MIT https://www.npmjs.com/package/react-custom-checkbox
 
 const TopicOptionsScreen = () => {
+    let QuestionsList=[];
+    const [background, setBackground] = useState(1);
 
-    let TemporarySelectedQuestions = [0, 0, 0]
+    const history=useHistory();
+    const { search } = useLocation();
+    const query = new URLSearchParams(search);
+
+
+    const receiver = query.get('receiver');
+    const month = query.get('month');
+    const paper = query.get('paper');
+    const font=query.get('font');
+    console.log('in topicoption', 'ck', receiver, 'month', month, 'paper', paper);
+  
+    if(receiver=='myself'){
+        QuestionsList=QuestionsToMySelfList;
+    }else{
+        QuestionsList=QuestionsToOthersList;
+
+    }
+
+
+    let TemporarySelectedQuestions = Array(10).fill(0);
     let SelectedQuestions = []
 
     const handleSelectedTopic = (value, index) => {
@@ -30,12 +51,15 @@ const TopicOptionsScreen = () => {
             }
         })
         console.log("btn", SelectedQuestions);
+
         //선택된 질문 index 반환
+
+        history.push(`writing?paper=${paper}?font=${font}?topic=${SelectedQuestions}`);
 
     }
 
 
-    //label  을  map 으로
+
 
     return (
 
@@ -46,50 +70,53 @@ const TopicOptionsScreen = () => {
             <BodyText top="165px" left="24px" size="14px">주제 없이 자유롭게 작성하고 싶다면, '다음'을 눌러주세요.</BodyText>
 
             <Wrapper>
-            {QuestionsList.map((question, index) => {
-                return (
-                 
-                    <Checkbox
-                        icon={
-                            <div
-                            style={{
-                              display: "flex",
-                              flex: 1,
-                              backgroundColor: "#EEB900",
-                              alignSelf: "stretch",
-                              
-                            }}
-                          >
-                              <Icon.FiCheck color="white" size={17} />
-                              </div
-                              >}
-                        name="my-input"
-                        checked={false}
-                        onChange={(value) => handleSelectedTopic(value, index)}
-                        borderColor="#D7C629"
-                        containerStyle={{width:'350px'}}
-                        style={{ cursor: "pointer", marginBottom: 16 }}
-                        labelStyle={{ marginLeft: 11, marginBottom: 16, fontFamily:"SpoqaHanSans",fontSize:"16px",userSelect: "none" }}
-                        label={question}
-                        size={15}
-                    />
+                {QuestionsList.map((question, index) => {
+                    return (
 
-                )
-            })}
+                        <Checkbox
+                            icon={
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        flex: 1,
+                                        backgroundColor: "#EEB900",
+                                        alignSelf: "stretch",
+
+                                    }}
+                                >
+                                    <Icon.FiCheck color="white" size={17} />
+                                </div
+                                >}
+                            name="my-input"
+                            checked={false}
+                            onChange={(value) => handleSelectedTopic(value, index)}
+                            borderColor="#D7C629"
+                            containerStyle={{ width: '350px' }}
+                            style={{ cursor: "pointer", marginBottom: 16 }}
+                            labelStyle={{ marginLeft: 11, marginBottom: 16, fontFamily: "SpoqaHanSans", fontSize: "16px", userSelect: "none" }}
+                            label={question}
+                            size={15}
+                        />
+
+                    )
+                })}
             </Wrapper>
-            <YellowButton onClick={test} bottom="38px">다음</YellowButton>
-
+            <StyledLink to={`writing?${receiver}?`}>
+                <YellowButton onClick={test} bottom="38px">다음</YellowButton>
+            </StyledLink>
         </div>
     )
 }
 
+
+
 export default TopicOptionsScreen
 
-const Wrapper=styled.div`
+const Wrapper = styled.div`
 width:300px;
 height:300px;
 position:absolute;
-top:300px;
+top:260px;
 `
 const BarImage = styled.div`
 background:url(${bar});

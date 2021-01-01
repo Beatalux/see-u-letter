@@ -35,7 +35,7 @@ export default function App() {
         <Route component={IntroScreen} exact path="/"/>
         <Route component={MainScreen} exact path="/main"/>
         <Route component={ReceiverOptionsScreen} path ="/receiver/"/>
-        <Route component={MonthOptionsScreen} exact path ="/month"/>
+        <Route component={MonthOptionsScreen} exact path ="/month/"/>
         <Route component={FontOptionsScreen} path="/font"/>
         <Route component={TopicOptionsScreen} path="/topic"/>
         <Route component={LetterPaperOptionsScreen} exact path="/letterPaper"/>

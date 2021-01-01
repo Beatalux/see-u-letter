@@ -3,7 +3,6 @@ import { ModalContext } from "./modalContext";
 import { BodyText, SubtitleText, TitleText } from '../../commons/text'
 import styled from 'styled-components';
 import { Link,useHistory } from 'react-router-dom';
-import {ExtraWordsContext} from '../../contexts/ExtraPagesContext'
 import {useTexts} from './context'
 
 //완료 버튼이 되야 함
@@ -87,16 +86,7 @@ function AddingWritingPageComponent() {
 
   
     const {togglePlay,isClick,isReached}=useTexts();
-/*
-    const isAddingExtraWords=(value)=>{
-        console.log("torf",value);
-        if(value){
-        setCount(prevCount => prevCount + 5);
-        }
 
-
-    }
-    */
     console.log("called")
    
     let { handleModal } = React.useContext(ModalContext);
@@ -116,7 +106,6 @@ function AddingWritingPageComponent() {
     
     }
 
-    //isClicked?{isExtraWords:true}:{isExtraWords:false}
 return (
     <div >
         <TitleText top="35px" size="20px" left="30px">2장 초과<br/> 용지 알림</TitleText>

@@ -10,17 +10,22 @@ import january from '../../images/letterSelect/january.png';
 import june from '../../images/letterSelect/june.png';
 import march from '../../images/letterSelect/march.png';
 import dimMarch from '../../images/letterSelect/dimMarch.png';
-import { Link, useLocation } from 'react-router-dom';
+import { useParams,Link, useLocation } from 'react-router-dom';
+import qs from 'qs';
 
 const MonthList=[[march,dimMarch],[june,dimJune],[january,dimJanuary]];
 
 const MonthOptionsScreen = ({ match }) => {
     const UserID = match.params.UserID;
-    const receiver = match.params.receiver;
+  const location = useLocation();
+   const query = qs.parse(location.search, {
+    ignoreQueryPrefix: true
+  })
 
-    let location = useLocation();
+    const receiver=query.receiver;
+    console.log('query ck',receiver)
 
-    console.log(location, "UI");
+  //  console.log(location, "UI");
 
     const [selectedMonth, setSelectedMonth] = useState('march');
     const [isMarch,setIsMarch]=useState(0);
@@ -57,7 +62,7 @@ const MonthOptionsScreen = ({ match }) => {
 
 
 
-            <StyledLink to={`month/${UserID}/${receiver}/${selectedMonth}`}>
+            <StyledLink to={`letterPaper?receiver=${receiver}&month=${selectedMonth}`}>
                 <YellowButton top="785px" left='22px'>선택</YellowButton>
             </StyledLink>
         </div>

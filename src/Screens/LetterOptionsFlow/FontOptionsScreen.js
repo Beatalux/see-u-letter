@@ -5,11 +5,12 @@ import '../../index.css'
 import bar from '../../images/bar1.png';
 import fontsample from '../../images/fontsample.png';
 import Header from '../../commons/Header';
+import { useCookies } from 'react-cookie';
 
 import { withStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
+import { Link,useLocation } from 'react-router-dom';
 
 
 //font api 받아서 하기만 하면됌
@@ -71,7 +72,8 @@ const FontsList = [
 
 const FontRow = ({ change }) => {
     const [selectedValue, setSelectedValue] = useState("a");
-
+    const [cookies, setCookie,removeCookie] = useCookies(['token']);
+   
 
     const handleChange = (e) => {
         setSelectedValue(e.target.value);
@@ -100,8 +102,9 @@ const FontRow = ({ change }) => {
         }
 
     }
+    console.log("in font option cookies",cookies.token)
 
-    return (
+     return (
         <div>
 
             <FontR selected={FontsList[0].fontEngName}>{FontsList[0].fontname}
@@ -174,6 +177,15 @@ const FontRow = ({ change }) => {
 export default function FontOptionsScreen() {
     const [background, setBackground] = useState(1);
 
+    const {search} = useLocation();
+    const query = new URLSearchParams(search);
+
+     
+ const receiver=query.get('receiver');
+ const month=query.get('month');
+ const paper=query.get('paper');
+  console.log('in font','ck',receiver,'month',month,'paper',paper);
+ 
     const callFont = (f) => {
         setBackground(f);
 
@@ -204,7 +216,7 @@ export default function FontOptionsScreen() {
 
                 <FontRow change={callFont}></FontRow>
             </FontOptionContainer>
-            <StyledLink to="/topicIntro">
+            <StyledLink to={`topicIntro?receiver=${receiver}&month=${month}&paper=${paper}&font=${FontsList[background].fontEngName}`}>
   
             <YellowButton top="785px">다음</YellowButton>
 </StyledLink>

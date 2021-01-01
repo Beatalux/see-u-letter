@@ -25,7 +25,7 @@ const FaQDataList = [
         "answer": 'See you letter 서비스를 신청했을 때와 지금 주소가 달라졌다면, See you letter 이메일로 1.편지 작성자 성함\n 2. 편지 작성자 연락처\n 3. 변경 주소 및 우편번호\n 4.주문번호\n 를 보내주세요.See you letter가 아직 발송 전이라면, 받으시는 주소를 변경해드립니다 '
     },
     {
-        "question": 'See you letter에 1:1 문의를 \
+        "question": '1:1 문의를 \
         남기고 싶어요!',
         "answer": 'See you letter에 1:1 문의를 남기고 싶다면, See you letter 이메일(seeyouletter.official@gmail.com)로 문의사항을 남겨주세요. 주문 관련 문의 사항이라면 주문 번호를 남겨주세요. 구체적인 문의 내용을 남겨주실수록 답변이 빠르고 정확해집니다. 최대한 빨리 답변해드릴게요!'
     },
@@ -36,23 +36,62 @@ const FaQDataList = [
     },
     {
         "question": '주문을 취소하고 싶어요.',
-        "answer": 'See you letter는 고객의 주문과 동시에 제작이 시작되는 개별적 주문 제작 상품으로, 단순 변심에 의한 환불은 불가합니다. 자사의 문제로 상품에 문제가 생겼을 경우에는 관련 법률에 따라 환불을 도와드립니다.\n환불이 아닌, 편지 발송 취소를 진행하고 싶으시다면, See you letter 이메일 (seeyouletter.official@gmail.com)로\n1. 주문번호\n2. 편지 작성시 기입한 이메일\n3. 편지 작성자 성함\n을 보내주세요. 편지 발송 이전이라면 편지 발송 취소를 도와드릴게요!'
+        "answer": 'See you letter는 고객의 주문과 동시에 제작이 시작되는 개별적 주문 제작 상품으로, 단순 변심에 의한 환불은 불가합니다. 자사의 문제로 상품에 문제가 생겼을 경우에는 관련 법률에 따라 환불을 도와드립니다.\n환불이 아닌, 편지 발송 취소를 진행하고 싶으시다면, seeyouletter.official@gmail.com로 주문번호, 편지 작성시 기입한 이메일, 편지 작성자 성함을 보내주세요. 편지 발송 이전이라면 발송 취소를 도와드릴게요!'
     },
 
 ]
 
+const Open_Helper=[
+    {id:0,status:false},
+    {id:1,status:false},
+
+]
+
+
+
+
 
 const FaQRow = () => {
     const classes = useStyles();
+    let OPEN=[false,false,false,false,false];
+
     const [open, setOpen] = React.useState(false);
     const [faqindex, setFaqindex] = React.useState(0);
+    const [dropdown,setDropdown]=React.useState([
+        false,false,false
+    ])
 
     const handleClick = (index) => {
+    
+     
+
+
+       // console.log("BEFORE IF ELSE",OPEN,index);
+        if(!dropdown[index]){//currently closed, need to be opened
+           console.log("in if")
+           setDropdown(        
+            [
+            ...dropdown.slice(0,index),
+            true,
+            ...dropdown.slice(index+1)
+            ]
+        )
+    
+        }else{
+            setDropdown(        
+                [
+                ...dropdown.slice(0,index),
+                false,
+                ...dropdown.slice(index+1)
+                ]
+            )
+
+        }
         setOpen(!open);
         setFaqindex(index);
         console.log(index);
-
     };
+  
 
     return (
         <div>
@@ -61,14 +100,14 @@ const FaQRow = () => {
                     <div>
                         <Divider variant="middle" />
                         <List style={{ position: "relative" }}>
+                            {  console.log("dp",dropdown)}
                             <ListItem button onClick={() => handleClick(index)} style={{ display: "flex", height: "85px" , width:"366px" }}>
                                 <QuestionText>
                                 Q.{faq.question}
                                 </QuestionText>
-                                {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-
+                                {dropdown[index] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                             </ListItem>
-                            <Collapse in={open && (index === faqindex)} timeout="auto" unmountOnExit>
+                            <Collapse in={dropdown[index]} timeout="auto" unmountOnExit>
                                 <List component="div" disablePadding>
                                     <ListItem button divider className={classes.nested}>
                                         <BodyText size="14px">
@@ -83,7 +122,6 @@ const FaQRow = () => {
                 )
             })}
         </div>
-
     )
 
 
@@ -92,8 +130,8 @@ const useStyles = makeStyles((theme) => ({
 
     nested: {
         paddingLeft: theme.spacing(4),
-        paddingBottom: theme.spacing(11),
-        paddingTop: theme.spacing(11),
+        paddingBottom: theme.spacing(13),
+        paddingTop: theme.spacing(13),
         backgroundColor: 'rgb(196,153,1,0.3)',
         padding: "24px 0px 30px 18px",
         height: "auto",
@@ -118,31 +156,39 @@ function FaQScreen() {
             </Wrap>
             {/*-43px*/}
             <SubtitleText size="24px" top="123px">자주 묻는 질문</SubtitleText>
-            <SidebarText top="191px">FAQ</SidebarText>
+            <SidebarText top="101px">FAQ</SidebarText>
 
 
             <ListContainer>
-
-
                 <FaQRow />
             </ListContainer>
 
 
-            <Divider variant="middle" />
-            <SidebarText top="754px">문의하기</SidebarText>
+        
 
-            <BodyText bottom="45px">더 자세한 문의는 {'<'}씨유레터{'>'}메일로 문의해주세요.</BodyText>
-            <div style={{ display: "flex", position: "absolute", bottom: "33px", alignItems: "center" }}>
+            <QuestionWrapper> 
+            <Divider variant="middle" />
+            <SidebarText top="100px">문의하기</SidebarText>
+
+            <FooterText top="128px">더 자세한 문의는 {'<'}씨유레터{'>'}메일로 문의해주세요.</FooterText>
+            <div style={{ display: "flex", position: "absolute", top: "163px", alignItems: "center" }}>
                 <MailIcon />
                 <FaQText>@seeyouletter</FaQText>
 
             </div>
+            </QuestionWrapper>
 
         </Wrapper>
     )
 }
 
 export default FaQScreen
+
+const QuestionWrapper=styled.div`
+position:relative;
+top:754px;
+
+`
 
 
 const ListContainer = styled.div`
@@ -151,6 +197,13 @@ top:261px;
 width:350px;
 
 `
+const FooterText=styled(BodyText)`
+    position:absolute;
+    
+    left:0px;
+`
+
+
 const MailIcon = styled(Email)`
 height: 24px;
 width: 24px;
@@ -180,7 +233,7 @@ text-align: left;
 
 color:#7C5B42;
 
-position:absolute;
+position:relative;
 height: 30.0048828125px;
 width: 120px;
 top:${props => props.top};
@@ -219,6 +272,7 @@ const Wrapper = styled.div`
 const ExpandLessIcon = styled(ExpandLess)`
 width:24px;
 height:24px;
+margin-left:300px;
 
 `
 

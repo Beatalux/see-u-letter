@@ -1,22 +1,32 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import {BodyText,SubtitleText,YellowButton, GreyButton,TitleText} from '../../commons/text'
+import { BodyText, SubtitleText, YellowButton, GreyButton, TitleText } from '../../commons/text'
 import '../../index.css'
 import Header from '../../commons/Header';
 import bar from '../../images/halfbar.png';
 import topicIntro from '../../images/topicIntro.png';
 
 
-import { Link } from 'react-router-dom';
+import { Link ,useLocation} from 'react-router-dom';
 
 export default function TopicOptionIntroScreen() {
+    const { search } = useLocation();
+    const query = new URLSearchParams(search);
+
+
+    const receiver = query.get('receiver');
+    const month = query.get('month');
+    const paper = query.get('paper');
+    const font=query.get('font');
+    console.log('in font', 'ck', receiver, 'month', month, 'paper', paper,'font', font);
+
 
     return (
 
         <div>
             <Header />
             <BarImage></BarImage>
-            <TopicIntroText>편지를 쓰기 전,<br/> 미리 쓸 내용을 담아볼까요?</TopicIntroText>
+            <TopicIntroText>편지를 쓰기 전,<br /> 미리 쓸 내용을 담아볼까요?</TopicIntroText>
 
             <BodyText top="273px" left="101px" size="14px">선택한 주제는 편지지에 담기게 돼요!.</BodyText>
 
@@ -24,17 +34,17 @@ export default function TopicOptionIntroScreen() {
             </ImageBox>
 
 
-<StyledLink to="/writingLetter">
-          <GreyButton top="716px">건너뛰기</GreyButton>
-          </StyledLink>
-         <StyledLink to="/topic">
-         <YellowButton top="785px">주제담기</YellowButton>
-         </StyledLink>
+            <StyledLink to={`writing?paper=${paper}&font=${font}`}>
+                <GreyButton top="716px">건너뛰기</GreyButton>
+            </StyledLink>
+            <StyledLink to={`topic?receiver=${receiver}&paper=${paper}?font=${font}`}>
+                <YellowButton top="785px">주제담기</YellowButton>
+            </StyledLink>
         </div>
     )
 }
 
-const TopicIntroText=styled.p`
+const TopicIntroText = styled.p`
 position: absolute;
 height: 59px;
 width: 236px;

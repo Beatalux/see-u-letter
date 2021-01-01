@@ -21,19 +21,23 @@ const useStyles = makeStyles((theme) => ({
   
 
 
-export default function GroupOrientation() {
+export default function GroupOrientation({test}) {
 const classes = useStyles();
 const [letterPaper,setLetterPaper]=useState(0);
 
   const handleLetterPaper=(index)=>{
     setLetterPaper(index);  
-    console.log(index)
+    test(index);
 
   }
 
+  
   const PaperLetterList=[
       bc,p1
   ]
+
+
+  //send to parent
   return (
     <Wrapper background={PaperLetterList[letterPaper]}>
       <ButtonGroup
@@ -45,7 +49,7 @@ const [letterPaper,setLetterPaper]=useState(0);
         <LetterPaperButton  onClick={()=>handleLetterPaper(1)} img={i}>Two</LetterPaperButton>
       
       </ButtonGroup>
-      <YellowButton top="565px" left='22px'>선택</YellowButton>
+  
     </Wrapper>
   );
 }
