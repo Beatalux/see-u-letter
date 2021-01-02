@@ -61,7 +61,7 @@ export default function SwipeableTemporaryDrawer({ change }) {
     <Wrapper >
       <Header>
       <LogoImage />
-      <BuggerImage style={{ float: "right", width: "50px" }} onClick={toggleDrawer('right', true)}></BuggerImage>
+      <BuggerImage style={{  width: "50px" }} onClick={toggleDrawer('right', true)}></BuggerImage>
       </Header>
       <SwipeableDrawer anchor={'right'} open={state['right']} onClose={toggleDrawer('right', false)}>
         {list('right')}
@@ -97,8 +97,7 @@ const Wrapper = styled.div`
 const BuggerImage = styled(Menu)`
 height: 24px;
 width: 24px;
-left: 370px;
-top: 55px;
-border-radius: 0px;
+margin-left:40px;
+
 
 `;

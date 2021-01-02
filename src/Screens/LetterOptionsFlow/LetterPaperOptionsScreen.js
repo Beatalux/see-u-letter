@@ -5,12 +5,10 @@ import styled from "styled-components";
 import { BodyText, SubtitleText, YellowButton, TitleText } from '../../commons/text'
 
 import { Link,useLocation } from 'react-router-dom';
-import qs from 'qs';
+import bar from '../../images/bar3.png';
 
 
-
-
-import bar from '../../images/bar2.png';
+import p1 from '../../images/paperTextSample/paper1.png';
 import fontsample from '../../images/fontsample.png';
 import Header from '../../commons/Header';
 import { ViewCarousel } from 'styled-icons/material-rounded';
@@ -22,14 +20,7 @@ export default function LetterPpaerOptionsScreen() {
     const query = new URLSearchParams(search);
     
   console.log(query)
-  /*
-    const location=useLocation();
-    const query = qs.parse(location.search, {
-     ignoreQueryPrefix: true
-   })
-   const receiver=query.receiver;
-   const month=query.month;
-   */
+ 
    
  const receiver=query.get('receiver');
   const month=query.get('month');
@@ -49,7 +40,9 @@ const handleLetterPaper=(v)=>{
         <TitleText top="135px" size="18px" left="24px">편지지를 골라주세요</TitleText>
         <BodyText top="165px" left="24px">앞으로 쓸 편지 내용이 인쇄될 편지지를 골라보세요!</BodyText>
 
+        <CarouselContainer>
             <Carousel test={handleLetterPaper}/>
+        </CarouselContainer>
 
         <StyledLink to={`font?receiver=${receiver}&month=${month}&paper=${selectedPaper}`}>
         <YellowButton top="785px" left='22px'>선택</YellowButton>
@@ -59,7 +52,11 @@ const handleLetterPaper=(v)=>{
     )
 }
 
-
+const CarouselContainer=styled.div`
+position: absolute;
+left: 0px;
+top: 220px;
+`
 
 const BarImage = styled.div`
 background:url(${bar});

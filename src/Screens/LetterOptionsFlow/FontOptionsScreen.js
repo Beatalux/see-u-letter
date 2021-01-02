@@ -153,7 +153,7 @@ const FontRow = ({ change }) => {
                     onChange={handleChange}
                     value="e"
                     name="radio-button"
-                    inputProps={{ 'aria-label': 'F' }}
+                    inputProps={{ 'aria-label': 'E' }}
                 />
             </FontR>
             <FontR selected={FontsList[5].fontEngName}>{FontsList[5].fontname}
@@ -216,9 +216,9 @@ export default function FontOptionsScreen() {
 
                 <FontRow change={callFont}></FontRow>
             </FontOptionContainer>
+
             <StyledLink to={`topicIntro?receiver=${receiver}&month=${month}&paper=${paper}&font=${FontsList[background].fontEngName}`}>
-  
-            <YellowButton top="785px">다음</YellowButton>
+            <YellowButton top="985px">다음</YellowButton>
 </StyledLink>
         </div>
     )

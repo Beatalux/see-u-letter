@@ -8,6 +8,7 @@ import {ExtraWordsProvider} from './contexts/ExtraPagesContext'
 
 import IntroScreen from './Screens/ServiceIntroductionFlow/IntroScreen'
 import MainScreen from './Screens/ServiceIntroductionFlow/MainScreen';
+import LandingScreen from './Screens/ServiceIntroductionFlow/LandingScreen';
 import ReceiverOptionsScreen from './Screens/LetterOptionsFlow/ReceiverOptionsScreen';
 import FontOptionsScreen from './Screens/LetterOptionsFlow/FontOptionsScreen'
 import TopicOptionsScreen from './Screens/LetterOptionsFlow/TopicOptionsScreen'
@@ -40,11 +41,12 @@ export default function App() {
         <Route component={MonthOptionsScreen} exact path ="/month/"/>
         <Route component={FontOptionsScreen} path="/font"/>
         <Route component={TopicOptionsScreen} path="/topic"/>
-        <Route component={LetterPaperOptionsScreen} exact path="/letterPaper"/>
+        <Route component={LetterPaperOptionsScreen} exact path="/paper"/>
         <Route component={FaQScreen} exact path="/faq"/>
         <Route component={WritingLetterScreen} exact path="/writing"/>
        
         <Route component={LastScreen} exact path="/culetter"/>
+        <Route component={LandingScreen} exact path="/landing"/>
 
 
   

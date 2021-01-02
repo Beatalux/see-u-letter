@@ -4,8 +4,8 @@ import Checkbox from "react-custom-checkbox";
 import { QuestionsToMySelfList,QuestionsToOthersList } from '../../commons/LetterTopics';
 import styled from 'styled-components'
 import { Link,useLocation,useHistory } from 'react-router-dom';
-import { BodyText, SubtitleText, YellowButton, TitleText } from '../../commons/text'
-import bar from '../../images/bar1.png';
+import { BodyText, YellowButton, SubtitleText } from '../../commons/text'
+import bar from '../../images/bar5.png';
 
 import Header from '../../commons/Header';
 
@@ -65,7 +65,7 @@ const TopicOptionsScreen = () => {
         <div>
             <Header />
             <BarImage></BarImage>
-            <TitleText top="135px" size="18px" left="24px">편지에 쓸 주제를 담아보아요.</TitleText>
+            <SubtitleText top="135px" size="18px" left="24px">편지에 쓸 주제를 담아보아요.</SubtitleText>
             <BodyText top="165px" left="24px" size="14px">주제 없이 자유롭게 작성하고 싶다면, '다음'을 눌러주세요.</BodyText>
 
             <Wrapper>
@@ -90,9 +90,9 @@ const TopicOptionsScreen = () => {
                             checked={false}
                             onChange={(value) => handleSelectedTopic(value, index)}
                             borderColor="#D7C629"
-                            containerStyle={{ width: '350px' }}
+                            containerStyle={{ width: '380px' }}
                             style={{ cursor: "pointer", marginBottom: 16 }}
-                            labelStyle={{ marginLeft: 11, marginBottom: 16, fontFamily: "SpoqaHanSans", fontSize: "16px", userSelect: "none" }}
+                            labelStyle={{ marginLeft: 11, marginBottom: 16, marginRight:2,fontFamily: "SpoqaHanSans", fontSize: "16px", userSelect: "none" }}
                             label={question}
                             size={15}
                         />
@@ -101,7 +101,7 @@ const TopicOptionsScreen = () => {
                 })}
             </Wrapper>
             <StyledLink to={`writing?paper=${paper}&font=${font}&topic=${SelectedQuestions}`}>
-                <YellowButton onClick={test} bottom="38px">다음</YellowButton>
+                <YellowButton onClick={test} top="888px">다음</YellowButton>
             </StyledLink>
         </div>
     )
@@ -110,11 +110,22 @@ const TopicOptionsScreen = () => {
 
 export default TopicOptionsScreen
 
+
+
 const Wrapper = styled.div`
 width:300px;
 height:300px;
 position:absolute;
 top:230px;
+
+font-family: SpoqaHanSans;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0em;
+text-align: left;
+
 `
 const BarImage = styled.div`
 background:url(${bar});
