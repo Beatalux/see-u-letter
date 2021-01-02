@@ -19,12 +19,14 @@ import WritingLetterScreen from './Screens/WritingLetterFlow/WritingLetter'
 import sidebar from './components/forMainScreen/Sidebar'
 import WritingCopy from './Screens/Writingcopy';
 import DeliveryInfoScreen from './Screens/PayFlow/DeliveryInfoScreen';
-//import PhotoUploadScreen from './Screens/PhotoUploadScreen'
 import PhotoUploadScreen from './components/forPhotoUploadScreen/index'
 import TermsOfServiceScreen from './Screens/ServiceIntroductionFlow/TermsOfServiceScreen'
 import SenderInfoScreen from './Screens/ServiceIntroductionFlow/SenderInfoScreen'
 import TopicOptionIntroScreen from './Screens/LetterOptionsFlow/TopicOptionsIntroScreen'
-//import LicenseScreen from 
+import PaymentInfoScreen from './Screens/PayFlow/PaymentInfoScreen'
+import LastScreen from './Screens/PayFlow/LastScreen'
+
+
 export default function App() {
   return (
     <ExtraWordsProvider>
@@ -41,7 +43,12 @@ export default function App() {
         <Route component={LetterPaperOptionsScreen} exact path="/letterPaper"/>
         <Route component={FaQScreen} exact path="/faq"/>
         <Route component={WritingLetterScreen} exact path="/writing"/>
+       
+        <Route component={LastScreen} exact path="/culetter"/>
+
+
   
+        <Route component={PaymentInfoScreen} path="/payInfo"/>
         <Route component={DeliveryInfoScreen} path="/deliveryInfo"/>
         <Route component={PhotoUploadScreen} path="/photoUpload"/>
         <Route component={TermsOfServiceScreen} path="/serviceTerms"/>

@@ -90,7 +90,6 @@ function SenderInfoScreen() {
                         value={senderPhone}
                         onChange={handleSenderPhone}
                     ></UserInput>
-                
                 </SenderInfoRow>
                 {!confirmPhoneForm&&<AlertDiv top="530px">
                         전화번호 입력 형식을 맞춰주세요

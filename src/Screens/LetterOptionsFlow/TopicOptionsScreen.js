@@ -21,7 +21,6 @@ const TopicOptionsScreen = () => {
     const { search } = useLocation();
     const query = new URLSearchParams(search);
 
-
     const receiver = query.get('receiver');
     const month = query.get('month');
     const paper = query.get('paper');
@@ -54,7 +53,7 @@ const TopicOptionsScreen = () => {
 
         //선택된 질문 index 반환
 
-        history.push(`writing?paper=${paper}?font=${font}?topic=${SelectedQuestions}`);
+       // history.push(`writing?paper=${paper}&font=${font}&topic=${SelectedQuestions}`);
 
     }
 
@@ -101,13 +100,12 @@ const TopicOptionsScreen = () => {
                     )
                 })}
             </Wrapper>
-            <StyledLink to={`writing?${receiver}?`}>
+            <StyledLink to={`writing?paper=${paper}&font=${font}&topic=${SelectedQuestions}`}>
                 <YellowButton onClick={test} bottom="38px">다음</YellowButton>
             </StyledLink>
         </div>
     )
 }
-
 
 
 export default TopicOptionsScreen
@@ -116,7 +114,7 @@ const Wrapper = styled.div`
 width:300px;
 height:300px;
 position:absolute;
-top:260px;
+top:230px;
 `
 const BarImage = styled.div`
 background:url(${bar});

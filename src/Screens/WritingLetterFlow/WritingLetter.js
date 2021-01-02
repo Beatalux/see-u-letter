@@ -32,7 +32,7 @@ export default function WritingLetter(value) {
     let MaxCount = 10;//1248
     const selectedq = "Blah";
     const [countedWords, setCountedWords] = useState(0);
-    //ismodal 어쩌구,,,
+
 
     const handleWordCount = (e) => {
         setCountedWords(e.target.value);
@@ -44,13 +44,9 @@ export default function WritingLetter(value) {
     const { isClick, isReached, togglePlay } = useTexts();
     const [count, setCount] = useState(10);
 
-  //  const [temp,setTemp]=useState(isReached);
     console.log('aaa', isClick, isReached)
 
     
-    //setFlag((countedWords.length == count));
-   
-
 
     useEffect(() => {
         console.log('iskkkkk', isClick)

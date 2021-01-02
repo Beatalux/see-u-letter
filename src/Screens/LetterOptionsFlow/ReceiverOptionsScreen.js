@@ -85,10 +85,7 @@ width: 366px;
 left: 28px;
 top: ${props => props.top};
 border-radius: 0px;
-
-
 `
-
 
 const StyledLink = styled(Link)`
     text-decoration: none;

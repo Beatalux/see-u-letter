@@ -1,20 +1,44 @@
 import React from 'react'
 import styled from 'styled-components'
 import {ArrowBack} from '@styled-icons/boxicons-regular/ArrowBack'
-import { BodyText, SubtitleText, Button, TitleText } from './text'
+import { BodyText, SubtitleText,  TitleText } from './text'
 import logo from '../images/logo.png';
-
+import { Link,useHistory } from 'react-router-dom';
 function Header({pageTitle}) {
+    const history=useHistory();
     return (
         <Wrapper>
+         
+         <Button onClick={()=>history.goBack()}>
             <ArrowBackIcon/>
+              
+
+        </Button>
+        
             <HeaderText left="175.86px">{pageTitle}</HeaderText>
-        </Wrapper>
-    )
+
+</Wrapper>)
 }
 
 export default Header
 
+const Button=styled.button`
+
+background:transparent;
+
+background-repeat:no-repeat;
+border: none;
+cursor:pointer;
+overflow: hidden;
+outline:none;
+width:40px;
+height:25px;
+margin:0 0 0 0;
+
+
+
+
+`
 const Wrapper=styled.div`
 
 display:flex;
@@ -23,6 +47,14 @@ position:absolute;
 top:60px;
 height:25px;
 `
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+`;
 const HeaderText=styled.p`
 font-family: SpoqaHanSans;
 font-style: normal;
@@ -38,7 +70,8 @@ color: #000000;
 const ArrowBackIcon=styled(ArrowBack)`
     width:30px;
     height:23px;
-left: 22px;
+    margin-left:-12px;
+
 
 
 `
