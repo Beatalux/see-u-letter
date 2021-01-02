@@ -49,8 +49,6 @@ export default function PostMethodOption() {
             </PostMethodRow >
             <WarningText fontColor="red" left="200px" top="100px">선택 후 변경이 불가능합니다.</WarningText>
         </div>
-
-
     )
 
 }

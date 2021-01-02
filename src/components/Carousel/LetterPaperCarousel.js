@@ -3,7 +3,6 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
-import { BodyText, SubtitleText, YellowButton } from '../../commons/text'
 
 import p1 from '../../images/paperTextSample/paper1.png';
 import p2 from '../../images/paperTextSample/paper2.png';
@@ -29,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
     },
+    root:{
+      topMargin:"27px",
+  
+    }
 
   },
 }));
@@ -41,8 +44,6 @@ export default function GroupOrientation({ test }) {
 
   const handleLetterPaper = (index) => {
     setLetterPaper(index);
-
-
   }
 
 
@@ -51,7 +52,6 @@ export default function GroupOrientation({ test }) {
   ]
 
   const PaperButtonList = [
-
     p1, p2, p3, p4, p5, p6, p7
   ]
 
@@ -62,17 +62,15 @@ export default function GroupOrientation({ test }) {
         orientation="vertical"
         color="primary"
         aria-label="vertical outlined primary button group"
+        className={classes.margin}
       >
         {PaperButtonList.map((pbtn, index) => {
           return (
-            <LetterPaperButton onClick={() => handleLetterPaper(index)} img={pbtn}/>
+            <LetterPaperButton onClick={() => handleLetterPaper(index)} img={pbtn} index={index} clicked={letterPaper}/>
           );
         })
         }
-
-
       </ButtonGroup>
-
     </Wrapper>
   );
 }
@@ -88,8 +86,6 @@ width: 414px;
 height: 530px;
 
 
-
-
 `
 const LetterPaperButton = styled(Button)`
 background:url(${props => props.img});
@@ -97,7 +93,7 @@ background-size: contain;
 margin:30px 0 0 30px;
 width:40px;
 height:40px;
-border:solid 2px white;
+border:${props=>props.index==0&&props.clicked==0? "solid 2px #31FF10":"solid 2px white"};
 border-radius:0px;
 &:hover {
   border: solid 2px #31FF10;

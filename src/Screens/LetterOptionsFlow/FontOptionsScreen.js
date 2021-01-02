@@ -157,7 +157,6 @@ const FontRow = ({ change }) => {
                 />
             </FontR>
             <FontR selected={FontsList[5].fontEngName}>{FontsList[5].fontname}
-
                 <RadioButton
                     checked={selectedValue === 'f'}
                     onChange={handleChange}
@@ -213,7 +212,6 @@ export default function FontOptionsScreen() {
 
 
             <FontOptionContainer>
-
                 <FontRow change={callFont}></FontRow>
             </FontOptionContainer>
 

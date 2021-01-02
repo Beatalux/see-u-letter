@@ -21,19 +21,7 @@ function SenderInfoScreen() {
     const [confirmPhoneForm,setComfirmPhoneForm]=useState(true);
     const [confirmEmailForm,setComfirmEmailForm]=useState(true);
     const [cookies, setCookie,removeCookie] = useCookies(['token']);
-   
 
-    const handleSenderPhone=(e)=>{
-        let regexp=/^[0-9]*$/;
-
-        if(senderPhone.includes('-')||!regexp.test(senderPhone)){
-            console.log('전화번호 입력 형식을 맞춰주세요');
-            setComfirmPhoneForm(false);
-        }else{
-            setComfirmPhoneForm(true);
-        }
-        setSenderPhone(e.target.value);
-    }
     const handleSenderEmail=(e)=>{
         setSenderEmail(e.target.value);
         if(!(senderEmail.includes('@'))){
@@ -46,8 +34,8 @@ function SenderInfoScreen() {
     }
 
     const handleErrorStatus=(e)=>{
-        if(senderPhone===""||senderEmail===""){
-            alert("모든 항목을 채워주세요");
+        if(senderEmail===""){
+            alert("항목을 채워주세요");
             return false;
         }
         if(!confirmEmailForm){
@@ -83,25 +71,15 @@ function SenderInfoScreen() {
                 *아래 정보는 차후 배송확인과 우편배송 외에 사용되지 않습니다.
             </WarningText>
             <SenderInfoContainer>
-              
-                <SenderInfoRow top="403px">
-                    <BodyText >연락처</BodyText>
-                    <UserInput name="phone" type="text" placeholder="01012345678" 
-                        value={senderPhone}
-                        onChange={handleSenderPhone}
-                    ></UserInput>
-                </SenderInfoRow>
-                {!confirmPhoneForm&&<AlertDiv top="530px">
-                        전화번호 입력 형식을 맞춰주세요
-                    </AlertDiv>}
+            
                 <SenderInfoRow top="462px">
-                    <BodyText >이메일</BodyText>
+                  
                     <UserInput name="email" type="email" placeholder="seeyouletter@gmail.com" 
                         value={senderEmail}
                         onChange={handleSenderEmail}
                     ></UserInput>
                 </SenderInfoRow>
-                {!confirmEmailForm&&<AlertDiv top="550px">
+                {!confirmEmailForm&&<AlertDiv top="570px">
                         이메일 입력 형식을 맞춰주세요
                     </AlertDiv>}
                 <StyledLink to={`/receiver`}>
@@ -145,9 +123,9 @@ width:366px;
 top:${props=>props.top};
 `
 const UserInput=styled.input`
-margin-top:8px;
-margin-left:132px;
-width:233px;
+margin-top:58px;
+
+width:366px;
 height:48.04px;
 `
 const SenderInfoContainer=styled.div`

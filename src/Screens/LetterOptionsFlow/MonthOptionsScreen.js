@@ -62,7 +62,7 @@ const MonthOptionsScreen = ({ match }) => {
 
 
 
-            <StyledLink to={`letterPaper?receiver=${receiver}&month=${selectedMonth}`}>
+            <StyledLink to={`paper?receiver=${receiver}&month=${selectedMonth}`}>
                 <YellowButton top="785px" left='22px'>선택</YellowButton>
             </StyledLink>
         </div>
