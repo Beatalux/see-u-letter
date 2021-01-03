@@ -9,6 +9,8 @@ import { useCookies } from 'react-cookie';
 import illust from '../../images/senderInfoImg.png';
 
 
+//배송정보
+
 function SenderInfoScreen() {
 
 
@@ -49,7 +51,8 @@ function SenderInfoScreen() {
     const handleSenderInfoSubmit=(e)=>{
         e.preventDefault();
         if(handleErrorStatus(e)===true){
-    history.push(`/receiver`);//!필수     postSenderEmail(senderEmail,setCookie);
+    history.push(`/receiver`);//!필수     
+    postSenderEmail(senderEmail,setCookie);
 
     }
      else{
@@ -127,6 +130,7 @@ margin-top:58px;
 
 width:366px;
 height:48.04px;
+border-radius:6px;
 `
 const SenderInfoContainer=styled.div`
 

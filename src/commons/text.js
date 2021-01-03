@@ -110,6 +110,7 @@ bottom:${props=>props.bottom};
 left:${props=>props.left||"24px"};
 
 margin-left:2px;
+margin-bottom:15px;
 width:365px;
 height:60px;
 
@@ -132,7 +133,7 @@ border-radius: 10px;
 text-align: center;
 border-style:none;
 margin-left:2px;
-
+overflow:visible;
 position:absolute;
 
 top:${props=>props.top};

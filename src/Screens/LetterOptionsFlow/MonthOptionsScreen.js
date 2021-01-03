@@ -12,10 +12,15 @@ import march from '../../images/letterSelect/march.png';
 import dimMarch from '../../images/letterSelect/dimMarch.png';
 import { useParams,Link, useLocation } from 'react-router-dom';
 import qs from 'qs';
+import { useCookies } from 'react-cookie';
 
 const MonthList=[[march,dimMarch],[june,dimJune],[january,dimJanuary]];
 
 const MonthOptionsScreen = ({ match }) => {
+
+    const [cookies, setCookie,removeCookie] = useCookies(['token']);
+    
+    console.log("month",cookies.token)
     const UserID = match.params.UserID;
   const location = useLocation();
    const query = qs.parse(location.search, {
@@ -54,7 +59,7 @@ const MonthOptionsScreen = ({ match }) => {
                     <ImageBox left="-35px" img={MonthList[0][isMarch]} onClick={() => handleClick('march')}></ImageBox>
                     <ImageBox img={MonthList[1][isJune]} onClick={() => handleClick('june')}></ImageBox>
                 </div>
-                <ImageBox top="40px" left="100px" img={MonthList[2][isJanuary]} onClick={() => handleClick('jan')}></ImageBox>
+                <ImageBox top="40px" left="90px" img={MonthList[2][isJanuary]} onClick={() => handleClick('jan')}></ImageBox>
 
             </Wrapper>
 

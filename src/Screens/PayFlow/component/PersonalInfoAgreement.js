@@ -50,7 +50,7 @@ const BrownCheckbox = withStyles({
     return (
         <div style={{position:"relative", top:"900px"}}>
         <FormGroup > 
-       < FormControlLabel
+       <FormControlLabel
      
           control={
           <BrownCheckbox 
@@ -62,7 +62,6 @@ const BrownCheckbox = withStyles({
 
         />
         <FormControlLabel
-  
           control={<BrownCheckbox 
           onChange={handleChange}
           checked={state.checkedB} 
@@ -113,7 +112,7 @@ border-style:none;
 
 background-color:white;
 ;
-width:400px;
+width:360px;
 margin: 0 0 0 0;
 resize:none;
 position:relative;

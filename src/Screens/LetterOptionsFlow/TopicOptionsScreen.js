@@ -6,14 +6,18 @@ import styled from 'styled-components'
 import { Link,useLocation,useHistory } from 'react-router-dom';
 import { BodyText, YellowButton, SubtitleText } from '../../commons/text'
 import bar from '../../images/bar5.png';
-
+import { useCookies } from 'react-cookie';
 import Header from '../../commons/Header';
+import {postLetterOption} from '../../axios/auth'
 
-
+ 
 //use npm react-custom-checkbox
 //MIT https://www.npmjs.com/package/react-custom-checkbox
 
 const TopicOptionsScreen = () => {
+
+    const [cookies, setCookie,removeCookie] = useCookies(['token']);
+  
     let QuestionsList=[];
     const [background, setBackground] = useState(1);
 
@@ -23,9 +27,9 @@ const TopicOptionsScreen = () => {
 
     const receiver = query.get('receiver');
     const month = query.get('month');
-    const paper = query.get('paper');
+    const paper = parseInt(query.get('paper'));
     const font=query.get('font');
-    console.log('in topicoption', 'ck', receiver, 'month', month, 'paper', paper);
+    console.log('in topicoption', 'ck','font' ,font,receiver, 'month', month, 'paper', paper);
   
     if(receiver=='myself'){
         QuestionsList=QuestionsToMySelfList;
@@ -46,14 +50,25 @@ const TopicOptionsScreen = () => {
         TemporarySelectedQuestions.map((item, index) => {
             if (item % 2 !== 0) {
                 SelectedQuestions.push(index);
-
             }
         })
-        console.log("btn", SelectedQuestions);
+
+        let i
+    for (i = 0; i <  SelectedQuestions.length; i++) {
+        SelectedQuestions[i]+=1;
+           
+        } 
+    
+    console.log("btn", SelectedQuestions);
 
         //선택된 질문 index 반환
 
        // history.push(`writing?paper=${paper}&font=${font}&topic=${SelectedQuestions}`);
+
+       console.log("ARR",SelectedQuestions)
+       console.log("cookies.token in topic",cookies.token.id);
+       let temp=cookies.token.id
+       postLetterOption(temp,paper,font, month,SelectedQuestions);
 
     }
 
@@ -100,8 +115,8 @@ const TopicOptionsScreen = () => {
                     )
                 })}
             </Wrapper>
-            <StyledLink to={`writing?paper=${paper}&font=${font}&topic=${SelectedQuestions}`}>
-                <YellowButton onClick={test} top="888px">다음</YellowButton>
+            <StyledLink to={`writing?paper=${paper}&font=${font}`}>
+                <YellowButton onClick={test} top="888px" >다음</YellowButton>
             </StyledLink>
         </div>
     )

@@ -10,38 +10,10 @@ import { useCookies } from 'react-cookie';
 import { withStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link,useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
-//font api 받아서 하기만 하면됌
-//누구 .fontEngname, .폰트이름 이런식으로 받아서 parameter 로 넘겨주기
-
-//Global Fonts option or import index.css depend on Router
-//for Global ref below
-//https://dev.to/alaskaa/how-to-import-a-web-font-into-your-react-app-with-styled-components-4-1dni
-
-
-const RadioButton = withStyles({
-    root: {
-        color: '#D9D9D9',
-        '&$checked': {
-            color: '#7C5B42',
-        },
-    },
-    checked: {},
-})((props) => <Radio color="default" {...props} />);
-
-const useStyles = makeStyles({
-    root: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        width: '300px',
-        color: '#7C5B42',
-
-    },
-
-});
+//import FontsList from '../../commons/font'
 const FontsList = [
     {
         "fontname": "리디바탕",
@@ -70,10 +42,43 @@ const FontsList = [
 
 ]
 
+
+//font api 받아서 하기만 하면됌
+//누구 .fontEngname, .폰트이름 이런식으로 받아서 parameter 로 넘겨주기
+
+//Global Fonts option or import index.css depend on Router
+//for Global ref below
+//https://dev.to/alaskaa/how-to-import-a-web-font-into-your-react-app-with-styled-components-4-1dni
+
+
+//link로 paper정보, font 정보만 보내주기
+//post로 메시지 내용 보내주는 거 필요
+const RadioButton = withStyles({
+    root: {
+        color: '#D9D9D9',
+        '&$checked': {
+            color: '#7C5B42',
+        },
+    },
+    checked: {},
+})((props) => <Radio color="default" {...props} />);
+
+const useStyles = makeStyles({
+    root: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: '300px',
+        color: '#7C5B42',
+
+    },
+
+});
+
 const FontRow = ({ change }) => {
     const [selectedValue, setSelectedValue] = useState("a");
-    const [cookies, setCookie,removeCookie] = useCookies(['token']);
-   
+    const [cookies, setCookie, removeCookie] = useCookies(['token']);
+
 
     const handleChange = (e) => {
         setSelectedValue(e.target.value);
@@ -102,9 +107,9 @@ const FontRow = ({ change }) => {
         }
 
     }
-    console.log("in font option cookies",cookies.token)
+    console.log("in font option cookies", cookies.token)
 
-     return (
+    return (
         <div>
 
             <FontR selected={FontsList[0].fontEngName}>{FontsList[0].fontname}
@@ -174,19 +179,21 @@ const FontRow = ({ change }) => {
 }
 
 export default function FontOptionsScreen() {
+    const [cookies, setCookie,removeCookie] = useCookies(['token']);
     const [background, setBackground] = useState(1);
 
-    const {search} = useLocation();
+    const { search } = useLocation();
     const query = new URLSearchParams(search);
 
-     
- const receiver=query.get('receiver');
- const month=query.get('month');
- const paper=query.get('paper');
-  console.log('in font','ck',receiver,'month',month,'paper',paper);
- 
+
+    const receiver = query.get('receiver');
+    const month = query.get('month');
+    const paper = query.get('paper');
+    console.log('in font', 'ck', receiver, 'month', month, 'paper', paper);
+
     const callFont = (f) => {
         setBackground(f);
+        console.log(background);
 
     }
 
@@ -198,11 +205,10 @@ export default function FontOptionsScreen() {
             <TitleText top="135px" size="18px" left="24px">폰트를 골라주세요</TitleText>
             <BodyText top="165px" left="24px">글에 적용될 폰트를 골라주세요.</BodyText>
 
-            <ImageBox img={fontsample} top="219px">
-                <FontOptionText top="20px">
+            <ImageBox img={fontsample} top="219px" >
+            <FontOptionText top="20px" font={FontsList[background].fontEngName}>
                     1년후의 나에게.
             </FontOptionText>
-                {console.log("fucnk", callFont)}
                 <FontOptionText top="65px" font={FontsList[background].fontEngName} >
                     안녕, 여긴 2020년 1월 아주 추운 겨울이야. <br />
             어디에 있니? 얼마나 가까이 와 있니
@@ -216,8 +222,8 @@ export default function FontOptionsScreen() {
             </FontOptionContainer>
 
             <StyledLink to={`topicIntro?receiver=${receiver}&month=${month}&paper=${paper}&font=${FontsList[background].fontEngName}`}>
-            <YellowButton top="985px">다음</YellowButton>
-</StyledLink>
+                <YellowButton top="855px" left="23px">다음</YellowButton>
+            </StyledLink>
         </div>
     )
 }

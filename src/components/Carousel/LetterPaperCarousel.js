@@ -21,7 +21,6 @@ import s6 from '../../images/samplePaper/p6.png'
 import s7 from '../../images/samplePaper/p7.png'
 
 
-import i from './butsample.png'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -30,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     },
     root:{
       topMargin:"27px",
-  
     }
 
   },
@@ -44,10 +42,13 @@ export default function GroupOrientation({ test }) {
 
   const handleLetterPaper = (index) => {
     setLetterPaper(index);
+    test(index);
   }
 
 
-  const PaperLetterList = [
+
+
+  const PaperLetterSampleList = [
     s1,s2,s3,s4,s5,s6,s7,
   ]
 
@@ -55,9 +56,11 @@ export default function GroupOrientation({ test }) {
     p1, p2, p3, p4, p5, p6, p7
   ]
 
+
+
   //send to parent
   return (
-    <Wrapper background={PaperLetterList[letterPaper]}>
+    <Wrapper background={PaperLetterSampleList[letterPaper]}>
       <ButtonGroup
         orientation="vertical"
         color="primary"

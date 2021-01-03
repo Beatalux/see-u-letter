@@ -12,7 +12,7 @@ function PaymentInfo() {
     const selectedPaperName = "blah"
     const sumPrice=6000;
     return (
-        <div>
+        <Wrapper>
             <Header pageTitle="입금정보" />
             <TopicIntroText>주문이 완료되었습니다.<br /> 주문 내역은 메일로 전송됩니다.</TopicIntroText>
             <WarningText color="rgba(241,199,51,0.5)" top="269px" left="71px">
@@ -49,15 +49,20 @@ function PaymentInfo() {
               </div>
 
             <StyledLink to={`culetter`}>
-                <YellowButton top="1000px">완료</YellowButton>
+                <YellowButton top="1000px" >완료</YellowButton>
             </StyledLink>
 
-        </div>
+        </Wrapper>
     )
 }
 
 export default PaymentInfo
 
+const Wrapper=styled.div`
+position:center;
+
+
+`
 const PriceText=styled.p`
 font-family: SpoqaHanSans;
 font-style: normal;
@@ -94,8 +99,8 @@ color: #000000;
 
 const AccoutInfoRow = styled.div`
 display:grid;
-grid-template-columns:270px 100px;
-width:366px;
+grid-template-columns:276px 100px;
+width:376px;
 align-items:center;
 margin-bottom:15px;
 
@@ -115,10 +120,7 @@ const ItemPrice = styled.div`
 
 
 `
-const ItemName = styled.div`
 
-
-`
 
 const BigDivider = styled.div`
     background:  #A7A7A7;
@@ -132,8 +134,8 @@ const BigDivider = styled.div`
 
 const PostMethodRow = styled.div`
 display:grid;
-grid-template-columns:310px 80px;
-width:366px;
+grid-template-columns:300px 80px;
+width:380px;
 align-items:center;
 margin-bottom:15px;
 
@@ -145,23 +147,7 @@ line-height: 24px;
 letter-spacing: 0em;
 `;
 
-const ExtraPriceText = styled.p`
-height: 21px;
-width: 92px;
 
-border-radius: nullpx;
-
-font-family: SpoqaHanSans;
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 21px;
-/* identical to box height */
-
-
-color: #7C5B42;
-
-`
 const StyledLink = styled(Link)`
     text-decoration: none;
 
@@ -174,7 +160,7 @@ const ImageBox = styled.div`
 background:url(${props => props.img});
 position:absolute;
 height: 279px;
-width: 366px;
+width: 319px;
 left: 104px;
 top: ${props => props.top};
 border-radius: 0px;

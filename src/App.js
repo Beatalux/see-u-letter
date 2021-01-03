@@ -20,14 +20,13 @@ import WritingLetterScreen from './Screens/WritingLetterFlow/WritingLetter'
 import sidebar from './components/forMainScreen/Sidebar'
 import WritingCopy from './Screens/Writingcopy';
 import DeliveryInfoScreen from './Screens/PayFlow/DeliveryInfoScreen';
-import PhotoUploadScreen from './components/forPhotoUploadScreen/index'
+import PhotoUploadScreen from './Screens/test'
 import TermsOfServiceScreen from './Screens/ServiceIntroductionFlow/TermsOfServiceScreen'
 import SenderInfoScreen from './Screens/ServiceIntroductionFlow/SenderInfoScreen'
 import TopicOptionIntroScreen from './Screens/LetterOptionsFlow/TopicOptionsIntroScreen'
 import PaymentInfoScreen from './Screens/PayFlow/PaymentInfoScreen'
 import LastScreen from './Screens/PayFlow/LastScreen'
-
-
+import PreviewScreen from './Screens/WritingLetterFlow/LetterPreviewScreen'
 export default function App() {
   return (
     <ExtraWordsProvider>
@@ -44,11 +43,10 @@ export default function App() {
         <Route component={LetterPaperOptionsScreen} exact path="/paper"/>
         <Route component={FaQScreen} exact path="/faq"/>
         <Route component={WritingLetterScreen} exact path="/writing"/>
+        <Route component={PreviewScreen} exact path="/preview"/>
        
         <Route component={LastScreen} exact path="/culetter"/>
         <Route component={LandingScreen} exact path="/landing"/>
-
-
   
         <Route component={PaymentInfoScreen} path="/payInfo"/>
         <Route component={DeliveryInfoScreen} path="/deliveryInfo"/>
@@ -67,7 +65,7 @@ const mobile=`(min-width:415px)`;
 
 const Wrapper = styled.div` 
  z-index:-1;
-  background-color: #abc7d1;
+
   height: 100vh;
 
 

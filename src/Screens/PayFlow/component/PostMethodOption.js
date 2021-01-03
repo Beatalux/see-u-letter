@@ -25,7 +25,7 @@ export default function PostMethodOption() {
 
     }
     return (
-        <div style={{ position: "relative", top:"850px" }}>
+        <div style={{ position: "relative", top:"850px" ,width:"390px",overflow:"visible"}}>
             <PostMethodRow >일반우편
             <ExtraPriceText></ExtraPriceText>
                 <RadioButton
@@ -55,8 +55,8 @@ export default function PostMethodOption() {
 
 const PostMethodRow = styled.div`
 display:grid;
-grid-template-columns:90px 90px 340px;
-width:366px;
+grid-template-columns:80px 262px 58px;
+width:398px;
 align-items:center;
 margin-bottom:15px;
 

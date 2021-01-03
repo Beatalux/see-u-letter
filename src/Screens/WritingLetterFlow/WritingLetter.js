@@ -4,18 +4,13 @@ import styled from 'styled-components'
 import { BodyText, SubtitleText, WarningText, YellowButton, TitleText } from '../../commons/text'
 import { Link ,useLocation,useHistory} from 'react-router-dom';
 import { ArrowBack } from '@styled-icons/boxicons-regular/ArrowBack'
-import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import { InputBase } from '@material-ui/core';
-
-import InputAdornment from '@material-ui/core/InputAdornment';
 
 import Modal from '../../components/Modal/app';
 import { FinishedBtn } from '../../components/Modal/app';
 import { useTexts } from '../../components/Modal/context'
 import { ModalContext } from "../../components/Modal/modalContext";
 
-
+import FontsList from '../../commons/font'
 
 const ExtraLetterPage = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -26,8 +21,7 @@ export default function WritingLetter(value) {
     const history=useHistory();
     const { search } = useLocation();
     const query = new URLSearchParams(search);
-
-    console.log("wrt",query.get('topic'))
+    const font=query.get('font');
 
     let MaxCount = 10;//1248
     const selectedq = "Blah";
@@ -72,7 +66,7 @@ const isAddingExtraWords = (v) => {
 
 const l = ['a', 'b', 'c',]
 
-const text = l[0] + "\n" + l[1] + "\n";
+const text = l[0]  + "\n"+ "\n" + l[1] + "\n";
 return (
     <div style={{ marginLeft: "12px" }}>
 
@@ -92,7 +86,7 @@ return (
         <WritingTextField onChange={handleWordCount}
             placeholder="마음을 담아보세요"
             autofocus={false}
-            font={"RIDIBatang"} maxLength={count}></WritingTextField>
+            font={font} maxLength={count}></WritingTextField>
         {console.log(count, "fuck", countedWords.length)}
 
 
@@ -111,18 +105,19 @@ return (
 
 const WritingTextField = styled.textarea`
 border-style:none;
-width: 355px;
+width: 366px;
 height:400px;
 padding:10px 0 10px 0;
 position: relative;
 top: 225px;
 resize:none;
+left:-12px;
 
 font-family: ${prop => prop.font || "RIDIBatang"};
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
-line-height: 14px;
+line-height: 50px;
 &:hover{
     border-style:none;
 }
@@ -135,7 +130,7 @@ border-style:none;
 color: #7C5B42;
 background-color:#F0EFEB;
 ;
-width:320px;
+width:325px;
 margin: 0 0 0 0;
 resize:none;
 position:relative;
@@ -152,16 +147,14 @@ line-height: 14px;
 opacity: 0.8;
 `;
 
-
 const TopicContainer = styled.div`
 position: absolute;
 height: 85px;
-width: 366px;
+width: 371px;
 
-left: 36px;
+left: 24px;
 top: 142px;
 overflow:visible;
-
 font-family: RIDIBatang;
 font-size: 14px;
 font-style: normal;
@@ -174,18 +167,7 @@ background: #F0EFEB;
 border-radius: 4px;
 
 `
-const WhiteBorderTextField = styled(TextField)`
-font-family: "RIDIBatang";
-  & label.Mui-focused {
-    color: white;
-  }
-  & .MuiOutlinedInput-root {
-    &.Mui-focused fieldset {
-      border-color: white;
-    }
-  }
 
-`;
 const CountingText = styled.div`
 font-family: SpoqaHanSans;
 font-size: 16px;
@@ -197,12 +179,10 @@ text-align: right;
 position:absolute;
 height: 24px;
 width: 64px;
-left: 340px;
+left: 330px;
 top: 94px;
 border-radius: nullpx;
 color: #7C5B42;
-
-
 
 `
 const Header = styled.div`
@@ -232,7 +212,7 @@ border:none;
 const ArrowBackIcon = styled(ArrowBack)`
     width:30px;
     height:23px;
-left: 24px;
+margin-left: -17px;
 
 
 `

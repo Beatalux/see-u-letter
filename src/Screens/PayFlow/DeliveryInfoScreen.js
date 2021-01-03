@@ -3,7 +3,7 @@ import Header from '../../commons/Header';
 import TextField from '@material-ui/core/TextField';
 import styled from 'styled-components';
 import { BodyText, SubtitleText, GreyButton, WarningText } from '../../commons/text'
-import { Link } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
 
 import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,10 +24,12 @@ import PostMethodOption from './component/PostMethodOption'
 function DeliveryInfoScreen() {
     const [cookies, setCookie, removeCookie] = useCookies(['token']);
 
-
+    const history=useHistory();
 
     const handleSenderInfoSubmit = (e) => {
-        e.preventDefault();/*
+        e.preventDefault();
+        history.push('/payInfo')
+        /*
     if(handleError(e)===true){
                     //history.push(`receiverOption/:${dummydata}`);
                     ///postSenderEmail(senderEmail,setCookie);
@@ -41,7 +43,7 @@ function DeliveryInfoScreen() {
 
     }
     return (
-        <div>
+        <Wrapper>
             <Header pageTitle="배송정보" />
             <SubtitleText top="124px">배송 정보 입력</SubtitleText>
             <SenderInfoContainer />
@@ -54,17 +56,25 @@ function DeliveryInfoScreen() {
             <PostMethodOption/>
             <PersonalInfoAgreement/>
             <BigDivider top="1015px"/>
-            <StyledLink to={`payInfo`}>
+        
                 <GreyButton top="1500px" onClick={handleSenderInfoSubmit}>완료</GreyButton>
-            </StyledLink>
+       
 
-        </div>
+        </Wrapper>
 
     );
 }
 
 export default DeliveryInfoScreen
 
+
+const Wrapper=styled.div`
+margin-left:18px;
+width:414px;
+overflow:visible;
+
+
+`
 /*
    <TextField
                     required
@@ -82,7 +92,7 @@ const BigDivider = styled.div`
     height:3px;
     width:425px;
     position:absolute;
-    left:0px;
+    left:24px;
     top:${props=>props.top};
     overflow:visible;
 `

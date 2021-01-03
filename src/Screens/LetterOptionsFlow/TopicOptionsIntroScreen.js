@@ -10,9 +10,9 @@ import topicIntro from '../../images/topicIntro.png';
 import { Link ,useLocation} from 'react-router-dom';
 
 export default function TopicOptionIntroScreen() {
+    
     const { search } = useLocation();
     const query = new URLSearchParams(search);
-
 
     const receiver = query.get('receiver');
     const month = query.get('month');
@@ -37,7 +37,7 @@ export default function TopicOptionIntroScreen() {
             <StyledLink to={`writing?paper=${paper}&font=${font}`}>
                 <GreyButton top="716px">건너뛰기</GreyButton>
             </StyledLink>
-            <StyledLink to={`topic?receiver=${receiver}&paper=${paper}?font=${font}`}>
+            <StyledLink to={`topic?receiver=${receiver}&month=${month}&paper=${paper}&font=${font}`}>
                 <YellowButton top="785px">주제담기</YellowButton>
             </StyledLink>
         </div>
