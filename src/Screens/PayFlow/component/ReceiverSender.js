@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components';
 import { BodyText, SubtitleText, GreyButton, WarningText } from '../../../commons/text'
 
-export const SenderInfoContainer = () => {
+export const SenderInfoContainer = ({ senderInfo }) => {
     const [senderName, setSenderName] = useState("");
     const [senderPhone, setSenderPhone] = useState("");
     const [confirmPhoneForm, setComfirmPhoneForm] = useState(true);
@@ -36,10 +36,8 @@ export const SenderInfoContainer = () => {
         overflow: "hidden"
     }
 
-
-
     const [isDaumPost, setIsDaumPost] = useState(false);
-    const [address, setAddress] = useState("");
+    const [detailedAddress, setDetailedAddress] = useState("");
     const [zoneCode, setZoneCode] = useState("");
     const [fullAddress, setFullAddress] = useState("");
 
@@ -66,11 +64,18 @@ export const SenderInfoContainer = () => {
     }
 
     const handleInput = (e) => {
-        setAddress(e.target.value)
+       
+        setDetailedAddress(e.target.value)
     }
 
+    console.log("in SENDERr") //값이 바뀔 때마다 return 위에 다 render하는듯? 계속 찍힘
+    senderInfo.senderName = senderName;
+    senderInfo.senderPhone = senderPhone;
+    senderInfo.fullAddress = fullAddress;
+    senderInfo.DetailedAddress = detailedAddress;
+    senderInfo.zoneCode = zoneCode;
     return (
-        <div style={{ position: "relative", top:"0px" }}>
+        <div style={{ position: "relative", top: "0px", width: "390px" }}>
             <SenderInfoRow top="199px">
                 <TBodyText left="0px">보내는 사람 성함</TBodyText>
                 <UserInput name="name" type="text" placeholder="서유빈"
@@ -90,17 +95,17 @@ export const SenderInfoContainer = () => {
             {!confirmPhoneForm && <AlertDiv top="530px">
                 전화번호 입력 형식을 맞춰주세요
                     </AlertDiv>}
-            <SenderInfoRow top="310px">
+            <SenderInfoRow top="315px">
                 <TBodyText left="0px" >우편번호</TBodyText>
-                <ReadOnlyUserInput readonyly
-                   right="74px"
+                <ReadOnlyUserInput readonly
+                    left="89px"
                     name="address1"
                     tpye="text"
-                    width="175px"
+                    width="177px"
                     value={zoneCode}>
-                        
-                    </ReadOnlyUserInput>
-               <PostBtn onClick={handleOpenPost}>찾기</PostBtn>
+
+                </ReadOnlyUserInput>
+                <PostBtn onClick={handleOpenPost}>찾기</PostBtn>
             </SenderInfoRow>
 
             {
@@ -115,19 +120,20 @@ export const SenderInfoContainer = () => {
                     />
                     : null
             }
-            <SenderInfoRow top="363px">
+            <SenderInfoRow top="369px">
                 <TBodyText >주소</TBodyText>
-                <ReadOnlyUserInput readonyly
-                right="20px"
+                <ReadOnlyUserInput
+                    readonly
+                    left="60px"
                     name="address1"
                     tpye="text"
                     value={fullAddress}></ReadOnlyUserInput>
             </SenderInfoRow>
-            <SenderInfoRow top="415px">
-            <TBodyText >상세주소</TBodyText>
+            <SenderInfoRow top="419px">
+                <TBodyText >상세주소</TBodyText>
                 <UserInput
                     type="text"
-                    value={address}
+                    value={detailedAddress}
                     name="address"
                     plaeceholder="상세주소"
                     onChange={handleInput}>
@@ -140,11 +146,12 @@ export const SenderInfoContainer = () => {
 
 }
 
-export const ReceiverInfoContainer = () => {
+export const ReceiverInfoContainer = ({receiverInfo}) => {
     const [senderName, setSenderName] = useState("");
     const [senderPhone, setSenderPhone] = useState("");
     const [confirmPhoneForm, setComfirmPhoneForm] = useState(true);
 
+   
     const handleSenderName = (e) => {
         setSenderName(e.target.value);
     }
@@ -176,7 +183,7 @@ export const ReceiverInfoContainer = () => {
 
 
     const [isDaumPost, setIsDaumPost] = useState(false);
-    const [address, setAddress] = useState("");
+    const [detailedAddress, setDetailedAddress] = useState("");
     const [zoneCode, setZoneCode] = useState("");
     const [fullAddress, setFullAddress] = useState("");
 
@@ -203,11 +210,18 @@ export const ReceiverInfoContainer = () => {
     }
 
     const handleInput = (e) => {
-        setAddress(e.target.value)
+        setDetailedAddress(e.target.value)
     }
+    
+    console.log("in Receiver")
+    receiverInfo.receiverName = senderName;
+    receiverInfo.receiverPhone = senderPhone;
+    receiverInfo.receiverFullAddress = fullAddress;
+    receiverInfo.receiverDetailedAddress = detailedAddress;
+    receiverInfo.receiverZoneCode = zoneCode;
 
     return (
-        <div style={{ position: "relative", top: "300px" }}>
+        <div style={{ position: "relative", top: "300px", width: "390px" }}>
             <SenderInfoRow top="199px">
                 <TBodyText left="0px">받는 사람 성함</TBodyText>
                 <UserInput name="name" type="text" placeholder="서유빈"
@@ -227,17 +241,18 @@ export const ReceiverInfoContainer = () => {
             {!confirmPhoneForm && <AlertDiv top="530px">
                 전화번호 입력 형식을 맞춰주세요
                     </AlertDiv>}
-            <SenderInfoRow top="310px">
+            <SenderInfoRow top="315px">
                 <TBodyText left="0px" >우편번호</TBodyText>
-                <ReadOnlyUserInput readonyly
-                   right="74px"
+                <ReadOnlyUserInput
+                    left="89px"
                     name="address1"
                     tpye="text"
-                    width="175px"
-                    value={zoneCode}>
-                        
-                    </ReadOnlyUserInput>
-               <PostBtn onClick={handleOpenPost}>찾기</PostBtn>
+                    width="177px"
+                    value={zoneCode}
+                    readOnly>
+
+                </ReadOnlyUserInput>
+                <PostBtn onClick={handleOpenPost}>찾기</PostBtn>
             </SenderInfoRow>
 
             {
@@ -252,19 +267,20 @@ export const ReceiverInfoContainer = () => {
                     />
                     : null
             }
-            <SenderInfoRow top="363px">
+            <SenderInfoRow top="370px">
                 <TBodyText >배송주소</TBodyText>
-                <ReadOnlyUserInput readonyly
-                right="20px"
+                <ReadOnlyUserInput
+                    left="60px"
                     name="address1"
                     tpye="text"
-                    value={fullAddress}></ReadOnlyUserInput>
+                    value={fullAddress}
+                    readonly></ReadOnlyUserInput>
             </SenderInfoRow>
-            <SenderInfoRow top="415px">
-            <TBodyText >상세주소</TBodyText>
+            <SenderInfoRow top="420px">
+                <TBodyText >상세주소</TBodyText>
                 <UserInput
                     type="text"
-                    value={address}
+                    value={detailedAddress}
                     name="address"
                     plaeceholder="상세주소"
                     onChange={handleInput}>
@@ -272,18 +288,21 @@ export const ReceiverInfoContainer = () => {
 
             </SenderInfoRow>
             <SenderInfoRow top="460px">
-            <AlertDiv  left="50px">*거주지 변경의 가능성이 낮은 곳을 배송지로 입력해주세요.</AlertDiv>
+                <AlertDiv left="80px">*거주지 변경의 가능성이 낮은 곳을 배송지로 입력해주세요.</AlertDiv>
             </SenderInfoRow>
         </div>
     );
 
 }
 
+//export {senderName,senderPhone,fullAddress,detailedAddress};
+
 const ReadOnlyUserInput = styled.input`
-margin-top:8px;
-margin-left:${props=>props.right};
-width:${props=>props.width||"220px"};
+margin-top:10px 0 0 0;
+margin-left:${props => props.left};
+width:${props => props.width || "220px"};
 height:45px;
+border:1.5px solid #EDEDED;
 
 `
 const TBodyText = styled(BodyText)`
@@ -295,7 +314,7 @@ justify-content:space-between;
 align-items:center;
 position:absolute;
 height:49px;
-width:366px;
+width:376px;
 top:${props => props.top};
 `
 const ZoneCodeBox = styled.div`
@@ -306,8 +325,8 @@ height:46px;
 
 `
 const UserInput = styled.input`
-margin-top:8px;
-
+margin-top:10px;
+border:1.5px solid #EDEDED;
 width:220px;
 height:45px;
 `
@@ -321,11 +340,10 @@ font-style: normal;
 font-weight: normal;
 font-size: 16px;
 line-height: 24px;
-height:47px;
-margin-top:8px;
+height:50px;
+margin:0 0 0 0;
 
 `
-
 
 const AlertDiv = styled.p`
 font-family: SpoqaHanSans;
@@ -336,6 +354,6 @@ line-height: 18px;
 
 position:absolute;
 top:${props => props.top};
-margin-left:${props=>props.left||"170px"};
+margin-left:${props => props.left || "170px"};
 color: red;
 `

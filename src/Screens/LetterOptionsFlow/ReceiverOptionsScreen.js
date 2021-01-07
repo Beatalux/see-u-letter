@@ -28,7 +28,6 @@ const ReceiverOptionsScreen = ({ match }) => {
         setReceiver(v);
         let temp = (v === "myself") ? true : false;
         setIsMeSelected(temp)
-
   }
 
     const handlingAPI=()=>{
@@ -39,7 +38,7 @@ const ReceiverOptionsScreen = ({ match }) => {
     return (
 
         <div>
-                    { console.log("plzplz",cookies.token)}//ok
+            { console.log("plzplz",cookies.token)}//ok
             <Header />
             <BarImage></BarImage>
             <TitleText top="141px" size="18px" left="24px">이 편지는 누구에게 쓰나요?</TitleText>

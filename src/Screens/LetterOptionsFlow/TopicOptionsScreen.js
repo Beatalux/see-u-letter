@@ -9,17 +9,21 @@ import bar from '../../images/bar5.png';
 import { useCookies } from 'react-cookie';
 import Header from '../../commons/Header';
 import {postLetterOption} from '../../axios/auth'
+import {useTexts} from '../../components/Modal/context'
 
  
 //use npm react-custom-checkbox
 //MIT https://www.npmjs.com/package/react-custom-checkbox
 
 const TopicOptionsScreen = () => {
+    //letter_id 를 받음
 
     const [cookies, setCookie,removeCookie] = useCookies(['token']);
   
     let QuestionsList=[];
     const [background, setBackground] = useState(1);
+
+    const {handleQuestions}=useTexts();
 
     const history=useHistory();
     const { search } = useLocation();
@@ -35,7 +39,6 @@ const TopicOptionsScreen = () => {
         QuestionsList=QuestionsToMySelfList;
     }else{
         QuestionsList=QuestionsToOthersList;
-
     }
 
 
@@ -53,13 +56,8 @@ const TopicOptionsScreen = () => {
             }
         })
 
-        let i
-    for (i = 0; i <  SelectedQuestions.length; i++) {
-        SelectedQuestions[i]+=1;
-           
-        } 
-    
     console.log("btn", SelectedQuestions);
+    handleQuestions(SelectedQuestions);
 
         //선택된 질문 index 반환
 
@@ -68,7 +66,7 @@ const TopicOptionsScreen = () => {
        console.log("ARR",SelectedQuestions)
        console.log("cookies.token in topic",cookies.token.id);
        let temp=cookies.token.id
-       postLetterOption(temp,paper,font, month,SelectedQuestions);
+       postLetterOption(temp,paper+1,font, month,setCookie);
 
     }
 
@@ -82,7 +80,6 @@ const TopicOptionsScreen = () => {
             <BarImage></BarImage>
             <SubtitleText top="135px" size="18px" left="24px">편지에 쓸 주제를 담아보아요.</SubtitleText>
             <BodyText top="165px" left="24px" size="14px">주제 없이 자유롭게 작성하고 싶다면, '다음'을 눌러주세요.</BodyText>
-
             <Wrapper>
                 {QuestionsList.map((question, index) => {
                     return (
@@ -107,7 +104,7 @@ const TopicOptionsScreen = () => {
                             borderColor="#D7C629"
                             containerStyle={{ width: '380px' }}
                             style={{ cursor: "pointer", marginBottom: 16 }}
-                            labelStyle={{ marginLeft: 11, marginBottom: 16, marginRight:2,fontFamily: "SpoqaHanSans", fontSize: "16px", userSelect: "none" }}
+                            labelStyle={{ marginLeft: 11, marginBottom: 16, marginRight:2,fontFamily: "Spoqa Han Sans Neo", fontSize: "16px", userSelect: "none" }}
                             label={question}
                             size={15}
                         />
@@ -115,7 +112,7 @@ const TopicOptionsScreen = () => {
                     )
                 })}
             </Wrapper>
-            <StyledLink to={`writing?paper=${paper}&font=${font}`}>
+            <StyledLink to={`writing?receiver=${receiver}&paper=${paper}&font=${font}`}>
                 <YellowButton onClick={test} top="888px" >다음</YellowButton>
             </StyledLink>
         </div>

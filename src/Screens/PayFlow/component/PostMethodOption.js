@@ -15,19 +15,19 @@ const RadioButton = withStyles({
 })((props) => <Radio color="default" {...props} />);
 
 
-export default function PostMethodOption() {
+export default function PostMethodOption({postInfo}) {
     const [selectedValue, setSelectedValue] = useState("a");
 
     const handleChange = (e) => {
         setSelectedValue(e.target.value);
-        //switch?
 
 
     }
+    postInfo.value=selectedValue;
     return (
         <div style={{ position: "relative", top:"850px" ,width:"390px",overflow:"visible"}}>
             <PostMethodRow >일반우편
-            <ExtraPriceText></ExtraPriceText>
+            <ExtraPriceText>+2500원</ExtraPriceText>
                 <RadioButton
                     checked={selectedValue === 'a'}
                     onChange={handleChange}
@@ -38,7 +38,7 @@ export default function PostMethodOption() {
             </PostMethodRow>
 
             <PostMethodRow >등기우편
-                <ExtraPriceText>+추가</ExtraPriceText>
+                <ExtraPriceText>+3000원</ExtraPriceText>
                 <RadioButton
                     checked={selectedValue === 'b'}
                     onChange={handleChange}
@@ -47,7 +47,7 @@ export default function PostMethodOption() {
                     inputProps={{ 'aria-label': 'B' }}
                 />
             </PostMethodRow >
-            <WarningText fontColor="red" left="200px" top="100px">선택 후 변경이 불가능합니다.</WarningText>
+            <WarningText fontColor="red" left="240px" top="100px">선택 후 변경이 불가능합니다.</WarningText>
         </div>
     )
 
@@ -55,8 +55,8 @@ export default function PostMethodOption() {
 
 const PostMethodRow = styled.div`
 display:grid;
-grid-template-columns:80px 262px 58px;
-width:398px;
+grid-template-columns:80px 255px 55px;
+width:390px;
 align-items:center;
 margin-bottom:15px;
 

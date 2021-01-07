@@ -18,7 +18,7 @@ function LastScreen() {
 
             <ImageBox img={lastimage} top="309px" height="283px">
             </ImageBox>
-            <StyledLink to={`receiver`}>
+            <StyledLink to={`senderInfo`}>
                 <GreyButton top="716px">편지 한 장 더</GreyButton>
             </StyledLink>
             <StyledLink to={`main`}>

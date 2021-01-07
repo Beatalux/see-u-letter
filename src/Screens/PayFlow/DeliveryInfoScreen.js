@@ -1,22 +1,17 @@
 import React, { useState } from 'react'
-import Header from '../../commons/Header';
 import TextField from '@material-ui/core/TextField';
 import styled from 'styled-components';
 import { BodyText, SubtitleText, GreyButton, WarningText } from '../../commons/text'
-import { Link,useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 
-import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
 import { useCookies } from 'react-cookie';
 
 import PersonalInfoAgreement from './component/PersonalInfoAgreement'
-import {SenderInfoContainer, ReceiverInfoContainer} from './component/ReceiverSender'
+import { SenderInfoContainer, ReceiverInfoContainer } from './component/ReceiverSender'
 import PostMethodOption from './component/PostMethodOption'
-//나중에 뺴내기
-
-
-
-
+import { ArrowBack } from '@styled-icons/boxicons-regular/ArrowBack'
+import { postOrderInformation } from '../../axios/auth.js';
 
 
 //최종
@@ -24,11 +19,49 @@ import PostMethodOption from './component/PostMethodOption'
 function DeliveryInfoScreen() {
     const [cookies, setCookie, removeCookie] = useCookies(['token']);
 
-    const history=useHistory();
+    const [isAgreed, setIsAgreed] = useState('false');
+
+
+    const [confirmAgreementForm, setConfirmAgreementForm] = useState(true);
+
+    const history = useHistory();
+    const { search } = useLocation();
+    const query = new URLSearchParams(search);
+
+    const receiver = query.get('receiver');
+    const month = query.get('month');
+    const paper = parseInt(query.get('paper'));
+    const font = query.get('font');
+
+    console.log("letterID", cookies.letterID)
+    const senderInfo = {}
+    const receiverInfo={}
+    const postInfo={}
+    const agreementInfo={}
+//const { senderName, senderPhone, fullAddress, DetailedAddress, zoneCode } = //senderInfo;
+
+
+console.log("above", senderInfo, senderInfo.senderName)
+ 
+console.log("post check out of function",postInfo)
 
     const handleSenderInfoSubmit = (e) => {
         e.preventDefault();
-        history.push('/payInfo')
+
+        //왜 여기로 옮기니까 obj 값에 access 가능하지???
+        //함수 밖에서는 access 안됐음. 개발자 도구에 값 들어간게 보이는데 access하려고 하면 undefined뜸
+        console.log("in handleSenderInfoSubmit", senderInfo, senderInfo.senderName)
+ 
+        console.log("in handleSenderInfoSubmit", receiverInfo, receiverInfo.receiverName)
+ 
+        console.log("post check in function",postInfo,postInfo.value)
+        console.log("in func agreementInfo",agreementInfo.bValue,agreementInfo.cValue)
+        
+        if(agreementInfo.bValue&&agreementInfo.cValue){
+            history.push('/payInfo')
+        }else{
+            setConfirmAgreementForm(false);
+        }
         /*
     if(handleError(e)===true){
                     //history.push(`receiverOption/:${dummydata}`);
@@ -40,25 +73,41 @@ function DeliveryInfoScreen() {
                 }
     //post로 정보 보내고 쿠키 받아오기
     */
+        //postOrderInformation(letter,senderName,senderPhone,senderFullAddress,senderDeatiledAddress,senderZoneCode,receiverName,receiverPhone,receiverFullAddress,receiverDetailedAddress,receiverZoneCode,postMethod)
+
+
+        console.log("letterID", cookies.letterID)
 
     }
+ 
+    //여기서는 undefined!!
+    console.log("outㅎㅎㅎ", senderInfo, senderInfo.senderName)
+    console.log("out func agreementInfo",agreementInfo)
+
     return (
         <Wrapper>
-            <Header pageTitle="배송정보" />
-            <SubtitleText top="124px">배송 정보 입력</SubtitleText>
-            <SenderInfoContainer />
-            <Divider/>
-            <ReceiverInfoContainer/>
+            <Header>
+                <Button onClick={() => history.push('/photoIntro')}>
+                    <ArrowBackIcon />
+                </Button>
 
-            <BigDivider top="490px"/>
-          
-            <BigDivider top="815px"/>
-            <PostMethodOption/>
-            <PersonalInfoAgreement/>
-            <BigDivider top="1015px"/>
-        
-                <GreyButton top="1500px" onClick={handleSenderInfoSubmit}>완료</GreyButton>
-       
+                <HeaderText left="175.86px">배송정보</HeaderText>
+            </Header>
+            <SubtitleText top="124px">배송 정보 입력</SubtitleText>
+            <SenderInfoContainer senderInfo={senderInfo} />
+            <ReceiverInfoContainer receiverInfo={receiverInfo}/>
+
+            <BigDivider top="490px" />
+
+            <BigDivider top="815px" />
+            <PostMethodOption postInfo={postInfo}/>
+            <PersonalInfoAgreement  agreementInfo={agreementInfo}  />
+            {!confirmAgreementForm && <AlertDiv top="1035px" left="112px">
+                동의가 필요합니다</AlertDiv>}
+            <BigDivider top="1015px" />
+
+            <GreyButton top="1550px" onClick={handleSenderInfoSubmit}>완료</GreyButton>
+
 
         </Wrapper>
 
@@ -67,35 +116,6 @@ function DeliveryInfoScreen() {
 
 export default DeliveryInfoScreen
 
-
-const Wrapper=styled.div`
-margin-left:18px;
-width:414px;
-overflow:visible;
-
-
-`
-/*
-   <TextField
-                    required
-                    id="receiverName"
-                    error={!confirmPhoneForm}
-                    onChange={handleReceiverPhone}
-                    placeholder="01012345678"
-                    variant="outlined"
-                />
-
-*/
-
-const BigDivider = styled.div`
-    background: grey;
-    height:3px;
-    width:425px;
-    position:absolute;
-    left:24px;
-    top:${props=>props.top};
-    overflow:visible;
-`
 const AlertDiv = styled.p`
 font-family: SpoqaHanSans;
 font-style: normal;
@@ -105,17 +125,59 @@ line-height: 18px;
 
 position:absolute;
 top:${props => props.top};
-margin-left:170px;
+margin-left:${props => props.left || "170px"};
 color: red;
+`
+const Button = styled.button`
+background:transparent;
+background-repeat:no-repeat;
+border: none;
+cursor:pointer;
+overflow: hidden;
+outline:none;
+width:40px;
+height:24px;
+margin:0 0 0 0;
+
+`
+
+const HeaderText = styled.p`
+font-family: SpoqaHanSans;
+font-style: normal;
+font-weight:bold;
+font-size: "18px";
+line-height: 150%; 
+margin-left:115px;
+
+color: #000000;
 `
 
 
+const Header = styled.div`
+display:flex;
+align-items:center;
+position:absolute;
+top:60px;
+height:25px;
+`
+const ArrowBackIcon = styled(ArrowBack)`
+    width:30px;
+    height:23px;
+    margin-left:-5px;
+`
+const Wrapper = styled.div`
+width:390px;
 
-const UserInput = styled.input`
-margin-top:8px;
 
-width:220px;
-height:45px;
+`
+const BigDivider = styled.div`
+ background: #EDEDED;
+    height:3px;
+    width:380px;
+    position:absolute;
+  
+    top:${props => props.top};
+    overflow:visible;
 `
 
 const StyledLink = styled(Link)`

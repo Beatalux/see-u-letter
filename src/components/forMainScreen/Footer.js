@@ -1,30 +1,31 @@
 import React from 'react'
 import styled from 'styled-components';
 import { BodyText, Button, TitleText } from '../../commons/text'
-import { Link } from 'react-router-dom';
 import {Instagram} from '@styled-icons/fa-brands/Instagram';
 import line from '../../images/선4.png';
-import Divider from '@material-ui/core/Divider';
+import { Email } from '@styled-icons/material-outlined/Email';
 
 
 export default function footer() {
     return ( 
 
         <Wrapper>
-            <QuestionText top="40px">씨유레터 비즈니스 문의</QuestionText>
-            <QuestionText top="78px">프로젝트 제휴 문의</QuestionText>
-            <QuestionText top="116px">마케팅 문의</QuestionText>
-            <QuestionText top="153px">환불정책</QuestionText>
+            <QuestionText top="40px">씨유레터 비즈니스, 제휴 문의</QuestionText>
+            
            
        
-            <Dividers top="204px"/>
+            <Dividers top="174px"/>
 
-            <FooterText top="228px">입금 계좌번호</FooterText>
-            <FooterText top="249px" w="bold" size="18px">국민 000-000-00-000000</FooterText>
-            <FooterText top="282px">seeyouletter@gmail.com</FooterText>
-            <div style={{display:"flex", position:"absolute", top:"325px",alignItems:"center"}}>
+            <FooterText top="180px">입금 계좌번호</FooterText>
+            <FooterText top="210px" w="bold" size="18px">카카오뱅크 3333-18-3951747 (이승아)</FooterText>
+            <div style={{ display: "flex", position: "absolute", top: "100px", alignItems: "center" }}>
+                <MailIcon />
+                <EditedFooterText>seeyouletter.official@gmail.com </EditedFooterText>
+
+            </div>
+            <div style={{display:"flex", position:"absolute", top:"130px",alignItems:"center"}}>
             <InstaIcon />
-            <EditedFooterText >@seeyouletter</EditedFooterText>
+            <EditedFooterText >@seeyouletter.official</EditedFooterText>
 
             </div>
         </Wrapper>
@@ -33,11 +34,17 @@ export default function footer() {
 const InstaIcon=styled(Instagram)`
 height: 18px;
 width: 18px;
+color:white;
 
 padding-top:1px;
 margin-left:24px;
-
-
+`
+const MailIcon = styled(Email)`
+height: 24px;
+width: 24px;
+color:white;
+padding-top:1px;
+margin-left:24px;
 `
 const Wrapper=styled.div`
 
@@ -45,8 +52,7 @@ position:relative;
 width: 414px;
 height: 363px;
 
-
-background: #C0C0C0;
+background: #7C5B42;
 
 color: 7C5B42;
 `
@@ -64,7 +70,7 @@ font-weight: 700;
 line-height: 27px;
 letter-spacing: 0em;
 text-align: left;
-
+color:white;
 
 `
 const Dividers = styled.div`

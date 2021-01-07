@@ -60,6 +60,7 @@ export default function TermOfServiceScreen() {
                 <div>
                         <SText>{term.title}</SText>
                         <BText size="14px" >{term.content} </BText>
+                   <div style={{height:"50px"}}></div>
                     </div>
                 );
             })
@@ -97,7 +98,7 @@ margin-top:43px;
 
 const ServiceTermWrap=styled.div`
 position:absolute;
-top:234px;
+top:210px;
 width:380px;
 
 

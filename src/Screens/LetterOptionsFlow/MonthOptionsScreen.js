@@ -10,44 +10,44 @@ import january from '../../images/letterSelect/january.png';
 import june from '../../images/letterSelect/june.png';
 import march from '../../images/letterSelect/march.png';
 import dimMarch from '../../images/letterSelect/dimMarch.png';
-import { useParams,Link, useLocation } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import qs from 'qs';
 import { useCookies } from 'react-cookie';
 
-const MonthList=[[march,dimMarch],[june,dimJune],[january,dimJanuary]];
+const MonthList = [[march, dimMarch], [june, dimJune], [january, dimJanuary]];
 
 const MonthOptionsScreen = ({ match }) => {
 
-    const [cookies, setCookie,removeCookie] = useCookies(['token']);
-    
-    console.log("month",cookies.token)
+    const [cookies, setCookie, removeCookie] = useCookies(['token']);
+
+    console.log("month", cookies.token)
     const UserID = match.params.UserID;
-  const location = useLocation();
-   const query = qs.parse(location.search, {
-    ignoreQueryPrefix: true
-  })
+    const location = useLocation();
+    const query = qs.parse(location.search, {
+        ignoreQueryPrefix: true
+    })
 
-    const receiver=query.receiver;
-    console.log('query ck',receiver)
+    const receiver = query.receiver;
+    console.log('query ck', receiver)
 
-  //  console.log(location, "UI");
+    //  console.log(location, "UI");
 
     const [selectedMonth, setSelectedMonth] = useState('march');
-    const [isMarch,setIsMarch]=useState(0);
-    const [isJune,setIsJune]=useState(1);
-    const [isJanuary,setIsJanuary]=useState(1);
+    const [isMarch, setIsMarch] = useState(0);
+    const [isJune, setIsJune] = useState(1);
+    const [isJanuary, setIsJanuary] = useState(1);
 
     const handleClick = (value) => {
-    
-        switch(value){
-            case 'march':setSelectedMonth('march');setIsMarch(0);setIsJune(1);setIsJanuary(1);break;
-            case 'june':setSelectedMonth('june');setIsMarch(1);setIsJune(0);setIsJanuary(1);break;
-            case 'jan':setSelectedMonth('january');setIsMarch(1);setIsJune(1);setIsJanuary(0);break;
+
+        switch (value) {
+            case 'march': setSelectedMonth('march'); setIsMarch(0); setIsJune(1); setIsJanuary(1); break;
+            case 'june': setSelectedMonth('june'); setIsMarch(1); setIsJune(0); setIsJanuary(1); break;
+            case 'jan': setSelectedMonth('january'); setIsMarch(1); setIsJune(1); setIsJanuary(0); break;
         }
-    
+
     }
     //It works ouside of handleclick function!
-    console.log("result",selectedMonth)
+    console.log("result", selectedMonth)
 
     return (
         <div>

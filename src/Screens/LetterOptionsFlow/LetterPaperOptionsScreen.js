@@ -1,17 +1,14 @@
 import React,{useState} from 'react'
-import Carousel from '../../components/Carousel/LetterPaperCarousel'
 import styled from "styled-components";
-
+import { Link,useLocation } from 'react-router-dom';
 import { BodyText, SubtitleText, YellowButton, TitleText } from '../../commons/text'
 
-import { Link,useLocation } from 'react-router-dom';
+import Carousel from '../../components/Carousel/LetterPaperCarousel'
+
 import bar from '../../images/bar3.png';
-
-
 import p1 from '../../images/paperTextSample/paper1.png';
 import fontsample from '../../images/fontsample.png';
 import Header from '../../commons/Header';
-import { ViewCarousel } from 'styled-icons/material-rounded';
 
 
 export default function LetterPpaerOptionsScreen() {

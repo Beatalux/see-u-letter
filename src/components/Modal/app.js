@@ -1,7 +1,7 @@
 import React from "react";
 import { ModalProvider } from "./modalContext";
 import Component from "./component";
-import {FinshedLetterButton} from "./component";
+import {FinshingLetterButton,LeavingLetterButton} from "./component";
 export default function App() {
   
   return (
@@ -14,13 +14,21 @@ export default function App() {
   );
 }
 
-export function FinishedBtn(){
+export function FinishBtn(){
   return(
     <ModalProvider>
-    <FinshedLetterButton/>
-
+    <FinshingLetterButton/>
   </ModalProvider>
 
 
+  )
+}
+
+
+export function LeaveBtn(){
+  return(
+    <ModalProvider>
+    <LeavingLetterButton/>
+  </ModalProvider>
   )
 }

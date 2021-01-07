@@ -94,7 +94,7 @@ export const YellowButton=styled.button.attrs(props=>({
     top:props.top,
     bottom:props.bottom,
 }))`
-font-family: Spoqa Han Sans Neo;
+font-family: SpoqaHanSans;
 font-style: normal;
 font-weight: bold;
 font-size: 18px;

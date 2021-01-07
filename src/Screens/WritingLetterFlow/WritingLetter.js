@@ -1,103 +1,133 @@
-import React, { useState, useEffect, useContext, createContext } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import styled from 'styled-components'
-import { BodyText, SubtitleText, WarningText, YellowButton, TitleText } from '../../commons/text'
-import { Link ,useLocation,useHistory} from 'react-router-dom';
-import { ArrowBack } from '@styled-icons/boxicons-regular/ArrowBack'
+import { BodyText, SubtitleText, WarningText } from '../../commons/text'
+import { Link, useLocation, useHistory } from 'react-router-dom';
+import { QuestionsToMySelfList, QuestionsToOthersList } from '../../commons/LetterTopics';
 
 import Modal from '../../components/Modal/app';
-import { FinishedBtn } from '../../components/Modal/app';
+import { LeaveBtn } from '../../components/Modal/app';
+import FinishBtn from './CompleteButtonModal'
 import { useTexts } from '../../components/Modal/context'
-import { ModalContext } from "../../components/Modal/modalContext";
+import { useCookies } from 'react-cookie';
+import { putLetterContent } from '../../axios/auth.js';
 
-import FontsList from '../../commons/font'
-
-const ExtraLetterPage = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 
 
 export default function WritingLetter(value) {
 
-    const history=useHistory();
+    const [cookies, setCookie] = useCookies(['test']);
+
+    const history = useHistory();
     const { search } = useLocation();
     const query = new URLSearchParams(search);
-    const font=query.get('font');
+    const font = query.get('font');
+    const receiver = query.get('receiver');
 
     let MaxCount = 10;//1248
-    const selectedq = "Blah";
     const [countedWords, setCountedWords] = useState(0);
+    const [letterContent, setLetterContent] = useState("");
+    const [count, setCount] = useState(10);//word limit
+    const [pageNumber, setPageNumber] = useState(2);
+    const { isClick, isReached, passingTopics } = useTexts();
 
+    const letterID = cookies.test
+    console.log("in writing, for put", letterID);
+
+
+    let QuestionsList = [];
+
+    if (receiver == 'myself') {
+        QuestionsList = QuestionsToMySelfList;
+    } else {
+        QuestionsList = QuestionsToOthersList;
+    }
 
     const handleWordCount = (e) => {
         setCountedWords(e.target.value);
+        setLetterContent(e.target.value);
+
+    }
+
+
+    const handleSubmitLetter = (e) => {
+        //setLetterContent(e.target.value);
+        // Put api
+        console.log("in handle submit", letterContent, pageNumber)
+
+        console.log("letterID", letterID);
+
+        putLetterContent(letterID.id, letterContent, pageNumber);
+        history.push('/preview');
+
     }
 
 
 
 
-    const { isClick, isReached, togglePlay } = useTexts();
-    const [count, setCount] = useState(10);
-
-    console.log('aaa', isClick, isReached)
-
-    
+    console.log('aaa', isClick, isReached, passingTopics)
 
     useEffect(() => {
         console.log('iskkkkk', isClick)
 
-        
-            console.log('sibal');
-            return () => {
-                console.log('is', isClick);
-                setCount(prevCount => prevCount + 5);
-            };
-        
-   
+
+        return () => {
+            console.log('is', isClick);
+            setCount(prevCount => prevCount + 5);
+            setPageNumber(prevCount => prevCount + 1);
+        };
+
+
     }, [isReached]);
 
-const isAddingExtraWords = (v) => {
+
+    console.log("letttercontent", letterContent);
+    console.log('topicsoucs', passingTopics)
+
+    let TopicArray = []
+    if (passingTopics !== undefined) {
+        let i;
+
+        for (i = 0; i < passingTopics.length; i++) {
+            TopicArray[i] = QuestionsList[passingTopics[i]];
+        }
+    }
+
+    let text = "";
+
+    TopicArray.map((topic, index) => {
+        text += topic + "\n";
+    })
 
 
+    return (
+        <div style={{ marginLeft: "12px" }}>
 
-}
+            <Header>
+                <LeaveBtn />
+                <FinishBtn func={handleSubmitLetter} />
+            </Header>
 
-
-//    // <button onClick={()=>isAddingExtraWords(false)}>dfdf</button>
-
-const l = ['a', 'b', 'c',]
-
-const text = l[0]  + "\n"+ "\n" + l[1] + "\n";
-return (
-    <div style={{ marginLeft: "12px" }}>
-
-        <Header>
-            <ArrowBackIcon />
-            <FinishedBtn />
-        </Header>
-
-        <CountingText>{countedWords.length == 0 ? '0' : countedWords.length}/{count}</CountingText>
-        <TopicContainer>
-            <WarningText fontColor=" #979797" >내가 담은 주제</WarningText>
-            <TopicTextField value={text} rows="2" readOnly  ></TopicTextField>
-
-        </TopicContainer>
+            <CountingText>{countedWords.length == 0 ? '0' : countedWords.length}/{count}</CountingText>
+            <TopicContainer>
+                <WarningText fontColor=" #979797" >내가 담은 주제</WarningText>
+                <TopicTextField value={text} rows="2" readOnly  ></TopicTextField>
+            </TopicContainer>
 
 
-        <WritingTextField onChange={handleWordCount}
-            placeholder="마음을 담아보세요"
-            autofocus={false}
-            font={font} maxLength={count}></WritingTextField>
-        {console.log(count, "fuck", countedWords.length)}
+            <WritingTextField onChange={handleWordCount}
+                placeholder="마음을 담아보세요"
+                autofocus={false}
+                font={font} maxLength={count} value={letterContent}></WritingTextField>
+            {console.log(count, "fuck", countedWords.length)}
 
 
-        {countedWords.length == count ? <Modal /> : <div />}
+            {countedWords.length == count ? <Modal /> : <div />}
+        </div>
 
 
-
-    </div>
-
-
-)
+    )
 }
 
 
@@ -140,7 +170,7 @@ font-family: RIDIBatang;
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
-line-height: 14px;
+line-height: 18px;
 &:hover{
     border-style:none;
 }
@@ -186,14 +216,13 @@ color: #7C5B42;
 
 `
 const Header = styled.div`
-
 display:flex;
 align-items:center;
 position:absolute;
 top:60px;
 height:25px;
 `
-const HeaderButton = styled(FinishedBtn)`
+const HeaderButton = styled(FinishBtn)`
 /*완료*/
 font-family: SpoqaHanSans;
 font-style: normal;
@@ -208,11 +237,3 @@ color: #7C5B42;
 border:none;
 `
 
-
-const ArrowBackIcon = styled(ArrowBack)`
-    width:30px;
-    height:23px;
-margin-left: -17px;
-
-
-`

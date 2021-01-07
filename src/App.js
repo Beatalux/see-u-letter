@@ -20,12 +20,15 @@ import WritingLetterScreen from './Screens/WritingLetterFlow/WritingLetter'
 import sidebar from './components/forMainScreen/Sidebar'
 import WritingCopy from './Screens/Writingcopy';
 import DeliveryInfoScreen from './Screens/PayFlow/DeliveryInfoScreen';
-import PhotoUploadScreen from './Screens/test'
+import PhotoUploadScreen from './Screens/PhotoUploadFlow/PhotoUploadScreen'
+import PhotoCheckScreen from './Screens/PhotoUploadFlow/PhotoCheckScreen'
+import PhotoUploadIntroScreen from './Screens/PhotoUploadFlow/PhotoUploadIntroScreen'
 import TermsOfServiceScreen from './Screens/ServiceIntroductionFlow/TermsOfServiceScreen'
 import SenderInfoScreen from './Screens/ServiceIntroductionFlow/SenderInfoScreen'
 import TopicOptionIntroScreen from './Screens/LetterOptionsFlow/TopicOptionsIntroScreen'
 import PaymentInfoScreen from './Screens/PayFlow/PaymentInfoScreen'
 import LastScreen from './Screens/PayFlow/LastScreen'
+
 import PreviewScreen from './Screens/WritingLetterFlow/LetterPreviewScreen'
 export default function App() {
   return (
@@ -44,7 +47,9 @@ export default function App() {
         <Route component={FaQScreen} exact path="/faq"/>
         <Route component={WritingLetterScreen} exact path="/writing"/>
         <Route component={PreviewScreen} exact path="/preview"/>
-       
+        <Route component={PhotoUploadScreen} exact path="/upload"/>
+        <Route component={PhotoCheckScreen} exact path="/check"/>
+        <Route component={PhotoUploadIntroScreen} exact path="/photoIntro"/>
         <Route component={LastScreen} exact path="/culetter"/>
         <Route component={LandingScreen} exact path="/landing"/>
   
@@ -72,6 +77,7 @@ const Wrapper = styled.div`
 
   margin: 0 16px 0 16px;
   @media only screen and ${mobile}{
-    background-color: black;
+    background-color: white;
+    position:center;
   }
 `;

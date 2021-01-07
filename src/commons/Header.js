@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import {ArrowBack} from '@styled-icons/boxicons-regular/ArrowBack'
-import { BodyText, SubtitleText,  TitleText } from './text'
-import logo from '../images/logo.png';
 import { Link,useHistory } from 'react-router-dom';
 function Header({pageTitle}) {
     const history=useHistory();
@@ -35,9 +33,6 @@ width:40px;
 height:25px;
 margin:0 0 0 0;
 
-
-
-
 `
 const Wrapper=styled.div`
 
@@ -48,13 +43,7 @@ top:60px;
 height:25px;
 `
 
-const StyledLink = styled(Link)`
-    text-decoration: none;
 
-    &:focus, &:hover, &:visited, &:link, &:active {
-        text-decoration: none;
-    }
-`;
 const HeaderText=styled.p`
 font-family: SpoqaHanSans;
 font-style: normal;
@@ -71,7 +60,4 @@ const ArrowBackIcon=styled(ArrowBack)`
     width:30px;
     height:23px;
     margin-left:-12px;
-
-
-
 `

@@ -97,7 +97,7 @@ const Wrapper = styled.div`
 const BuggerImage = styled(Menu)`
 height: 24px;
 width: 24px;
-margin-left:40px;
+margin-left:30px;
 
 
 `;

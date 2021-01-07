@@ -10,7 +10,10 @@ import {HelpCircle} from '@styled-icons/ionicons-outline/HelpCircle'
 import circle from '../../icons/Ellipse32.png'
 import process from './process.png'
 
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+
 function sidebar() {
+    const [copied,setCopied]=React.useState(false);
     return (
         <Wrapper>
             <CloseRow>
@@ -41,8 +44,13 @@ function sidebar() {
                 <WhiteBodyText>라이선스</WhiteBodyText>
             </SmallRow>
             <SmallRow>
-                <CircleIcon></CircleIcon>
-                <WhiteBodyText>입금 계좌 복사</WhiteBodyText>
+            <CircleIcon></CircleIcon>
+                
+                <CopyToClipboard  text="카카오뱅크 3333-18-3951747 (이승아)"
+                onCopy={()=>setCopied(ture)}>
+              
+                <WhiteBodyButton>입금 계좌 복사</WhiteBodyButton>
+                </CopyToClipboard>
             </SmallRow>
 
 
@@ -60,17 +68,38 @@ const WhiteTitleText=styled(SubtitleText)`
 }
 }
 `
-
 const WhiteBodyText=styled(BodyText)`
 &&&{
     color:white;
     margin-left:67px;
+`
 
-}
+const WhiteBodyButton=styled.button`
+border:none;
+padding:0 0 0 0;
+background:transparent;
+
+position:absolute;
+height: 24px;
+width: 96px;
+left: 163px;
+top: 369px;
+border-radius: nullpx;
+font-family: SpoqaHanSans;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0em;
+margin-left:67px;
+
 `
 const Wrapper=styled.div`
 background-color:'#7C5B42';
 color:white;
+
+
+
 `
 const CloseButton=styled(CloseOutline)`
 

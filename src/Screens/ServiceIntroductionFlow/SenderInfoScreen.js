@@ -16,11 +16,7 @@ function SenderInfoScreen() {
 
     let history = useHistory();
 
-
-   
-    const [senderPhone,setSenderPhone] =useState("");
     const [senderEmail, setSenderEmail]=useState("");
-    const [confirmPhoneForm,setComfirmPhoneForm]=useState(true);
     const [confirmEmailForm,setComfirmEmailForm]=useState(true);
     const [cookies, setCookie,removeCookie] = useCookies(['token']);
 

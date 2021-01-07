@@ -33,7 +33,6 @@ export default function TopicOptionIntroScreen() {
             <ImageBox img={topicIntro} top="340px">
             </ImageBox>
 
-
             <StyledLink to={`writing?paper=${paper}&font=${font}`}>
                 <GreyButton top="716px">건너뛰기</GreyButton>
             </StyledLink>

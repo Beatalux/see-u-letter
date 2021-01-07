@@ -2,6 +2,7 @@ import React from 'react'
 import { BodyText, SubtitleText, YellowButton as Button, WarningText as W, TitleText } from '../../commons/text'
 import styled from 'styled-components'
 import { Link, useLocation } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 
 
@@ -32,6 +33,10 @@ const MAX_WORD_COUNT=640; //639+1
 
 
 export default function LetterPreviewScreen() {
+    const [cookies, setCookie] = useCookies(['test']);
+    const letterID=cookies.test
+    console.log("letterID PREVIEW",letterID)
+
 
     let LetterContent = [];
     let temp=test;
@@ -52,6 +57,9 @@ export default function LetterPreviewScreen() {
 
         const { search } = useLocation();
         const query = new URLSearchParams(search);
+
+    console.log("LetterPrieveiw",letterID.id,letterID.letterContent,letterID.page);
+    
     
         //get letter,font info
         const selectedFont= query.get('font');
@@ -73,7 +81,9 @@ export default function LetterPreviewScreen() {
                 <WarningText color="rgba(241,199,51,0.5)" >
                     * 줄바꾸기를 하신 경우, 편지지에 맞는 탬플릿에 적용되는 과정에서 줄이 추가되어 종이 수가 늘어날 수 있습니다.
             </WarningText>
+            <StyledLink to="/photoIntro">
                 <YellowButton>완료</YellowButton>
+                </StyledLink>
             </div>
         )
     }
@@ -90,10 +100,15 @@ position:relative;
 
 const YellowButton = styled(Button)`
 position:relative;
-
-
 `
 
+const StyledLink = styled(Link)`
+    text-decoration: none;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+                    text - decoration: none;
+    }
+`;
 
 const PreviewContainer = styled.div`
 

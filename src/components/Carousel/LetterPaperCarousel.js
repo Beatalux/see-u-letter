@@ -22,26 +22,45 @@ import s7 from '../../images/samplePaper/p7.png'
 
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  root: props=>({
     display: 'flex',
     '& > *': {
-      margin: theme.spacing(1),
-    },
-    root:{
-      topMargin:"27px",
-    }
+      margin:"-15px 0 0 27px",
+      border:"solid 2px white",
+      backgroundSize:"cover",
+      border:props.clicked==0? "solid 2px #31FF10":"solid 2px white",
 
-  },
+ 
+      borderRadius:"0px",
+      "&:hover":{
+        border:  "2px solid #31FF10",
+      },
+      "&:active":{
+        border:  "2px solid #31FF10",
+      },
+
+    },
+  
+
+  
+
+  }),
 }));
 
 
 
 export default function GroupOrientation({ test }) {
-  const classes = useStyles();
+
   const [letterPaper, setLetterPaper] = useState(0);
+  const [outline, setOutline] = useState(0);
+
+  const styleProps={clicked:{letterPaper}}
+  const classes = useStyles(styleProps);
+
 
   const handleLetterPaper = (index) => {
     setLetterPaper(index);
+    setOutline(prevCount=>prevCount+1);
     test(index);
   }
 
@@ -61,11 +80,12 @@ export default function GroupOrientation({ test }) {
   //send to parent
   return (
     <Wrapper background={PaperLetterSampleList[letterPaper]}>
+      <OutlineBox  clicked={outline}></OutlineBox>
       <ButtonGroup
         orientation="vertical"
         color="primary"
         aria-label="vertical outlined primary button group"
-        className={classes.margin}
+        className={classes.root}
       >
         {PaperButtonList.map((pbtn, index) => {
           return (
@@ -78,7 +98,19 @@ export default function GroupOrientation({ test }) {
   );
 }
 
+const OutlineBox=styled.div`
+opacity:${props=>props.clicked==0?'100%':'0'};
+position:relative;
+top:27px;
+left:27px;
+width:36px;
+height:38px;
+border: 2px solid #31FF10;
+z-index:${props=>props.clicked==0?'1':'-1'};
 
+
+
+`
 const Wrapper = styled.div.attrs(props => ({
   background: props.background || s1,
 
@@ -88,21 +120,19 @@ background:url(${props => props.background});
 width: 414px;
 height: 530px;
 
-
 `
 const LetterPaperButton = styled(Button)`
 background:url(${props => props.img});
 background-size: contain;
-margin:30px 0 0 30px;
 width:40px;
 height:40px;
 border:${props=>props.index==0&&props.clicked==0? "solid 2px #31FF10":"solid 2px white"};
-border-radius:0px;
 &:hover {
-  border: solid 2px #31FF10;
+  border:  2px solid #31FF10;
 }
-
 `
+
+
 
 
 
