@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import styled from 'styled-components'
 import { BodyText, SubtitleText, YellowButton, TitleText } from '../../commons/text'
 import Header from '../../commons/Header';
@@ -28,12 +28,6 @@ const ReceiverOptionsScreen = ({ match }) => {
         let temp = (v === "myself") ? true : false;
         setIsMeSelected(temp)
   }
-
-    const handlingAPI=()=>{
-        //API보내기
-
-        console.log('here', isMeSelected, receiver)
-    }
     return (
 
         <div>

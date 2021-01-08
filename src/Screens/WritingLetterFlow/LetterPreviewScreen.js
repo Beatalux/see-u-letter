@@ -1,9 +1,8 @@
 import React from 'react'
-import { BodyText, SubtitleText, YellowButton as Button, WarningText as W, TitleText } from '../../commons/text'
+import {  YellowButton as Button, WarningText as W, TitleText } from '../../commons/text'
 import styled from 'styled-components'
 import { Link, useLocation } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-
 
 import p1 from '../../images/previewPaper/p1.png';
 import p2 from '../../images/previewPaper/p1.png'
@@ -14,11 +13,6 @@ import p6 from '../../images/previewPaper/p1.png'
 import p7 from '../../images/previewPaper/p1.png'
 import Header from '../../commons/Header';
 //todo: import images
-
-
-
-
-
 
 const MAX_WORD_COUNT = 640; //639+1
 
@@ -42,8 +36,6 @@ export default function LetterPreviewScreen() {
     let LetterContent = [];
     let temp = letterID.letterContent;
 
-    const { search } = useLocation();
-    const query = new URLSearchParams(search);
 
     console.log("LetterPrieveiw", letterID,letterID.id, letterID.letterContent, letterID.page);
 
@@ -64,8 +56,7 @@ export default function LetterPreviewScreen() {
 
 
     console.log(LetterContent)
-  
-    //const selectedPaper=parseInt(query.get('paper'))
+
     const selectedFont = letterID.font;
     const selectedPaper =letterID.paper
     return (

@@ -62,15 +62,7 @@ export default function WritingLetter(value) {
 
     }
 
-
-
-
-    console.log('aaa', isClick, isReached, passingTopics)
-
     useEffect(() => {
-        console.log('iskkkkk', isClick)
-
-
         return () => {
             console.log('is', isClick);
             setCount(prevCount => prevCount + 5);

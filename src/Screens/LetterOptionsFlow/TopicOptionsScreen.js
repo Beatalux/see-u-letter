@@ -78,7 +78,6 @@ const TopicOptionsScreen = () => {
             <Wrapper>
                 {QuestionsList.map((question, index) => {
                     return (
-
                         <Checkbox
                             icon={
                                 <div

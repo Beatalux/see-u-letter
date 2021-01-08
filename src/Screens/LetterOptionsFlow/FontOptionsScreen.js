@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { BodyText, SubtitleText, YellowButton, TitleText } from '../../commons/text'
+import { BodyText, YellowButton, TitleText } from '../../commons/text'
 import '../../index.css'
 import bar from '../../images/bar1.png';
 import fontsample from '../../images/fontsample.png';
 import Header from '../../commons/Header';
 import { useCookies } from 'react-cookie';
-
 import { withStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import { makeStyles } from '@material-ui/core/styles';
@@ -102,8 +101,6 @@ const FontRow = ({ change }) => {
             case 'f':
                 change(5);
                 break;
-
-
         }
 
     }
@@ -184,8 +181,6 @@ export default function FontOptionsScreen() {
 
     const { search } = useLocation();
     const query = new URLSearchParams(search);
-
-
     const receiver = query.get('receiver');
     const month = query.get('month');
     const paper = query.get('paper');

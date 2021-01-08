@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
-import TextField from '@material-ui/core/TextField';
 import styled from 'styled-components';
 import { BodyText, SubtitleText, GreyButton, WarningText } from '../../commons/text'
 import { Link, useHistory, useLocation } from 'react-router-dom';
-
-import { makeStyles } from '@material-ui/core/styles';
 import { useCookies } from 'react-cookie';
 
 import PersonalInfoAgreement from './component/PersonalInfoAgreement'
@@ -13,11 +10,10 @@ import PostMethodOption from './component/PostMethodOption'
 import { ArrowBack } from '@styled-icons/boxicons-regular/ArrowBack'
 import { postOrderInformation } from '../../axios/auth.js';
 
-
 //최종
 
 function DeliveryInfoScreen() {
-    const [cookies, setCookie, removeCookie] = useCookies(['test']);
+    const [cookies, setCookie] = useCookies(['test']);
     const [confirmAgreementForm, setConfirmAgreementForm] = useState(true);
 
     const history = useHistory();

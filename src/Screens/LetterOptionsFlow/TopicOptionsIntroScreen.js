@@ -33,16 +33,20 @@ export default function TopicOptionIntroScreen() {
             <ImageBox img={topicIntro} top="340px">
             </ImageBox>
 
-            <StyledLink to={`writing?paper=${paper}&font=${font}`}>
-                <GreyButton top="716px">건너뛰기</GreyButton>
-            </StyledLink>
             <StyledLink to={`topic?receiver=${receiver}&month=${month}&paper=${paper}&font=${font}`}>
-                <YellowButton top="785px">주제담기</YellowButton>
+                <YellowButton top="765px">주제담기</YellowButton>
             </StyledLink>
         </div>
     )
 }
 
+/*
+
+    <StyledLink to={`writing?paper=${paper}&font=${font}`}>
+                <GreyButton top="716px">건너뛰기</GreyButton>
+            </StyledLink>
+
+*/
 const TopicIntroText = styled.p`
 position: absolute;
 height: 59px;
