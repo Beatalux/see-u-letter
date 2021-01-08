@@ -13,12 +13,9 @@ import ReceiverOptionsScreen from './Screens/LetterOptionsFlow/ReceiverOptionsSc
 import FontOptionsScreen from './Screens/LetterOptionsFlow/FontOptionsScreen'
 import TopicOptionsScreen from './Screens/LetterOptionsFlow/TopicOptionsScreen'
 import MonthOptionsScreen from './Screens/LetterOptionsFlow/MonthOptionsScreen'
-
 import LetterPaperOptionsScreen from './Screens/LetterOptionsFlow/LetterPaperOptionsScreen';
 import FaQScreen from './Screens/ServiceIntroductionFlow/FaQScreen'
 import WritingLetterScreen from './Screens/WritingLetterFlow/WritingLetter'
-import sidebar from './components/forMainScreen/Sidebar'
-import WritingCopy from './Screens/Writingcopy';
 import DeliveryInfoScreen from './Screens/PayFlow/DeliveryInfoScreen';
 import PhotoUploadScreen from './Screens/PhotoUploadFlow/PhotoUploadScreen'
 import PhotoCheckScreen from './Screens/PhotoUploadFlow/PhotoCheckScreen'
