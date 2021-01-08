@@ -28,7 +28,7 @@ import SenderInfoScreen from './Screens/ServiceIntroductionFlow/SenderInfoScreen
 import TopicOptionIntroScreen from './Screens/LetterOptionsFlow/TopicOptionsIntroScreen'
 import PaymentInfoScreen from './Screens/PayFlow/PaymentInfoScreen'
 import LastScreen from './Screens/PayFlow/LastScreen'
-
+import NotFound from './Screens/NotFound'
 import PreviewScreen from './Screens/WritingLetterFlow/LetterPreviewScreen'
 export default function App() {
   return (
@@ -38,7 +38,6 @@ export default function App() {
       {/*Wrapper components are components that surround unknown components and provide a default structure to display the child components.*/}
       <Switch>
         <Route component={IntroScreen} exact path="/"/>
-        <Route component={MainScreen} exact path="/main"/>
         <Route component={ReceiverOptionsScreen} path ="/receiver/"/>
         <Route component={MonthOptionsScreen} exact path ="/month/"/>
         <Route component={FontOptionsScreen} path="/font"/>
@@ -59,6 +58,7 @@ export default function App() {
         <Route component={TermsOfServiceScreen} path="/serviceTerms"/>
         <Route component={SenderInfoScreen} path="/senderInfo"/>      
         <Route component={TopicOptionIntroScreen} path="/topicIntro"/>
+      <Route component={NotFound}/>
       </Switch>
    
     </Wrapper>
@@ -72,9 +72,6 @@ const Wrapper = styled.div`
  z-index:-1;
 
   height: 100vh;
-
-
-
   margin: 0 16px 0 16px;
   @media only screen and ${mobile}{
     background-color: white;

@@ -17,23 +17,14 @@ import { postOrderInformation } from '../../axios/auth.js';
 //최종
 
 function DeliveryInfoScreen() {
-    const [cookies, setCookie, removeCookie] = useCookies(['token']);
-
-    const [isAgreed, setIsAgreed] = useState('false');
-
-
+    const [cookies, setCookie, removeCookie] = useCookies(['test']);
     const [confirmAgreementForm, setConfirmAgreementForm] = useState(true);
 
     const history = useHistory();
     const { search } = useLocation();
     const query = new URLSearchParams(search);
 
-    const receiver = query.get('receiver');
-    const month = query.get('month');
-    const paper = parseInt(query.get('paper'));
-    const font = query.get('font');
-
-    console.log("letterID", cookies.letterID)
+    console.log("letterID", cookies.test)
     const senderInfo = {}
     const receiverInfo={}
     const postInfo={}
@@ -41,7 +32,7 @@ function DeliveryInfoScreen() {
 //const { senderName, senderPhone, fullAddress, DetailedAddress, zoneCode } = //senderInfo;
 
 
-console.log("above", senderInfo, senderInfo.senderName)
+//console.log("above", senderInfo, senderInfo.senderName)
  
 console.log("post check out of function",postInfo)
 
@@ -50,15 +41,20 @@ console.log("post check out of function",postInfo)
 
         //왜 여기로 옮기니까 obj 값에 access 가능하지???
         //함수 밖에서는 access 안됐음. 개발자 도구에 값 들어간게 보이는데 access하려고 하면 undefined뜸
-        console.log("in handleSenderInfoSubmit", senderInfo, senderInfo.senderName)
+        console.log("in handleSenderInfoSubmit", senderInfo, senderInfo.senderName,senderInfo.senderDetailedAddress)
  
-        console.log("in handleSenderInfoSubmit", receiverInfo, receiverInfo.receiverName)
+        console.log("in handleSenderInfoSubmit", receiverInfo, receiverInfo.receiverName,receiverInfo.receiverDetailedAddress)
  
         console.log("post check in function",postInfo,postInfo.value)
         console.log("in func agreementInfo",agreementInfo.bValue,agreementInfo.cValue)
+
+    
+        console.log("check this",cookies.test.id,senderInfo.senderName,typeof(senderInfo.senderPhone),senderInfo.senderFullAddress,senderInfo.senderDetailedAddress,parseInt(senderInfo.senderZoneCode),receiverInfo.receiverName,receiverInfo.receiverPhone,receiverInfo.receiverFullAddress,receiverInfo.receiverDetailedAddress,parseInt(receiverInfo.receiverZoneCode),postInfo.value)
         
         if(agreementInfo.bValue&&agreementInfo.cValue){
             history.push('/payInfo')
+            postOrderInformation(cookies.test.id,senderInfo.senderName,senderInfo.senderPhone,senderInfo.senderFullAddress,senderInfo.senderDetailedAddress,parseInt(senderInfo.senderZoneCode),receiverInfo.receiverName,receiverInfo.receiverPhone,receiverInfo.receiverFullAddress,receiverInfo.receiverDetailedAddress,parseInt(receiverInfo.receiverZoneCode),postInfo.value)
+
         }else{
             setConfirmAgreementForm(false);
         }
@@ -73,15 +69,14 @@ console.log("post check out of function",postInfo)
                 }
     //post로 정보 보내고 쿠키 받아오기
     */
-        //postOrderInformation(letter,senderName,senderPhone,senderFullAddress,senderDeatiledAddress,senderZoneCode,receiverName,receiverPhone,receiverFullAddress,receiverDetailedAddress,receiverZoneCode,postMethod)
-
+     
 
         console.log("letterID", cookies.letterID)
 
     }
  
     //여기서는 undefined!!
-    console.log("outㅎㅎㅎ", senderInfo, senderInfo.senderName)
+  //  console.log("outㅎㅎㅎ", senderInfo, senderInfo.senderName)
     console.log("out func agreementInfo",agreementInfo)
 
     return (

@@ -11,8 +11,6 @@ import { Email } from '@styled-icons/material-outlined/Email';
 import {FaQRow} from './FaQData'
 
 
-
-
 export default function FaQScreen() {
 
     return (
@@ -65,10 +63,8 @@ width:350px;
 `
 const FooterText=styled(BodyText)`
     position:absolute;
-    
     left:0px;
 `
-
 
 const MailIcon = styled(Email)`
 height: 24px;
@@ -80,7 +76,7 @@ margin-right:0px;
 const FaQText = styled.p`
 position: absolute;
 top:${props => props.top};
-font-family: SpoqaHanSans;
+font-family: "Spoqa Han Sans";
 font-style: normal;
 font-weight: ${props => props.w || "normal"};
 font-size: ${props => props.size || 14}px;
@@ -90,7 +86,7 @@ color:#7C5B42;
 
 `
 const SidebarText = styled.div`
-font-family: SpoqaHanSans;
+font-family:"Spoqa Han Sans";
 font-size: 20px;
 font-style: normal;
 font-weight: 700;

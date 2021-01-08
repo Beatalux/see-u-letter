@@ -21,7 +21,7 @@ function IntroScreen({isClicked}) {
             </IntroText>
             <IntroPostbox></IntroPostbox>
             <Logo></Logo>
-            <StyledLink to="/main">
+            <StyledLink to="/landing">
             <YellowButton top="720px" onClick={handleMainScreen}>시작하기</YellowButton>
             </StyledLink>
         </Wrapper>

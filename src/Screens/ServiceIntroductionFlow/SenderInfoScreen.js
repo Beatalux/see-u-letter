@@ -101,7 +101,7 @@ left: 107px;
 top: 150px;
 `
 const AlertDiv=styled.p`
-font-family: SpoqaHanSans;
+font-family: "Spoqa Han Sans";
 font-style: normal;
 font-weight: normal;
 font-size: 12px;

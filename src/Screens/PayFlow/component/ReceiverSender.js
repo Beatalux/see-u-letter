@@ -71,9 +71,9 @@ export const SenderInfoContainer = ({ senderInfo }) => {
     console.log("in SENDERr") //값이 바뀔 때마다 return 위에 다 render하는듯? 계속 찍힘
     senderInfo.senderName = senderName;
     senderInfo.senderPhone = senderPhone;
-    senderInfo.fullAddress = fullAddress;
-    senderInfo.DetailedAddress = detailedAddress;
-    senderInfo.zoneCode = zoneCode;
+    senderInfo.senderFullAddress = fullAddress;
+    senderInfo.senderDetailedAddress = detailedAddress;
+    senderInfo.senderZoneCode = zoneCode;
     return (
         <div style={{ position: "relative", top: "0px", width: "390px" }}>
             <SenderInfoRow top="199px">
@@ -295,7 +295,6 @@ export const ReceiverInfoContainer = ({receiverInfo}) => {
 
 }
 
-//export {senderName,senderPhone,fullAddress,detailedAddress};
 
 const ReadOnlyUserInput = styled.input`
 margin-top:10px 0 0 0;
@@ -335,7 +334,7 @@ height:45px;
 const PostBtn = styled.button`
 background:#EEB900;
 border-style:none;
-font-family: SpoqaHanSans;
+font-family: "Spoqa Han Sans";
 font-style: normal;
 font-weight: normal;
 font-size: 16px;
@@ -346,7 +345,7 @@ margin:0 0 0 0;
 `
 
 const AlertDiv = styled.p`
-font-family: SpoqaHanSans;
+font-family: "Spoqa Han Sans";
 font-style: normal;
 font-weight: normal;
 font-size: 12px;

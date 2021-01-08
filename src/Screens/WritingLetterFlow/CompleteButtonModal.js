@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
         height:307,
         backgroundColor:'white',
         border: 'none',
- 
     
     },
 }));
@@ -50,7 +49,7 @@ function CompleteButtonModal({func}) {
 
 
     const handleGreyAction = (e) => {
-        history.push('/writing');
+        history.push('writing');
 
     }
     const handleYellowAction = (e) => {
@@ -64,7 +63,7 @@ function CompleteButtonModal({func}) {
         <div style={modalStyle} className={classes.paper}>
             <TitleText top="44px" size="20px" left="30px">편지 쓰기를 완료하시겠습니까?</TitleText>
             <BodyText top="85px" left="30px">완료 버튼을 누르면 수정이 불가능합니다.</BodyText>
-            <GreyButton onClick={() => {  handleGreyAction(); }}>페이지로 돌아가기</GreyButton>
+            <GreyButton onClick={() => {  handleGreyAction(); handleClose();}}>페이지로 돌아가기</GreyButton>
             <YellowButton onClick={() => {  handleYellowAction(); }}>완료</YellowButton>
         </div>
 
@@ -121,7 +120,7 @@ border:none;
 background: #EDEDED;
 border-radius: 10px;
 
-font-family: SpoqaHanSans;
+font-family: "Spoqa Han Sans";
 font-style: normal;
 font-weight: normal;
 font-size: 18px;
@@ -148,7 +147,7 @@ top: 217px;
 background: #F1C733;
 border-radius: 10px;
 border:none;
-font-family: SpoqaHanSans;
+font-family: "Spoqa Han Sans";
 font-style: normal;
 font-weight: bold;
 font-size: 18px;

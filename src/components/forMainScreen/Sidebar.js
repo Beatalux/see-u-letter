@@ -1,10 +1,9 @@
-import React from 'react'
+import React,{useState} from 'react'
 import styled from 'styled-components';
 import { BodyText , SubtitleText, Button, TitleText } from '../../commons/text'
 import { Link } from 'react-router-dom';
 
 import Divider from '@material-ui/core/Divider';
-
 import {CloseOutline} from '@styled-icons/evaicons-outline/CloseOutline'
 import {HelpCircle} from '@styled-icons/ionicons-outline/HelpCircle'
 import circle from '../../icons/Ellipse32.png'
@@ -12,14 +11,23 @@ import process from './process.png'
 
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
-function sidebar() {
-    const [copied,setCopied]=React.useState(false);
+
+
+export default function Sidebar({snackbar}) {
+    const [copied,setCopied]=useState(false);
+ 
+
+    const handleOnClick=()=>{
+        snackbar(true);
+        
+    }
+
+
     return (
         <Wrapper>
             <CloseRow>
             <CloseButton/>
-            </CloseRow>
-            
+            </CloseRow>   
             <BigRow>
                 <ProcessIcon></ProcessIcon>
             <WhiteTitleText>씨유레터 진행 방법</WhiteTitleText>
@@ -47,18 +55,19 @@ function sidebar() {
             <CircleIcon></CircleIcon>
                 
                 <CopyToClipboard  text="카카오뱅크 3333-18-3951747 (이승아)"
-                onCopy={()=>setCopied(ture)}>
+                onCopy={()=>setCopied(true)}>
               
-                <WhiteBodyButton>입금 계좌 복사</WhiteBodyButton>
+                <WhiteBodyButton onClick={handleOnClick}>입금 계좌 복사</WhiteBodyButton>
                 </CopyToClipboard>
             </SmallRow>
+  
 
 
       </Wrapper>
     )
 }
 
-export default sidebar
+
 const WhiteTitleText=styled(SubtitleText)`
 &&&{
     color:white;
@@ -78,28 +87,24 @@ const WhiteBodyButton=styled.button`
 border:none;
 padding:0 0 0 0;
 background:transparent;
-
+color:white;
 position:absolute;
 height: 24px;
 width: 96px;
-left: 163px;
-top: 369px;
+left: 90px;
+top: 355px;
 border-radius: nullpx;
-font-family: SpoqaHanSans;
+font-family:"Spoqa Han Sans";
 font-size: 16px;
 font-style: normal;
 font-weight: 400;
-line-height: 24px;
 letter-spacing: 0em;
-margin-left:67px;
+
 
 `
 const Wrapper=styled.div`
 background-color:'#7C5B42';
 color:white;
-
-
-
 `
 const CloseButton=styled(CloseOutline)`
 
@@ -124,10 +129,6 @@ background-color:#7C5B42;
 
 align-items: center;
 margin-bottom:32px;
-
-
-
-
 `;
 
 const SmallRow=styled.button`

@@ -4,13 +4,8 @@ import { Menu } from "@styled-icons/boxicons-regular/Menu";
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
 import { Fab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
-import ListItemText from '@material-ui/core/ListItemText';
 
 import Sidebar from './Sidebar'
 
@@ -29,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SwipeableTemporaryDrawer({ change }) {
+export default function SwipeableTemporaryDrawer({ change,snackbar }) {
   const classes = useStyles();
   const [state, setState] = React.useState({
 
@@ -52,7 +47,7 @@ export default function SwipeableTemporaryDrawer({ change }) {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <Sidebar></Sidebar>
+      <Sidebar snackbar={snackbar}></Sidebar>
 
     </div>
   );

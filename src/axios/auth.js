@@ -5,15 +5,12 @@ import qs from 'qs';
     const options = {
       method: 'POST',
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
-  
       data: qs.stringify({
         senderEmail: `${senderEmail}`,
- 
       }),
-      url:`https://c780ee57b2b0.ngrok.io/letter/users/` };
+      url:`https://44f643ffd8a4.ngrok.io/letter/users/` };
     axios(options)
       .then((res) => {
-        alert('로그인을 축하드립니다');
         setCookie('token', JSON.stringify(res.data), { path: '/' });
       })
       .catch((err) => {
@@ -32,7 +29,7 @@ import qs from 'qs';
        font:`${font}`,
        month:`${month}`,
       }),
-      url:`https://c780ee57b2b0.ngrok.io/letter/letters/` };
+      url:`https://44f643ffd8a4.ngrok.io/letter/letters/` };
     axios(options)
       .then((res) => {
         //alert('로그인을 축하드립니다');
@@ -43,9 +40,9 @@ import qs from 'qs';
       });
   };
   
-  export const putLetterContent = (letterID,letterContent,page) => {
+  export const putLetterContent = (letterID,letterContent,page,setCookie) => {
     const options = {
-      method: 'PUT',
+      method: 'PATCH',
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
   
       data: qs.stringify({
@@ -54,11 +51,11 @@ import qs from 'qs';
         letterContent:`${letterContent}`,
         page:`${page}`,
       }),
-      url:`https://c780ee57b2b0.ngrok.io/letter/letters/${letterID}/` };
+      url:`https://44f643ffd8a4.ngrok.io/letter/letters/${letterID}/` };
     axios(options)
       .then((res) => {
         //alert('로그인을 축하드립니다');
-        //setCookie('token', JSON.stringify(res.data), { path: '/' });
+        setCookie('writing', JSON.stringify(res.data), { path: '/' });
       })
       .catch((err) => {
         console.log('login error!!', err);
@@ -75,7 +72,7 @@ import qs from 'qs';
         photo:`${photo}`,
     
       }),
-      url:`hhttps://c780ee57b2b0.ngrok.io/photo/photos/` };
+      url:`https://e10c45c39e95.ngrok.io/photo/photos/` };
     axios(options)
       .then((res) => {
         //alert('로그인을 축하드립니다');
@@ -86,8 +83,8 @@ import qs from 'qs';
       });
   };
 
-/*
-  export const postOrderInformation = (letter,paper,font, month,SelectedQuestions) => {
+
+  export const postOrderInformation = (letter,senderName,senderPhone,senderFullAddress,senderDeatiledAddress,senderZoneCode,receiverName,receiverPhone,receiverFullAddress,receiverDetailedAddress,receiverZoneCode,postMethod) => {
     const options = {
       method: 'POST',
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
@@ -106,16 +103,16 @@ import qs from 'qs';
           receiverZoneCode:`${ receiverZoneCode}`,
           postMethod:`${ postMethod}`,
       }),
-      url:`https://9561bd991c17.ngrok.io/order/customers/` };
+      url:`https://e10c45c39e95.ngrok.io/order/customers/` };
     axios(options)
       .then((res) => {
         //alert('로그인을 축하드립니다');
-        setCookie('letterID', JSON.stringify(res.data), { path: '/' });
+        //setCookie('letterID', JSON.stringify(res.data), { path: '/' });
       })
       .catch((err) => {
         console.log('login error!!', err);
       });
   };
-  */
+  
   
   export  default postSenderEmail;

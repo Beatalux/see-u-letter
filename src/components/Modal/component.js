@@ -10,7 +10,6 @@ import {ArrowBack} from '@styled-icons/boxicons-regular/ArrowBack'
 const Component2 = () => {
     let { handleModal } = React.useContext(ModalContext);
 
-
     React.useEffect(() => {
         handleModal(<AddWritingPageComponent/>);
 
@@ -87,7 +86,7 @@ function LeaveWritingPageComponent() {
    
         let { handleModal } = React.useContext(ModalContext);
         const handleGreyAction=(e)=>{
-            history.goBack();
+            history.push('/topicIntro');
         }
         const handleYellowAction=(e)=>{
             history.push('/writing');

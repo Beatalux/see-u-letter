@@ -37,7 +37,7 @@ const FontsList = [
     },
     {
         "fontname": "스포카 한 산스",
-        "fontEngName": "Spoqa Han Sans Neo"
+        "fontEngName": "Spoqa Han Sans"
     },
 
 ]

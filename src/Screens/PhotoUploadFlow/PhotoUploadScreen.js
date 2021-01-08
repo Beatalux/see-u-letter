@@ -48,31 +48,28 @@ function generateDownload(previewCanvas, crop, history) {
 
   canvas.toBlob(
     (blob) => {
-    
+      /*
+
+      const formData = new FormData();
+      formData.append('my-file', blob, 'filename.png');
+      console.log("formData", formData);
+
+      history.push(`/check?img=${formData}`)
+
+*/
       
-    const formData = new FormData();
-    formData.append('my-file', blob, 'filename.png');
-    console.log("formData",formData);
-    
-    history.push(`/check?img=${formData}`)
+        const previewUrl = window.URL.createObjectURL(blob);
+        const newImg = document.createElement('img');
   
-
-
-    /*
-      const previewUrl = window.URL.createObjectURL(blob);
-      const newImg = document.createElement('img');
-
-      newImg.onload = function () {
-        // no longer need to read the blob so it's revoked
-        URL.revokeObjectURL(previewUrl);
-      };
-
-
-      newImg.src = previewUrl;
-      console.log(previewUrl,newImg, newImg.src, "herr")
-
-      history.push(`/check?img=${newImg.src}`)
-      */
+        newImg.onload = function () {
+          // no longer need to read the blob so it's revoked
+          URL.revokeObjectURL(previewUrl);
+        };
+  
+        newImg.src = previewUrl;
+        console.log(previewUrl,newImg, newImg.src, "herr")
+        history.push(`/check?img=${newImg.src}`)
+        
 
 
     },
@@ -184,7 +181,6 @@ export default function App() {
             onChange={(c) => setCrop(c)}
             onComplete={(c) => handleOnComplete(c)}
           />
-
         </React.Fragment>
         :
         <React.Fragment>
@@ -193,25 +189,22 @@ export default function App() {
 
           <Wrapper>
             <TrickContainer>
-            <ReactCrop
-              style={{
-                display:"inline-block",
-              maxWidth:"100%",
-              maxHeight:"100%",
-              verticalAlign:"middle",
-             
-
-              }}
-              src={upImg}
-              onImageLoaded={onLoad}
-              crop={crop}
-              onChange={(c) => setCrop(c)}
-              onComplete={(c) => setCompletedCrop(c)}
-            />
-                  </TrickContainer>
+              <ReactCrop
+                style={{
+                  display: "inline-block",
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  verticalAlign: "middle",
+                }}
+                src={upImg}
+                onImageLoaded={onLoad}
+                crop={crop}
+                onChange={(c) => setCrop(c)}
+                onComplete={(c) => setCompletedCrop(c)}
+              />
+            </TrickContainer>
+   
           </Wrapper>
-    
-
         </React.Fragment>
       }
       <Box>
@@ -224,14 +217,14 @@ export default function App() {
           }}
         />
       </Box>
-      <GreyButton onClick={() => setUpImg()}>사진 다시 고르기</GreyButton>
-      <YellowButton
-        disabled={!completedCrop?.width || !completedCrop?.height}
-        onClick={() =>
-          generateDownload(previewCanvasRef.current, completedCrop, history)
-        }
-      >
-        확인
+      <GreyButton onClick={() => setUpImg()} opacity={upImg==undefined?'0':'100%'}>사진 다시 고르기</GreyButton>
+            <YellowButton
+              disabled={!completedCrop?.width || !completedCrop?.height}
+              onClick={() =>
+                generateDownload(previewCanvasRef.current, completedCrop, history)
+              }
+            >
+              확인
       </YellowButton>
 
 
@@ -248,35 +241,36 @@ export default function App() {
 */
 
 
-const TrickContainer=styled.div`
+const TrickContainer = styled.div`
 display: inline-block;
 vertical-align: middle;
 height: 400px;
 
 
 `
-const RTitleText=styled(TitleText)`
+const RTitleText = styled(TitleText)`
 position:static;
 margin-top:140px;
 margin-left:50px;
 font-size:"20px";
 `
-const RBodyText=styled(BodyText)`
+const RBodyText = styled(BodyText)`
 position:static;
 margin-left:60px;
 margin-top:-12px;
+
 `
 const GreyButton = styled(GButton)`
-position:static;
-margin-top:500px;
-left:18px;
+opacity:${props=>props.opacity};
+
+top:720px;
+margin-left:0px;
+
 `
-
-
 const YellowButton = styled(Button)`
-position:static;
-margin-top:8px;
-left:0px;
+
+top:790px;
+
 `
 
 const Box = styled.canvas`

@@ -14,7 +14,6 @@ import { putLetterContent } from '../../axios/auth.js';
 
 
 
-
 export default function WritingLetter(value) {
 
     const [cookies, setCookie] = useCookies(['test']);
@@ -23,6 +22,7 @@ export default function WritingLetter(value) {
     const { search } = useLocation();
     const query = new URLSearchParams(search);
     const font = query.get('font');
+    const paper = query.get('paper');
     const receiver = query.get('receiver');
 
     let MaxCount = 10;//1248
@@ -55,11 +55,10 @@ export default function WritingLetter(value) {
         //setLetterContent(e.target.value);
         // Put api
         console.log("in handle submit", letterContent, pageNumber)
-
         console.log("letterID", letterID);
 
-        putLetterContent(letterID.id, letterContent, pageNumber);
-        history.push('/preview');
+        putLetterContent(letterID.id, letterContent, pageNumber,setCookie);
+        history.push(`/preview`);
 
     }
 
@@ -103,7 +102,6 @@ export default function WritingLetter(value) {
 
     return (
         <div style={{ marginLeft: "12px" }}>
-
             <Header>
                 <LeaveBtn />
                 <FinishBtn func={handleSubmitLetter} />
@@ -120,9 +118,6 @@ export default function WritingLetter(value) {
                 placeholder="마음을 담아보세요"
                 autofocus={false}
                 font={font} maxLength={count} value={letterContent}></WritingTextField>
-            {console.log(count, "fuck", countedWords.length)}
-
-
             {countedWords.length == count ? <Modal /> : <div />}
         </div>
 

@@ -60,7 +60,7 @@ width:390px;
 align-items:center;
 margin-bottom:15px;
 
-font-family: SpoqaHanSans;
+font-family: "Spoqa Han Sans";
 font-size: 16px;
 font-style: normal;
 font-weight: 400;
@@ -74,7 +74,7 @@ width: 92px;
 
 border-radius: nullpx;
 
-font-family: SpoqaHanSans;
+font-family:"Spoqa Han Sans";
 font-style: normal;
 font-weight: normal;
 font-size: 14px;

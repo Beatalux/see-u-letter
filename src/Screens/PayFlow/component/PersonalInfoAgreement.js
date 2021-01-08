@@ -46,29 +46,13 @@ function PersonalInfoAgreement({ agreementInfo }) {
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
-    console.log("in handleChange", state.checkedA, state.checkedB, state.checkedC, state.checkedD)
   };
-  console.log("out handleChange", state.checkedA, state.checkedB, state.checkedC, state.checkedD)
  
   
   agreementInfo.bValue=state.checkedB
   agreementInfo.cValue= state.checkedC
 
-  /*
-  useEffect(() => {
-    console.log("in use")
-    
-    if  (state.checkedB == true && state.checkedC == true) {
-        console.log(" in true", state.checkedB, state.checkedC)
-        test (0);
 
-      } else{
-        test(1);
-      }
-
-
-  }, [flag]);
-*/
   return (
     <div style={{ position: "relative", top: "900px", width: "390px" }}>
       <FormGroup >

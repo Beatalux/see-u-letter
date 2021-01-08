@@ -16,7 +16,6 @@ const ReceiverOptionsScreen = ({ match }) => {
 
     const [isMeSelected, setIsMeSelected] = useState('myself');
     const [receiver, setReceiver] = useState('myself');
-
     const [cookies, setCookie,removeCookie] = useCookies(['token']);
    
 

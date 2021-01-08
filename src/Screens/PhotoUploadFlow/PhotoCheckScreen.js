@@ -34,13 +34,7 @@ function PhotoCheckScreen() {
 
         postPhoto(letterID,imgUrl,setCookie)
         console.log('here')
-
-
         history.push('/deliveryInfo')
-
-
-
-
     }
 
 
@@ -49,7 +43,7 @@ function PhotoCheckScreen() {
             <div className="App">
                 <Header pageTitle="사진첨부" />
                 <TitleText top="140px" left="95px" size="20px">사진 첨부가 완료되었습니다!</TitleText>
-                <BodyText top="180px" left="110px">인화된 사진으로 만나요:)</BodyText>
+                <BodyText top="180px" left="120px">인화된 사진으로 만나요:)</BodyText>
 
 
                 <PrettyContainer/>

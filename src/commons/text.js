@@ -31,7 +31,7 @@ left:${props=>props.left||"0px"};
 
 export const SubtitleText=styled.p`
 
-font-family: SpoqaHanSans;
+font-family:  "Spoqa Han Sans";
 font-style: normal;
 font-weight:bold;
 font-size: ${props=>props.size||"18px"};
@@ -51,7 +51,7 @@ export const BodyText=styled.p.attrs(props=>({
     top:props.top,
     bottom:props.bottom,
 }))`
-font-family: SpoqaHanSans;
+font-family:"Spoqa Han Sans";
 font-style: normal;
 font-weight: 300;
 font-size: ${props=>props.size||"16px"};
@@ -72,7 +72,7 @@ export const WarningText=styled.p.attrs(props=>({
     top:props.top,
     bottom:props.bottom,
 }))`
-font-family: SpoqaHanSans;
+font-family: "Spoqa Han Sans";
 font-style: normal;
 font-weight: normal;
 font-size: 12px;
@@ -94,7 +94,7 @@ export const YellowButton=styled.button.attrs(props=>({
     top:props.top,
     bottom:props.bottom,
 }))`
-font-family: SpoqaHanSans;
+font-family: "Spoqa Han Sans";
 font-style: normal;
 font-weight: bold;
 font-size: 18px;
@@ -124,7 +124,7 @@ export const GreyButton=styled.button.attrs(props=>({
     top:props.top,
     bottom:props.bottom,
 }))`
-font-family: Spoqa Han Sans Neo;
+font-family: "Spoqa Han Sans";
 font-style: normal;
 font-weight: bold;
 font-size: 18px;

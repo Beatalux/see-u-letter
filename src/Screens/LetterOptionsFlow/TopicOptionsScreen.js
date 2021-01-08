@@ -18,7 +18,7 @@ import {useTexts} from '../../components/Modal/context'
 const TopicOptionsScreen = () => {
     //letter_id 를 받음
 
-    const [cookies, setCookie,removeCookie] = useCookies(['token']);
+    const [cookies, setCookie,removeCookie] = useCookies(['test']);
   
     let QuestionsList=[];
     const [background, setBackground] = useState(1);
@@ -59,13 +59,9 @@ const TopicOptionsScreen = () => {
     console.log("btn", SelectedQuestions);
     handleQuestions(SelectedQuestions);
 
-        //선택된 질문 index 반환
-
-       // history.push(`writing?paper=${paper}&font=${font}&topic=${SelectedQuestions}`);
-
        console.log("ARR",SelectedQuestions)
-       console.log("cookies.token in topic",cookies.token.id);
-       let temp=cookies.token.id
+       console.log("cookies.token in topic",cookies.test.id);
+       let temp=cookies.test.id
        postLetterOption(temp,paper+1,font, month,setCookie);
 
     }
@@ -74,7 +70,6 @@ const TopicOptionsScreen = () => {
 
 
     return (
-
         <div>
             <Header />
             <BarImage></BarImage>
@@ -102,9 +97,9 @@ const TopicOptionsScreen = () => {
                             checked={false}
                             onChange={(value) => handleSelectedTopic(value, index)}
                             borderColor="#D7C629"
-                            containerStyle={{ width: '380px' }}
+                            containerStyle={{ width: '385px' }}
                             style={{ cursor: "pointer", marginBottom: 16 }}
-                            labelStyle={{ marginLeft: 11, marginBottom: 16, marginRight:2,fontFamily: "Spoqa Han Sans Neo", fontSize: "16px", userSelect: "none" }}
+                            labelStyle={{ marginLeft: 11, marginBottom: 16, marginRight:2,fontFamily: "Spoqa Han Sans", fontSize: "16px", userSelect: "none" }}
                             label={question}
                             size={15}
                         />
@@ -113,7 +108,7 @@ const TopicOptionsScreen = () => {
                 })}
             </Wrapper>
             <StyledLink to={`writing?receiver=${receiver}&paper=${paper}&font=${font}`}>
-                <YellowButton onClick={test} top="888px" >다음</YellowButton>
+                <YellowButton onClick={test} top="800px" >다음</YellowButton>
             </StyledLink>
         </div>
     )
@@ -130,7 +125,7 @@ height:300px;
 position:absolute;
 top:230px;
 
-font-family: SpoqaHanSans;
+font-family: "Spoqa Han Sans";
 font-size: 16px;
 font-style: normal;
 font-weight: 400;
