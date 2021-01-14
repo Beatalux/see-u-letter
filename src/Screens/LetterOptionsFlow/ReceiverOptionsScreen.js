@@ -48,7 +48,7 @@ const ReceiverOptionsScreen = ({ match }) => {
 
             }
             <StyledLink to={`/month?receiver=${receiver}`}>
-                <YellowButton top="785px" left='22px' >선택</YellowButton>
+                <YellowButton top="785px" left='30px' >선택</YellowButton>
             </StyledLink>
         </div>
     )
@@ -61,8 +61,8 @@ background:url(${bar});
 position:absolute;
 height: 3.0000152587890625px;
 background-repeat:no-repeat;
-width: 360px;
-
+width: 100vw;
+left:6px;
 top: 106px;
 border-radius: 0px;
 `

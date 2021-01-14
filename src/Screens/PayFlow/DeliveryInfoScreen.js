@@ -20,7 +20,7 @@ function DeliveryInfoScreen() {
     const { search } = useLocation();
     const query = new URLSearchParams(search);
 
-    console.log("letterID", cookies.test)
+    console.log("letterID", cookies.writing,cookies.pay,cookies.test,cookies.token)
     const senderInfo = {}
     const receiverInfo={}
     const postInfo={}
@@ -45,11 +45,11 @@ console.log("post check out of function",postInfo)
         console.log("in func agreementInfo",agreementInfo.bValue,agreementInfo.cValue)
 
     
-        console.log("check this",cookies.test.id,senderInfo.senderName,typeof(senderInfo.senderPhone),senderInfo.senderFullAddress,senderInfo.senderDetailedAddress,parseInt(senderInfo.senderZoneCode),receiverInfo.receiverName,receiverInfo.receiverPhone,receiverInfo.receiverFullAddress,receiverInfo.receiverDetailedAddress,parseInt(receiverInfo.receiverZoneCode),postInfo.value)
+        console.log("check this",cookies.test.id,typeof(cookies.test.id),senderInfo.senderName,typeof(senderInfo.senderPhone),typeof(senderInfo.senderDetailedAddress),senderInfo.senderDetailedAddress,typeof(parseInt(senderInfo.senderZoneCode)),receiverInfo.receiverName,receiverInfo.receiverPhone,receiverInfo.receiverFullAddress,receiverInfo.receiverDetailedAddress,parseInt(receiverInfo.receiverZoneCode),postInfo.value,setCookie)
         
         if(agreementInfo.bValue&&agreementInfo.cValue){
             history.push('/payInfo')
-            postOrderInformation(cookies.test.id,senderInfo.senderName,senderInfo.senderPhone,senderInfo.senderFullAddress,senderInfo.senderDetailedAddress,parseInt(senderInfo.senderZoneCode),receiverInfo.receiverName,receiverInfo.receiverPhone,receiverInfo.receiverFullAddress,receiverInfo.receiverDetailedAddress,parseInt(receiverInfo.receiverZoneCode),postInfo.value)
+            postOrderInformation(cookies.test.id,senderInfo.senderName,senderInfo.senderPhone,senderInfo.senderFullAddress,senderInfo.senderDetailedAddress,parseInt(senderInfo.senderZoneCode),receiverInfo.receiverName,receiverInfo.receiverPhone,receiverInfo.receiverFullAddress,receiverInfo.receiverDetailedAddress,parseInt(receiverInfo.receiverZoneCode),postInfo.value,setCookie)
 
         }else{
             setConfirmAgreementForm(false);
@@ -67,7 +67,6 @@ console.log("post check out of function",postInfo)
     */
      
 
-        console.log("letterID", cookies.letterID)
 
     }
  

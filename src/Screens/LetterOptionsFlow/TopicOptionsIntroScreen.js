@@ -34,7 +34,7 @@ export default function TopicOptionIntroScreen() {
             </ImageBox>
 
             <StyledLink to={`topic?receiver=${receiver}&month=${month}&paper=${paper}&font=${font}`}>
-                <YellowButton top="765px">주제담기</YellowButton>
+                <YellowButton top="765px" >주제담기</YellowButton>
             </StyledLink>
         </div>
     )

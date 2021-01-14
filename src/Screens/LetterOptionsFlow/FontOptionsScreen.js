@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { BodyText, YellowButton, TitleText } from '../../commons/text'
 import '../../index.css'
-import bar from '../../images/halfbar.png';
+import bar from '../../images/fontBar.png';
 import fontsample from '../../images/fontsample.png';
 import Header from '../../commons/Header';
 import { useCookies } from 'react-cookie';
@@ -75,7 +75,7 @@ const useStyles = makeStyles({
 });
 
 const FontRow = ({ change }) => {
-    const [selectedValue, setSelectedValue] = useState("a");
+    const [selectedValue, setSelectedValue] = useState("b");
     const [cookies, setCookie, removeCookie] = useCookies(['token']);
 
 

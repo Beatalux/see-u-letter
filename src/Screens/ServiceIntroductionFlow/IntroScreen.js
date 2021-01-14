@@ -23,7 +23,7 @@ function IntroScreen({isClicked}) {
             <IntroPostbox></IntroPostbox>
             <Logo></Logo>
             <StyledLink to="/landing">
-            <YellowButton top="720px" onClick={handleMainScreen}>시작하기</YellowButton>
+            <YellowButton top="720px" left="30px" onClick={handleMainScreen}>시작하기</YellowButton>
             </StyledLink>
         </Wrapper>
     )
@@ -45,7 +45,7 @@ const IntroPostbox=styled.div`
 background:url(${postbox});
 
 position:absolute;
-left:24px;
+left:18px;
 top:260px;
 width: 366px;
 height: 332px;
@@ -54,7 +54,7 @@ const Logo=styled.div`
 background:url(${logo});
 position:absolute;
 top:580px;
-margin-left:102px;
+left:119px;
 width: 210px;
 height: 48px;
 background-repeat: no-repeat;
@@ -64,7 +64,7 @@ background-repeat: no-repeat;
 const IntroText=styled.div`
 
     padding-top: 169px;
-    margin-left:68px;
+    padding-left:68px;
     width: 250px;
     height: 83px;
     text-align:center;

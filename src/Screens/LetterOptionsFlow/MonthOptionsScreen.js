@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { BodyText, SubtitleText, YellowButton, TitleText } from '../../commons/text'
 import Header from '../../commons/Header';
-import bar from '../../images/bar1.png';
+import bar from '../../images/dateBar.png';
 
 import dimJanuary from '../../images/letterSelect/dimJanuary.png';
 import dimJune from '../../images/letterSelect/dimJune.png';
@@ -68,7 +68,7 @@ const MonthOptionsScreen = ({ match }) => {
 
 
             <StyledLink to={`paper?receiver=${receiver}&month=${selectedMonth}`}>
-                <YellowButton top="785px" left='22px'>선택</YellowButton>
+                <YellowButton top="785px" left='30px'>선택</YellowButton>
             </StyledLink>
         </div>
     )

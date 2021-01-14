@@ -19,8 +19,9 @@ function SenderInfoScreen() {
     const [cookies, setCookie,removeCookie] = useCookies(['token']);
 
     const handleSenderEmail=(e)=>{
+        console.log("in senderInfo",senderEmail)
         setSenderEmail(e.target.value);
-        if(!(senderEmail.includes('@'))){
+        if((!(senderEmail.includes('@')))&&senderEmail!==""){
             console.log('이메일 형식을 맞춰주세요');
             setComfirmEmailForm(false);
         }else{
@@ -28,6 +29,7 @@ function SenderInfoScreen() {
         }
         
     }
+    console.log("in senderInfo outof func",senderEmail)
 
     const handleErrorStatus=(e)=>{
         if(senderEmail===""){

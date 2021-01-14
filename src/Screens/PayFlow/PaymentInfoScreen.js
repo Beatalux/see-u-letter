@@ -2,11 +2,15 @@ import React from 'react'
 import Header from '../../commons/Header';
 import { BodyText, SubtitleText, YellowButton, WarningText, TitleText } from '../../commons/text'
 import styled from 'styled-components'
+import { useCookies } from 'react-cookie';
 
 import payinfo from '../../images/payinfo.png'
 import { Link, useLocation } from 'react-router-dom';
 
 function PaymentInfo() {
+
+    const [cookies, setCookie] = useCookies(['pay']);
+    console.log(cookies.test,cookies.writing,cookies.token,cookies.pay)
     const extraPhotoPrice = "3000"
     const selectedPaperPrice = "1000"
     const selectedPaperName = "편지1호 허밍버드"

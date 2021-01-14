@@ -79,6 +79,9 @@ const ArrowBackIcon=styled(ArrowBack)`
     width:30px;
     height:23px;
     margin-left:-12px;
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
 `
 
 function LeaveWritingPageComponent() {

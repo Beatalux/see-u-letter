@@ -20,7 +20,7 @@ import {useTexts} from '../../components/Modal/context'
 const TopicOptionsScreen = () => {
     //letter_id 를 받음
 
-    const [cookies, setCookie,removeCookie] = useCookies(['test']);
+    const [cookies, setCookie,removeCookie] = useCookies(['token']);
   
     let QuestionsList=[];
     const [background, setBackground] = useState(1);
@@ -60,10 +60,10 @@ const TopicOptionsScreen = () => {
 
     console.log("btn", SelectedQuestions);
     handleQuestions(SelectedQuestions);
-
-       console.log("ARR",SelectedQuestions)
-       console.log("cookies.token in topic",cookies.test.id);
-       let temp=cookies.test.id
+    let temp=cookies.token.id
+       console.log("ARR",temp)
+      // console.log("cookies.token in topic",cookies.test.id,cookies.token.id);
+     
        postLetterOption(temp,paper+1,font, month,setCookie);
 
     }

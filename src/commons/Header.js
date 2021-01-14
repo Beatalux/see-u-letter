@@ -33,6 +33,12 @@ width:40px;
 height:25px;
 margin:0 0 0 0;
 
+
+&:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+    background-color:white;
+}
+
 `
 const Wrapper=styled.div`
 

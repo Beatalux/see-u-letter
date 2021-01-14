@@ -126,7 +126,6 @@ function LandingScreen() {
                 open={open}
                 onClose={handleClose}
                 BackdropProps={{
-
                 }}
                 
             >
@@ -140,7 +139,7 @@ export default LandingScreen
 const GradientDiv=styled.div`
 background: linear-gradient(180deg, #FFFFFF 0.02%, rgba(255, 255, 255, 0.5) 45.83%, rgba(255, 255, 255, 0) 100%);
 transform: matrix(1, 0, 0, -1, 0, 0);
-width: 100vw;
+width: 414px;
 height: 50px;
 `
 const Padding=styled.div`

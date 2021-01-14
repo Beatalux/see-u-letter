@@ -37,6 +37,7 @@ export default function LetterPreviewScreen() {
     let temp = letterID.letterContent;
 
 
+
     console.log("LetterPrieveiw", letterID,letterID.id, letterID.letterContent, letterID.page);
 
 

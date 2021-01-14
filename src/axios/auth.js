@@ -8,7 +8,7 @@ import qs from 'qs';
       data: qs.stringify({
         senderEmail: `${senderEmail}`,
       }),
-      url:`https://44f643ffd8a4.ngrok.io/letter/users/` };
+      url:`https://7ffcdd39b664.ngrok.io/letter/users/` };
     axios(options)
       .then((res) => {
         setCookie('token', JSON.stringify(res.data), { path: '/' });
@@ -29,7 +29,7 @@ import qs from 'qs';
        font:`${font}`,
        month:`${month}`,
       }),
-      url:`https://44f643ffd8a4.ngrok.io/letter/letters/` };
+      url:`https://7ffcdd39b664.ngrok.io/letter/letters/` };
     axios(options)
       .then((res) => {
         //alert('로그인을 축하드립니다');
@@ -51,7 +51,7 @@ import qs from 'qs';
         letterContent:`${letterContent}`,
         page:`${page}`,
       }),
-      url:`https://44f643ffd8a4.ngrok.io/letter/letters/${letterID}/` };
+      url:`https://7ffcdd39b664.ngrok.io/letter/letters/${letterID}/` };
     axios(options)
       .then((res) => {
         //alert('로그인을 축하드립니다');
@@ -72,7 +72,7 @@ import qs from 'qs';
         photo:`${photo}`,
     
       }),
-      url:`https://e10c45c39e95.ngrok.io/photo/photos/` };
+      url:` https://7ffcdd39b664.ngrok.io/photo/photos/` };
     axios(options)
       .then((res) => {
         //alert('로그인을 축하드립니다');
@@ -84,30 +84,31 @@ import qs from 'qs';
   };
 
 
-  export const postOrderInformation = (letter,senderName,senderPhone,senderFullAddress,senderDeatiledAddress,senderZoneCode,receiverName,receiverPhone,receiverFullAddress,receiverDetailedAddress,receiverZoneCode,postMethod) => {
+  export const postOrderInformation = (letter,senderName,senderPhone,senderFullAddress,senderDetailedAddress,senderZoneCode,receiverName,receiverPhone,receiverFullAddress,receiverDetailedAddress,receiverZoneCode,postMethod,setCookie) => {
     const options = {
       method: 'POST',
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
   
       data: qs.stringify({
         letter:`${letter}`,
-          senderName:`${senderName}`,
-          senderPhone:`${senderPhone}`,
-          senderFullAddress:`${senderFullAddress}`,
-          senderDeatiledAddress:`${   senderDeatiledAddress}`,
-          senderZoneCode:`${senderZoneCode}`,
-          receiverName:`${receiverName}`,
-          receiverPhone:`${ receiverPhone}`,
-          receiverFullAddress:`${ receiverFullAddress}`,
-          receiverDetailedAddress:`${receiverDetailedAddress}`,
-          receiverZoneCode:`${ receiverZoneCode}`,
-          postMethod:`${ postMethod}`,
+        senderName:`${senderName}`,
+        senderPhone:`${senderPhone}`,
+        senderFullAddress:`${senderFullAddress}`,
+        senderDetailedAddress:`${senderDetailedAddress}`,
+        senderZoneCode:`${senderZoneCode}`,
+        receiverName:`${receiverName}`,
+        receiverPhone:`${ receiverPhone}`,
+        receiverFullAddress:`${ receiverFullAddress}`,
+        receiverDetailedAddress:`${receiverDetailedAddress}`,
+        receiverZoneCode:`${ receiverZoneCode}`,
+        postMethod:`${ postMethod}`,
+    
       }),
-      url:`https://e10c45c39e95.ngrok.io/order/customers/` };
+      url:`https://7ffcdd39b664.ngrok.io/order/customers/` };
     axios(options)
       .then((res) => {
         //alert('로그인을 축하드립니다');
-        //setCookie('letterID', JSON.stringify(res.data), { path: '/' });
+        setCookie('pay', JSON.stringify(res.data), { path: '/' });
       })
       .catch((err) => {
         console.log('login error!!', err);
@@ -115,4 +116,4 @@ import qs from 'qs';
   };
   
   
-  export  default postSenderEmail;
+  export  default postSenderEmail

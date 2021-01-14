@@ -95,9 +95,6 @@ export const SenderInfoContainer = ({ senderInfo }) => {
                     placeholder="01012345678"
                 ></UserInput>
             </SenderInfoRow>
-            {!confirmPhoneForm && <AlertDiv top="530px">
-                전화번호 입력 형식을 맞춰주세요
-                    </AlertDiv>}
             <SenderInfoRow top="315px">
                 <TBodyText left="0px" >우편번호</TBodyText>
                 <ReadOnlyUserInput readonly
@@ -246,9 +243,6 @@ export const ReceiverInfoContainer = ({receiverInfo}) => {
                     placeholder="01012345678"
                 ></UserInput>
             </SenderInfoRow>
-            {!confirmPhoneForm && <AlertDiv top="530px">
-                전화번호 입력 형식을 맞춰주세요
-                    </AlertDiv>}
             <SenderInfoRow top="315px">
                 <TBodyText left="0px" >우편번호</TBodyText>
                 <ReadOnlyUserInput

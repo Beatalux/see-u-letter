@@ -5,7 +5,7 @@ import { BodyText, SubtitleText, YellowButton, TitleText } from '../../commons/t
 
 import Carousel from '../../components/Carousel/LetterPaperCarousel'
 
-import bar from '../../images/bar3.png';
+import bar from '../../images/letterBar.png';
 import p1 from '../../images/paperTextSample/paper1.png';
 import fontsample from '../../images/fontsample.png';
 import Header from '../../commons/Header';
@@ -42,7 +42,7 @@ const handleLetterPaper=(v)=>{
         </CarouselContainer>
 
         <StyledLink to={`font?receiver=${receiver}&month=${month}&paper=${selectedPaper}`}>
-        <YellowButton top="785px" left='22px'>선택</YellowButton>
+        <YellowButton top="785px" left='30px'>선택</YellowButton>
         </StyledLink>
         </div>
         

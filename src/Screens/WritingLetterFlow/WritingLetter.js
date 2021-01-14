@@ -33,9 +33,9 @@ export default function WritingLetter(value) {
     const [pageNumber, setPageNumber] = useState(2);
     const { isClick, isReached, passingTopics } = useTexts();
 
-    const letterID = cookies.test
-    console.log("in writing, for put", letterID);
-
+    const letterID = cookies.test;
+    console.log("in writing, for put", letterID,cookies.writing,cookies.test,cookies.token);
+//undefined,undefined,letter/letter응답,letter/user응답
 
     let QuestionsList = [];
 
@@ -65,7 +65,6 @@ export default function WritingLetter(value) {
 
     useEffect(() => {
         return () => {
-            console.log('is', isClick);
             setCount(prevCount => prevCount + 5);
             setPageNumber(prevCount => prevCount + 1);
         };
@@ -75,7 +74,6 @@ export default function WritingLetter(value) {
 
 
     console.log("letttercontent", letterContent);
-    console.log('topicsoucs', passingTopics)
 
     let TopicArray = []
     if (passingTopics !== undefined) {
