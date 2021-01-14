@@ -1,3 +1,8 @@
+html,body{
+    width:100vw !important;
+}
+
+
 @font-face {
     font-family: 'MapoGoldenPier';
     src: url('./fonts/MAPOGOLDENPIER.TTF') format('woff');

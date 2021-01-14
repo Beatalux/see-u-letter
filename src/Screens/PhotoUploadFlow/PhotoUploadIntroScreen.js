@@ -19,7 +19,7 @@ function PhotoCheckScreen() {
     return (
         <div>
             <div className="App">
-                <Header />
+                <Header pageTitle="사진첨부" />
                 <TitleText top="130px" left="115px" size="20px">편지지와 함께 의미있는</TitleText>
                 <TitleText top="159px" left="150px" size="20px">사진 첨부하기</TitleText>
 

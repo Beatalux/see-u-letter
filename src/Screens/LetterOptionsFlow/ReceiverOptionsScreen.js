@@ -31,12 +31,10 @@ const ReceiverOptionsScreen = ({ match }) => {
     return (
 
         <div>
-            { console.log("plzplz",cookies.token)}//ok
-            <Header />
+            { console.log("plzplz",cookies.token)}
+            <Header pageTitle="받는 사람" />
             <BarImage></BarImage>
             <TitleText top="141px" size="18px" left="24px">이 편지는 누구에게 쓰나요?</TitleText>
-
-
             {isMeSelected ?
                 <React.Fragment>
                     <ImageBox top="180px" img={tome} ></ImageBox>
@@ -63,8 +61,8 @@ background:url(${bar});
 position:absolute;
 height: 3.0000152587890625px;
 background-repeat:no-repeat;
-width: 414px;
-left:0px;
+width: 360px;
+
 top: 106px;
 border-radius: 0px;
 `
@@ -73,8 +71,8 @@ const ImageBox = styled.div`
 background:url(${props => props.img});
 position:absolute;
 height: 272px;
-width: 366px;
-left: 28px;
+width: 360px;
+left: 50px;
 top: ${props => props.top};
 border-radius: 0px;
 `

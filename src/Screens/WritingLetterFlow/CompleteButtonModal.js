@@ -6,7 +6,7 @@ import { BodyText, TitleText } from '../../commons/text'
 import styled from 'styled-components';
 import { Link,useHistory } from 'react-router-dom';
 
-
+const mobile=`(min-width:415px)`;
 
 function getModalStyle() {
 
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
         height:307,
         backgroundColor:'white',
         border: 'none',
-    
+        borderRadius:"10px",
     },
 }));
 
@@ -69,6 +69,7 @@ function CompleteButtonModal({func}) {
 
 
 
+
     );
 
     return (
@@ -91,6 +92,7 @@ function CompleteButtonModal({func}) {
 
 export default CompleteButtonModal
 
+
 const Button=styled.button`
 
 /*완료*/
@@ -104,6 +106,7 @@ background-color:transparent;
 
 color: #7C5B42;
 border:none;
+
 `
 
 

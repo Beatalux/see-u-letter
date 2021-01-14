@@ -38,7 +38,7 @@ export default function FaQScreen() {
             <FooterText top="88px">더 자세한 문의는 {'<'}씨유레터{'>'}메일로 문의해주세요.</FooterText>
             <div style={{ display: "flex", position: "absolute", top: "130px", alignItems: "center" }}>
                 <MailIcon />
-                <FaQText>@seeyouletter</FaQText>
+                <FaQText>@seeyouletter.official</FaQText>
 
             </div>
             </QuestionWrapper>

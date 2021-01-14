@@ -9,8 +9,8 @@ import { Link, useLocation } from 'react-router-dom';
 function PaymentInfo() {
     const extraPhotoPrice = "3000"
     const selectedPaperPrice = "1000"
-    const selectedPaperName = "blah"
-    const sumPrice=6000;
+    const selectedPaperName = "편지1호 허밍버드"
+    const sumPrice=6500;
     return (
         <Wrapper>
             <Header pageTitle="입금정보" />
@@ -21,7 +21,7 @@ function PaymentInfo() {
 
             <ImageBox img={payinfo} top="319px">
             </ImageBox>
-            <SubtitleText top="610px">결제 금액</SubtitleText>
+            <SubtitleText top="606px">결제 금액</SubtitleText>
             <BigDivider top="658px" />
             <div style={{ position: "relative", top: "670px" }}>
                 <PostMethodRow>
@@ -45,19 +45,27 @@ function PaymentInfo() {
                     계좌 이체
                 <ItemPrice>(주)씨유레터</ItemPrice>
                 </AccoutInfoRow>
-                <AccountText>국민은행 619-002-04-137760</AccountText>
+                <AccountText>카카오뱅크 3333-18-3951747(이승아)</AccountText>
               </div>
 
             <StyledLink to={`culetter`}>
                 <YellowButton top="1000px" >완료</YellowButton>
             </StyledLink>
-
+            <Padding></Padding>
         </Wrapper>
     )
 }
 
 export default PaymentInfo
 
+
+const Padding=styled.div`
+height:40px;
+width:100%;
+position:absolute;
+top:1062px;
+
+`
 const Wrapper=styled.div`
 position:center;
 
@@ -70,11 +78,10 @@ font-weight: bold;
 font-size: 24px;
 line-height: 36px;
 
-color: #7C5B42;
 position:absolute;
 height: 29px;
 width: 112px;
-left: 260px;
+left: 250px;
 top: 92px;
 border-radius: nullpx;
 
@@ -88,8 +95,8 @@ font-size: 20px;
 line-height: 30px;
 position: absolute;
 height: 24px;
-width: 274px;
-left: 119px;
+width: 350px;
+left:25px;
 top: -5px;
 border-radius: nullpx;
 

@@ -5,7 +5,7 @@ import { QuestionsToMySelfList,QuestionsToOthersList } from '../../commons/Lette
 import styled from 'styled-components'
 import { Link,useLocation,useHistory } from 'react-router-dom';
 import { BodyText, YellowButton, SubtitleText } from '../../commons/text'
-import bar from '../../images/bar5.png';
+import bar from '../../images/fullBar.png';
 import { useCookies } from 'react-cookie';
 import Header from '../../commons/Header';
 import {postLetterOption} from '../../axios/auth'
@@ -14,6 +14,8 @@ import {useTexts} from '../../components/Modal/context'
  
 //use npm react-custom-checkbox
 //MIT https://www.npmjs.com/package/react-custom-checkbox
+
+
 
 const TopicOptionsScreen = () => {
     //letter_id 를 받음
@@ -71,7 +73,7 @@ const TopicOptionsScreen = () => {
 
     return (
         <div>
-            <Header />
+            <Header pageTitle="주제선택" />
             <BarImage></BarImage>
             <SubtitleText top="135px" size="18px" left="24px">편지에 쓸 주제를 담아보아요.</SubtitleText>
             <BodyText top="165px" left="24px" size="14px">주제 없이 자유롭게 작성하고 싶다면, '다음'을 눌러주세요.</BodyText>
@@ -107,7 +109,7 @@ const TopicOptionsScreen = () => {
                 })}
             </Wrapper>
             <StyledLink to={`writing?receiver=${receiver}&paper=${paper}&font=${font}`}>
-                <YellowButton onClick={test} top="800px" >다음</YellowButton>
+                <YellowButton onClick={test} top="750px" >다음</YellowButton>
             </StyledLink>
         </div>
     )

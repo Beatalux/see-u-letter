@@ -19,17 +19,27 @@ function LastScreen() {
             <ImageBox img={lastimage} top="309px" height="283px">
             </ImageBox>
             <StyledLink to={`senderInfo`}>
-                <GreyButton top="716px">편지 한 장 더</GreyButton>
+                <GreyButton top="705px">편지 한 장 더</GreyButton>
             </StyledLink>
-            <StyledLink to={`main`}>
-                <YellowButton top="785px">홈으로</YellowButton>
+            <StyledLink to={`landing`}>
+                <YellowButton top="775px">홈으로</YellowButton>
             </StyledLink>
+            <Padding top="880px"></Padding>
           
             
         </div>
     )
 }
 
+const Padding=styled.div`
+
+
+position:absolute;
+height:10px;
+width:50px;
+top:${props=>props.top}
+
+`
 export default LastScreen
 const StyledLink = styled(Link)`
     text-decoration: none;

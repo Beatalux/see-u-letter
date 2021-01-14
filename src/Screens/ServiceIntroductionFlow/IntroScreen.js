@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import logo from '../../images/logo.png';
 import postboxintro from '../../images/intrologo.png';
+import postbox from '../../images/gif.gif';
 
 function IntroScreen({isClicked}) {
 
@@ -41,13 +42,13 @@ const Wrapper=styled.div`
 
 `
 const IntroPostbox=styled.div`
-background:url(${postboxintro});
+background:url(${postbox});
 
 position:absolute;
-left:109px;
-top:312px;
-width: 182px;
-height: 231px;
+left:24px;
+top:260px;
+width: 366px;
+height: 332px;
 `
 const Logo=styled.div`
 background:url(${logo});

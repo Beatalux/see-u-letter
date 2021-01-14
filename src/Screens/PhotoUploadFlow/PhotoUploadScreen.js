@@ -270,6 +270,7 @@ margin-left:0px;
 const YellowButton = styled(Button)`
 
 top:790px;
+margin-left:0px;
 
 `
 

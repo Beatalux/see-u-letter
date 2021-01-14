@@ -51,7 +51,7 @@ const MonthOptionsScreen = ({ match }) => {
 
     return (
         <div>
-            <Header />
+            <Header pageTitle="날짜 선택" />
             <BarImage></BarImage>
             <TitleText top="141px" size="18px" left="24px">편지를 언제로 보내고 싶은가요?</TitleText>
             <Wrapper>

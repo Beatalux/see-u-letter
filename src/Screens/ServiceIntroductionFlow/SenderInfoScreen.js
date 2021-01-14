@@ -12,8 +12,6 @@ import illust from '../../images/senderInfoImg.png';
 //배송정보
 
 function SenderInfoScreen() {
-
-
     let history = useHistory();
 
     const [senderEmail, setSenderEmail]=useState("");
@@ -65,8 +63,9 @@ function SenderInfoScreen() {
             <Header pageTitle="배송정보" />
             <ImageContainer/>
 
-            <TitleText top="376px" left="95px">편지를 보내는 사람의<br /> 정보를 기입해주세요</TitleText>
-            <WarningText top="461px" color="rgba(241,199,51,0.5)"  left="35px">
+            <TitleText top="376px" left="95px">편지를 보내는 사람의</TitleText>
+            <TitleText top="410px" left="92px">이메일을 기입해주세요</TitleText>
+            <WarningText top="463px" color="rgba(241,199,51,0.5)"  left="55px">
                 *아래 정보는 차후 배송확인과 우편배송 외에 사용되지 않습니다.
             </WarningText>
             <SenderInfoContainer>
@@ -123,10 +122,9 @@ top:${props=>props.top};
 `
 const UserInput=styled.input`
 margin-top:58px;
-
 width:366px;
 height:48.04px;
-border-radius:6px;
+border-radius:10px;
 `
 const SenderInfoContainer=styled.div`
 

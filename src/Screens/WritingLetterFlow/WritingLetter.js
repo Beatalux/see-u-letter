@@ -13,6 +13,7 @@ import { useCookies } from 'react-cookie';
 import { putLetterContent } from '../../axios/auth.js';
 
 
+const mobile=`(min-width:415px)`;
 
 export default function WritingLetter(value) {
 
@@ -124,29 +125,30 @@ const WritingTextField = styled.textarea`
 border-style:none;
 width: 366px;
 height:400px;
-padding:10px 0 10px 0;
+padding:0px 0 10px 0;
 position: relative;
 top: 225px;
 resize:none;
-left:-12px;
 
+left:-10px;
+@media only screen and ${mobile}{
+    left:20px;
+  }
+margin-top:20px;
 font-family: ${prop => prop.font || "RIDIBatang"};
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
-line-height: 50px;
+line-height: 26px;
 &:hover{
     border-style:none;
 }
-opacity: 0.8;
-
 
 `
 const TopicTextField = styled.textarea`
 border-style:none;
 color: #7C5B42;
 background-color:#F0EFEB;
-;
 width:325px;
 margin: 0 0 0 0;
 resize:none;
@@ -157,7 +159,7 @@ font-family: RIDIBatang;
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
-line-height: 18px;
+line-height: 20px;
 &:hover{
     border-style:none;
 }
@@ -167,7 +169,7 @@ opacity: 0.8;
 const TopicContainer = styled.div`
 position: absolute;
 height: 85px;
-width: 371px;
+width: 380px;
 
 left: 24px;
 top: 142px;
@@ -208,6 +210,9 @@ align-items:center;
 position:absolute;
 top:60px;
 height:25px;
+@media only screen and ${mobile}{
+    left:30px;
+  }
 `
 const HeaderButton = styled(FinishBtn)`
 /*완료*/

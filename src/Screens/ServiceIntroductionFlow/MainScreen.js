@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import Drawer from "../../components/forMainScreen/SwipeableTemporaryDrawer"
 import Divider from '@material-ui/core/Divider';
 import Footer from   "../../components/forMainScreen/Footer"
-import { Fab, Action } from 'react-tiny-fab';
-import 'react-tiny-fab/dist/styles.css';
 import { BodyText, SubtitleText,WarningText, Button, TitleText } from '../../commons/text'
 
 import m1 from "../../images/main1.png";
@@ -119,8 +117,22 @@ export default function MainScreen() {
        
             <StyledLink to="/senderInfo">
                 <VisibilityRow visibility={visible}>
+                    <FloatingButton onClick={ToWriteLetterPage}>
+                        편지쓰기
+                    </FloatingButton>
 
-                <Fab
+            
+                </VisibilityRow>
+            </StyledLink>
+            <FooterContainer>
+            <Footer />
+            </FooterContainer>
+       
+        </MainScreenContainer>
+    );
+
+    /*
+    <Fab
                     mainButtonStyles={{
                         backgroundColor: '#EEB900',
                         borderRadius: '8px', textAlign: 'center',
@@ -133,14 +145,7 @@ export default function MainScreen() {
                     icon="편지쓰기"
                     onClick={ToWriteLetterPage}
                 ></Fab>
-                </VisibilityRow>
-            </StyledLink>
-            <FooterContainer>
-            <Footer />
-            </FooterContainer>
-       
-        </MainScreenContainer>
-    );
+*/
 
 }
 //          <div style={{position:"absloute", top:"5055px",left:"-48px",paddingRight:"48px",overflow:"visible",width: "414px",
@@ -160,7 +165,15 @@ position:absolute;
 top:620px;
            
 `
+const FloatingButton=styled.div`
+height: 62px;
+width: 366px;
+position:fixed;
+bottom:10px;
+border-radius: 10px;
 
+
+`
 const FooterContainer=styled.div`
 position:absolute;
 top:6000px;

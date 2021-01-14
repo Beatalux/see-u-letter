@@ -101,7 +101,7 @@ vertical-align: middle;
 `
 
 const YellowButton = styled(Button)`
-position:relative;
+position:static;
 margin-top:300px;
 left:0px;
 

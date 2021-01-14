@@ -17,7 +17,6 @@ Button radius - 10 (나머지 래디우스는 직접 확인)
 */
 
 export const TitleText=styled.p`
-
 font-family: RIDIBatang;
 font-style: normal;
 font-weight: normal;
@@ -30,8 +29,7 @@ left:${props=>props.left||"0px"};
 `
 
 export const SubtitleText=styled.p`
-
-font-family:  "Spoqa Han Sans";
+font-family: "Spoqa Han Sans";
 font-style: normal;
 font-weight:bold;
 font-size: ${props=>props.size||"18px"};
@@ -105,13 +103,13 @@ border-style:none;
 
 position:absolute;
 top:${props=>props.top};
-bottom:${props=>props.bottom};
+bottom:40px;
 
 left:${props=>props.left||"24px"};
 
 margin-left:2px;
-margin-bottom:15px;
-width:365px;
+
+width:366px;
 height:60px;
 
 color: black;

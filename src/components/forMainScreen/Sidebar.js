@@ -11,15 +11,12 @@ import process from './process.png'
 
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
-
-
 export default function Sidebar({snackbar}) {
     const [copied,setCopied]=useState(false);
  
 
     const handleOnClick=()=>{
         snackbar(true);
-        
     }
 
 

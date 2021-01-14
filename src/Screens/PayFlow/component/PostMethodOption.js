@@ -27,7 +27,7 @@ export default function PostMethodOption({postInfo}) {
     return (
         <div style={{ position: "relative", top:"850px" ,width:"390px",overflow:"visible"}}>
             <PostMethodRow >일반우편
-            <ExtraPriceText>+2500원</ExtraPriceText>
+            <ExtraPriceText>+1000원</ExtraPriceText>
                 <RadioButton
                     checked={selectedValue === 'a'}
                     onChange={handleChange}
@@ -38,7 +38,7 @@ export default function PostMethodOption({postInfo}) {
             </PostMethodRow>
 
             <PostMethodRow >등기우편
-                <ExtraPriceText>+3000원</ExtraPriceText>
+                <ExtraPriceText>+1500원</ExtraPriceText>
                 <RadioButton
                     checked={selectedValue === 'b'}
                     onChange={handleChange}

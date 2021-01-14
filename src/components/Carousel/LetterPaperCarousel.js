@@ -116,8 +116,9 @@ const Wrapper = styled.div.attrs(props => ({
 
 }))`
 background:url(${props => props.background});
+background-repeat:no-repeat;
 
-width: 414px;
+width: 100vw;
 height: 530px;
 
 `

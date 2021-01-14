@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { BodyText, SubtitleText, Button, TitleText } from '../../commons/text'
+import { BodyText as B, SubtitleText, TitleText } from '../../commons/text'
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -28,9 +28,9 @@ const FaQDataList=[
 const useStyles = makeStyles((theme) => ({
 
     nested: {
-        paddingLeft: theme.spacing(4),
-        paddingBottom: theme.spacing(13),
-        paddingTop: theme.spacing(13),
+        paddingRight: theme.spacing(3),
+        padding: theme.spacing(3),
+      
         backgroundColor: 'rgb(196,153,1,0.3)',
         padding: "24px 0px 30px 18px",
         height: "auto",
@@ -91,7 +91,6 @@ export const FaQRow = () => {
                     <div>
                         <Divider variant="middle" />
                         <List style={{ position: "relative" }}>
-                            {  console.log("dp",dropdown)}
                             <ListItem button onClick={() => handleClick(index)} style={{ display: "flex", height: "85px" , width:"366px" }}>
                                 <QuestionText>
                                 Q.{faq.question}
@@ -100,11 +99,13 @@ export const FaQRow = () => {
                             </ListItem>
                             <Collapse in={dropdown[index]} timeout="auto" unmountOnExit>
                                 <List component="div" disablePadding>
-                                    <ListItem button divider className={classes.nested}>
-                                        <BodyText size="14px">
+                                    <ListItem 
+                                    button divider className={classes.nested}>
+                                      
+                                        <BodyText size="14px" left="13px">
                                            {faq.answer}
                                         </BodyText>
-
+                                
                                     </ListItem>
                                 </List>
                             </Collapse>
@@ -117,7 +118,10 @@ export const FaQRow = () => {
 
 
 }
+const BodyText=styled(B)`
+position:static;
 
+`
 const QuestionText = styled(SubtitleText)`
 &&&{
     font-size:18px;

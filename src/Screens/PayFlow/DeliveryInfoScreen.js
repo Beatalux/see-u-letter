@@ -99,11 +99,19 @@ console.log("post check out of function",postInfo)
 
             <GreyButton top="1550px" onClick={handleSenderInfoSubmit}>완료</GreyButton>
 
-
+     <Padding top="1600px"></Padding>
         </Wrapper>
 
     );
 }
+
+const Padding=styled.div`
+height:40px;
+width:100%;
+position:absolute;
+top:1610px;
+
+`
 
 export default DeliveryInfoScreen
 

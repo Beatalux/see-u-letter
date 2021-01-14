@@ -4,9 +4,6 @@ import { Menu } from "@styled-icons/boxicons-regular/Menu";
 import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import { Fab, Action } from 'react-tiny-fab';
-import 'react-tiny-fab/dist/styles.css';
-
 import Sidebar from './Sidebar'
 
 import logo from '../../images/logo.png'

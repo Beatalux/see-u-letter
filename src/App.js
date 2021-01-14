@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import {ExtraWordsProvider} from './contexts/ExtraPagesContext'
-
+//import './index.css';
 
 //import GlobalFonts from './Fonts/font';
 
@@ -66,12 +66,13 @@ export default function App() {
 const mobile=`(min-width:415px)`;
 
 const Wrapper = styled.div` 
- z-index:-1;
 
+  align-items:center;
   height: 100vh;
   margin: 0 16px 0 16px;
   @media only screen and ${mobile}{
     background-color: white;
     position:center;
+    transform:scale(0.4);
   }
 `;

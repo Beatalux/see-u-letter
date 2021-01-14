@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { BodyText, YellowButton, TitleText } from '../../commons/text'
 import '../../index.css'
-import bar from '../../images/bar1.png';
+import bar from '../../images/halfbar.png';
 import fontsample from '../../images/fontsample.png';
 import Header from '../../commons/Header';
 import { useCookies } from 'react-cookie';
@@ -108,7 +108,6 @@ const FontRow = ({ change }) => {
 
     return (
         <div>
-
             <FontR selected={FontsList[0].fontEngName}>{FontsList[0].fontname}
                 <RadioButton
                     checked={selectedValue === 'a'}
@@ -194,9 +193,9 @@ export default function FontOptionsScreen() {
 
     return (
 
-        <div>
-            <Header />
-            <BarImage></BarImage>
+        <div >
+            <Header pageTitle="폰트선택"/>
+            <BarImage ></BarImage>
             <TitleText top="135px" size="18px" left="24px">폰트를 골라주세요</TitleText>
             <BodyText top="165px" left="24px">글에 적용될 폰트를 골라주세요.</BodyText>
 
@@ -216,13 +215,22 @@ export default function FontOptionsScreen() {
                 <FontRow change={callFont}></FontRow>
             </FontOptionContainer>
 
+<div>
             <StyledLink to={`topicIntro?receiver=${receiver}&month=${month}&paper=${paper}&font=${FontsList[background].fontEngName}`}>
-                <YellowButton top="855px" left="23px">다음</YellowButton>
+                <YellowButton top="878px">다음</YellowButton>
             </StyledLink>
+            <BottomPadding top="940px"></BottomPadding>
+            </div>
         </div>
     )
 }
 
+const BottomPadding=styled.div`
+position:absolute;
+height:40px;
+width:10px;
+top:${props=>props.top}
+`
 
 
 const StyledLink = styled(Link)`
@@ -236,7 +244,7 @@ const StyledLink = styled(Link)`
 const FontOptionText = styled.p`
 position: absolute;
 
-font-family: ${props => props.font || "MapoGoldenPier"};
+font-family: ${props => props.font || "RIDIBatang"};
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
@@ -244,7 +252,7 @@ line-height: 30px;
 
 top:${props => props.top};
 color: #000000;
-margin-left:25px;
+margin-left:24px;
 
 `
 const ImageBox = styled.div`
@@ -265,13 +273,15 @@ position:absolute;
 height: 3.0000152587890625px;
 background-repeat:no-repeat;
 width: 414px;
-left:0px;
+left:3px;
 top: 106px;
 border-radius: 0px;
 `
 const FontOptionContainer = styled.div`
 position:absolute;
 top:433px;
+left: 24px;
+
 
 `
 const FontR = styled.div`

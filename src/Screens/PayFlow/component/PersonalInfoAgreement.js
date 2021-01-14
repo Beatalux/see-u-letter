@@ -10,7 +10,7 @@ const BrownCheckbox = withStyles({
   root: {
     color: ' #F1C733',
     '&$checked': {
-      color: '#7C5B42',
+      color: '#F1C733',
     },
   },
   checked: {},
@@ -76,7 +76,7 @@ function PersonalInfoAgreement({ agreementInfo }) {
             label="개인정보 동의"
 
           />
-          <ConditionText>필수</ConditionText>
+          <ConditionText>(필수)</ConditionText>
         </div>
         <AgreementTextField value={PersonalInfo} rows="4" readOnly />
         <div style={{ display: "flex", alignItems: "center" }}>
@@ -91,7 +91,7 @@ function PersonalInfoAgreement({ agreementInfo }) {
 
 
           />
-          <ConditionText>필수</ConditionText>
+          <ConditionText>(필수)</ConditionText>
         </div>
         <AgreementTextField value={RefundPolicy} rows="4" readOnly />
 
@@ -108,7 +108,7 @@ function PersonalInfoAgreement({ agreementInfo }) {
 
 
           />
-          <ConditionText>선택</ConditionText>
+          <ConditionText>(선택)</ConditionText>
         </div>
 
         <AgreementTextField value={MarketingPolicy} rows="4" readOnly />

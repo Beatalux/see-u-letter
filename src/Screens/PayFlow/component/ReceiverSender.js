@@ -25,12 +25,15 @@ export const SenderInfoContainer = ({ senderInfo }) => {
     }
 
     /*strting PostCode*/
-    const width = 410;
-    const height = 414;
+    const width = 800;
+    const height = 614;
     const modalStyle = {
         position: "absolute",
         top: 0,
-        left: "-18px",
+        width:"800px",
+        transform:"scale(0.5)",
+
+        left: "-210px",
         zIndex: "100",
         border: "1px solid #000000",
         overflow: "hidden"
@@ -42,7 +45,7 @@ export const SenderInfoContainer = ({ senderInfo }) => {
     const [fullAddress, setFullAddress] = useState("");
 
     const handleOpenPost = () => {
-        setIsDaumPost(true);
+        setIsDaumPost(!isDaumPost);
     }
 
     const handleAddress = (data) => {
@@ -168,18 +171,19 @@ export const ReceiverInfoContainer = ({receiverInfo}) => {
         setSenderPhone(e.target.value);
     }
 
-    /*strting PostCode*/
-    const width = 410;
-    const height = 414;
+    const width = 800;
+    const height = 614;
     const modalStyle = {
         position: "absolute",
         top: 0,
-        left: "-18px",
+        width:"800px",
+        transform:"scale(0.5)",
+
+        left: "-210px",
         zIndex: "100",
         border: "1px solid #000000",
         overflow: "hidden"
     }
-
 
 
     const [isDaumPost, setIsDaumPost] = useState(false);
@@ -188,9 +192,12 @@ export const ReceiverInfoContainer = ({receiverInfo}) => {
     const [fullAddress, setFullAddress] = useState("");
 
     const handleOpenPost = () => {
-        setIsDaumPost(true);
+        setIsDaumPost(!isDaumPost);
     }
 
+  
+
+ 
     const handleAddress = (data) => {
         let AllAddress = data.address;
         let extraAddress = '';
@@ -207,6 +214,7 @@ export const ReceiverInfoContainer = ({receiverInfo}) => {
         }
         setFullAddress(AllAddress);
         setZoneCode(zoneCodes);
+   
     }
 
     const handleInput = (e) => {
@@ -250,7 +258,6 @@ export const ReceiverInfoContainer = ({receiverInfo}) => {
                     width="177px"
                     value={zoneCode}
                     readOnly>
-
                 </ReadOnlyUserInput>
                 <PostBtn onClick={handleOpenPost}>찾기</PostBtn>
             </SenderInfoRow>
@@ -294,6 +301,15 @@ export const ReceiverInfoContainer = ({receiverInfo}) => {
     );
 
 }
+
+const ElementWrap=styled.div`
+display:none;
+border:1px solid;
+width:500px;
+height:300px;
+margin:5px 0;
+position:relative
+`
 
 
 const ReadOnlyUserInput = styled.input`
