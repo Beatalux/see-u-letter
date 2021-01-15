@@ -63,7 +63,7 @@ export default function App() {
   );
 }
 
-const mobile=`(min-width:415px)`;
+const mobile=`(min-width:500px)`;
 
 const Wrapper = styled.div` 
 

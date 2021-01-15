@@ -56,7 +56,7 @@ export default function WritingLetter(value) {
         //setLetterContent(e.target.value);
         // Put api
         console.log("in handle submit", letterContent, pageNumber)
-        console.log("letterID", letterID);
+        console.log("letterID", letterID);//cookies.test
 
         putLetterContent(letterID.id, letterContent, pageNumber,setCookie);
         history.push(`/preview`);

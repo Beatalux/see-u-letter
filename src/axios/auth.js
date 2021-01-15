@@ -8,7 +8,7 @@ import qs from 'qs';
       data: qs.stringify({
         senderEmail: `${senderEmail}`,
       }),
-      url:`https://7ffcdd39b664.ngrok.io/letter/users/` };
+      url:`https://seeyouletters.com/letter/users/` };
     axios(options)
       .then((res) => {
         setCookie('token', JSON.stringify(res.data), { path: '/' });
@@ -29,7 +29,7 @@ import qs from 'qs';
        font:`${font}`,
        month:`${month}`,
       }),
-      url:`https://7ffcdd39b664.ngrok.io/letter/letters/` };
+      url:`https://seeyouletters.com/letter/letters/` };
     axios(options)
       .then((res) => {
         //alert('로그인을 축하드립니다');
@@ -51,7 +51,7 @@ import qs from 'qs';
         letterContent:`${letterContent}`,
         page:`${page}`,
       }),
-      url:`https://7ffcdd39b664.ngrok.io/letter/letters/${letterID}/` };
+      url:`https://seeyouletters.com/letter/letters/${letterID}/` };
     axios(options)
       .then((res) => {
         //alert('로그인을 축하드립니다');
@@ -72,7 +72,7 @@ import qs from 'qs';
         photo:`${photo}`,
     
       }),
-      url:` https://7ffcdd39b664.ngrok.io/photo/photos/` };
+      url:` https://seeyouletters.com/photo/photos/` };
     axios(options)
       .then((res) => {
         //alert('로그인을 축하드립니다');
@@ -104,7 +104,7 @@ import qs from 'qs';
         postMethod:`${ postMethod}`,
     
       }),
-      url:`https://7ffcdd39b664.ngrok.io/order/customers/` };
+      url:`https://seeyouletters.com/order/customers/` };
     axios(options)
       .then((res) => {
         //alert('로그인을 축하드립니다');

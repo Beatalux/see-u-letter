@@ -32,7 +32,9 @@ let pageNumber = 1
 let i = 0;
 export default function LetterPreviewScreen() {
     const [cookies, setCookie] = useCookies(['writing']);
-    const letterID = cookies.writing
+    const letterID = cookies.writing;
+    console.log("in writing, for put", letterID,cookies.writing,cookies.test,cookies.token);
+
     let LetterContent = [];
     let temp = letterID.letterContent;
 
