@@ -20,11 +20,11 @@ const FontsList = [
     },
     {
         "fontname": "마포금빛나루",
-        "fontEngName": "MapoFlowerIsland"
+        "fontEngName": "MapoGoldenPier"
     },
     {
         "fontname": "마포꽃섬",
-        "fontEngName": "MapoGoldenPier"
+        "fontEngName": "MapoFlowerIsland"
     },
     {
         "fontname": "나눔명조",

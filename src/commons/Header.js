@@ -51,7 +51,7 @@ height:25px;
 
 
 const HeaderText=styled.p`
-font-family: SpoqaHanSans;
+font-family:"Spoqa Han Sans";
 font-style: normal;
 font-weight:bold;
 font-size: "18px";

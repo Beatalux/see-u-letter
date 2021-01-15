@@ -153,7 +153,7 @@ resize:none;
 position:relative;
 top:37px;
 left:24px;
-font-family: RIDIBatang;
+font-family: "RIDIBatang";
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
@@ -172,7 +172,7 @@ width: 380px;
 left: 24px;
 top: 142px;
 overflow:visible;
-font-family: RIDIBatang;
+font-family:"RIDIBatang";
 font-size: 14px;
 font-style: normal;
 font-weight: 400;
@@ -186,7 +186,7 @@ border-radius: 4px;
 `
 
 const CountingText = styled.div`
-font-family: SpoqaHanSans;
+font-family: "Spoqa Han Sans";
 font-size: 16px;
 font-style: normal;
 font-weight: 400;
@@ -196,7 +196,7 @@ text-align: right;
 position:absolute;
 height: 24px;
 width: 64px;
-left: 330px;
+left: 335px;
 top: 94px;
 border-radius: nullpx;
 color: #7C5B42;

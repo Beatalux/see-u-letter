@@ -105,8 +105,6 @@ function PersonalInfoAgreement({ agreementInfo }) {
               checked={state.checkedD}
               name="checkedD" />}
             label="마케팅 정책 동의"
-
-
           />
           <ConditionText>(선택)</ConditionText>
         </div>

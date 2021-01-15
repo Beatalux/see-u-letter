@@ -97,7 +97,7 @@ const TopicOptionsScreen = () => {
                             name="my-input"
                             checked={false}
                             onChange={(value) => handleSelectedTopic(value, index)}
-                            borderColor="#D7C629"
+                            borderColor="#EEB900"
                             containerStyle={{ width: '385px' }}
                             style={{ cursor: "pointer", marginBottom: 16 }}
                             labelStyle={{ marginLeft: 11, marginBottom: 16, marginRight:2,fontFamily: "Spoqa Han Sans", fontSize: "16px", userSelect: "none" }}

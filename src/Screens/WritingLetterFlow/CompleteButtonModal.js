@@ -99,7 +99,7 @@ const Button=styled.button`
 font-family: SpoqaHanSans;
 font-style: normal;
 font-weight:bold;
-font-size: "18px";
+font-size: 18px;
 line-height: 150%; 
 margin-left:285px;
 background-color:transparent;
