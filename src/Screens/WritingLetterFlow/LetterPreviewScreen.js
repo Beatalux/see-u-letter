@@ -5,12 +5,12 @@ import { Link, useLocation } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
 import p1 from '../../images/previewPaper/p1.png';
-import p2 from '../../images/previewPaper/p1.png'
-import p3 from '../../images/previewPaper/p1.png'
-import p4 from '../../images/previewPaper/p1.png'
-import p5 from '../../images/previewPaper/p1.png'
-import p6 from '../../images/previewPaper/p1.png'
-import p7 from '../../images/previewPaper/p1.png'
+import p2 from '../../images/previewPaper/p2.png'
+import p3 from '../../images/previewPaper/p3.png'
+import p4 from '../../images/previewPaper/p4.png'
+import p5 from '../../images/previewPaper/p5.png'
+import p6 from '../../images/previewPaper/p6.png'
+import p7 from '../../images/previewPaper/p7.png'
 import Header from '../../commons/Header';
 //todo: import images
 
@@ -37,6 +37,7 @@ export default function LetterPreviewScreen() {
 
     let LetterContent = [];
     let temp = letterID.letterContent;
+   
 
 
 
@@ -59,7 +60,7 @@ export default function LetterPreviewScreen() {
     console.log(LetterContent)
 
     const selectedFont = letterID.font;
-    const selectedPaper =letterID.paper
+    const selectedPaper =letterID.paper;
     return (
         <div>
             <Header pageTitle="편지지 확인" />
@@ -71,7 +72,6 @@ export default function LetterPreviewScreen() {
                     return(
                         <div>
                     <EachLetterPaper img={PaperLetterList[selectedPaper]}>
-        
                         <TopicTextField value={content} readOnly font={selectedFont}></TopicTextField>
                     </EachLetterPaper>
                     <Padding height="14px"/>
@@ -123,6 +123,7 @@ const StyledLink = styled(Link)`
 const PreviewContainer = styled.div`
 position:relative;
 margin-top:157px;
+margin-left:8px;
 width:365px;
 overflow:hidden;
 height:1%;
@@ -138,11 +139,11 @@ z-index:2;
 border-style:none !important;
 background-color:transparent;
 width:252px;
-height:373px;
+height:380px;
 padding:0 0 0 0;
 resize:none;
 
-margin-top:117px;
+margin-top:123px;
 margin-left:57px;
 font-family:${props => props.font};
 font-style: normal;

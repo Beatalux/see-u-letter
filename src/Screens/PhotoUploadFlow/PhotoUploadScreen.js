@@ -161,8 +161,8 @@ export default function App() {
       <Header pageTitle="사진첨부" />
       {upImg === undefined ?
         <React.Fragment>
-          <TitleText top="140px" left="80px" size="20px"> 의미있는 사진을 첨부해보세요</TitleText>
-          <SubtitleText top="180px" left="48px">예쁜 종이액자에 담겨 같이 배송될 거에요.</SubtitleText>
+          <TitleText top="140px" left="85px" size="20px"> 의미있는 사진을 첨부해보세요</TitleText>
+          <SubtitleText top="180px" left="55px">예쁜 종이액자에 담겨 같이 배송될 거에요.</SubtitleText>
 
           <ImageSelectContainer>
             <AddImageButton >
@@ -226,11 +226,19 @@ export default function App() {
             >
               확인
       </YellowButton>
+      <BottomPadding top="940px"></BottomPadding>
 
 
     </div>
   );
 }
+const BottomPadding=styled.div`
+position:absolute;
+height:40px;
+width:10px;
+top:${props=>props.top}
+`
+
 
 /*
    left:'5px',

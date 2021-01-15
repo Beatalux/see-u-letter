@@ -138,7 +138,8 @@ export default LandingScreen
 const GradientDiv=styled.div`
 background: linear-gradient(180deg, #FFFFFF 0.02%, rgba(255, 255, 255, 0.5) 45.83%, rgba(255, 255, 255, 0) 100%);
 transform: matrix(1, 0, 0, -1, 0, 0);
-width: 414px;
+width:100%;
+
 height: 50px;
 `
 const Padding=styled.div`
@@ -149,7 +150,7 @@ width: 100vw;
 position: relative;
 left: 50%;
 right: 50%;
-margin-left: -50vw;
+margin-left: -51vw;
 margin-right: -50vw;
 `
 const VisibilityRow=styled.div`
@@ -204,7 +205,7 @@ const ImageContainer=styled.div`
 background-image:url(${props=>props.img});
 background-size:contain;
 height: ${props=>props.height||"3844.9990234375px"};
-width: 414px;
+width: 100%;
 overflow:visible;
 margin:0 0 0 0;
 
@@ -213,7 +214,7 @@ border-style:none;
 `
 
 const FooterContainer=styled.div`
-
+width: 100%;
 left:0px;
 padding:0 0 0px 0;
 margin:0 0 0px 0;

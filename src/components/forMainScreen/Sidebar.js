@@ -29,7 +29,7 @@ export default function Sidebar({snackbar}) {
                 <ProcessIcon></ProcessIcon>
             <WhiteTitleText>씨유레터 진행 방법</WhiteTitleText>
             </BigRow>
-            <Divider />
+       
             <StyledLink to="/faq">
             <BigRow>
                 <HelpCircleIcon></HelpCircleIcon>

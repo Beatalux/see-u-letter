@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
         height: "auto",
         maxHeight: "100%",
 
-        width: "366px",
+        width: "340px",
 
     },
 }));

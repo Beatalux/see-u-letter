@@ -40,8 +40,8 @@ padding-top:1px;
 margin-left:24px;
 `
 const MailIcon = styled(Email)`
-height: 24px;
-width: 24px;
+height: 20px;
+width: 20px;
 color:white;
 padding-top:1px;
 margin-left:24px;
@@ -49,7 +49,7 @@ margin-left:24px;
 const Wrapper=styled.div`
 
 position:relative;
-width: 414px;
+width: 100%;
 height: 363px;
 
 background: #7C5B42;

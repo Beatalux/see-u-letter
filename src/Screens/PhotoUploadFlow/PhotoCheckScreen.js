@@ -59,12 +59,21 @@ function PhotoCheckScreen() {
             </YellowButton>
 
 
+
             </div>
 
 
         </div>
     )
 }
+
+const BottomPadding=styled.div`
+position:absolute;
+height:40px;
+width:10px;
+top:${props=>props.top}
+`
+
 
 export default PhotoCheckScreen
 
@@ -103,6 +112,7 @@ vertical-align: middle;
 const YellowButton = styled(Button)`
 position:static;
 margin-top:300px;
+margin-bottom:40px;
 left:0px;
 
 

@@ -12,7 +12,7 @@ function PaymentInfo() {
     const [cookies, setCookie] = useCookies(['pay']);
     console.log(cookies.test,cookies.writing,cookies.token,cookies.pay)
     const payment=cookies.pay
-    const extraPhotoPrice = payment.photoPrice;
+    const extraPhotoPrice = payment.photo_price;
     const selectedPaperPrice = payment.letterPrice;
     const selectedPaperName = payment.letterName;
     const deliveryFee = payment.postMethod_price;
@@ -35,7 +35,7 @@ function PaymentInfo() {
                     <ItemPrice>{selectedPaperPrice}원</ItemPrice>
                 </PostMethodRow>
                 <PostMethodRow >  추가 사진 인화
-                <ItemPrice>{extraPhotoPrice}원</ItemPrice>
+                <ItemPrice>1000원</ItemPrice>
                 </PostMethodRow>
                 <PostMethodRow >  배송비
                 <ItemPrice>{deliveryFee}원</ItemPrice>
