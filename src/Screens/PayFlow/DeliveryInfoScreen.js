@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { BodyText, SubtitleText, GreyButton, WarningText } from '../../commons/text'
+import { BodyText, SubtitleText, YellowButton, WarningText } from '../../commons/text'
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
@@ -96,7 +96,7 @@ console.log("post check out of function",postInfo)
                 동의가 필요합니다</AlertDiv>}
             <BigDivider top="1015px" />
 
-            <GreyButton top="1550px" onClick={handleSenderInfoSubmit}>완료</GreyButton>
+            <YellowButton top="1550px" onClick={handleSenderInfoSubmit}>완료</YellowButton>
 
      <Padding top="1600px"></Padding>
         </Wrapper>

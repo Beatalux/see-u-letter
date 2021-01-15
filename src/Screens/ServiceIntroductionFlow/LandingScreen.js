@@ -127,7 +127,6 @@ function LandingScreen() {
                 onClose={handleClose}
                 BackdropProps={{
                 }}
-                
             >
                 {body}
             </Modal>
@@ -156,7 +155,7 @@ margin-right: -50vw;
 const VisibilityRow=styled.div`
 z-index:1;
 position:fixed;
-bottom:0px;
+bottom:10px;
 width:100%;
 display: ${props => props.visibility? 'block': 'none'};
 left:0px;
@@ -174,7 +173,7 @@ font-style: normal;
 font-weight: bold;
 font-size: 18px;
 line-height: 62px;
-border-radius: 10px;
+border-radius: 0px;
 background: #EEB900;
 color:black;
 

@@ -5,11 +5,19 @@ html,body{
 
 @font-face {
     font-family: 'MapoGoldenPier';
-    src: url('./fonts/MAPOGOLDENPIER.TTF') format('woff');
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoGoldenPierA.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Spoqa Han Sans';
+    font-weight: 400;
+    src: local('Spoqa Han Sans Regular'),
+    url('./fonts/SpoqaHanSans_subset/Spoqa Han Sans Regular.woff2') format('woff2'),
+    url('./fonts/SpoqaHanSans_subset/Spoqa Han Sans Regular.woff') format('woff'),
+    url('./fonts/SpoqaHanSans_subset/Spoqa Han Sans Regular.ttf') format('truetype');
+}
 @font-face {
     font-family: 'nanummyeongjo';
     src: url('./fonts/NanumMyeongjo.ttf') format('woff');
@@ -45,12 +53,4 @@ html,body{
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
-@font-face {
-    font-family: 'Spoqa Han Sans';
-    font-weight: 400;
-    src: local('Spoqa Han Sans Regular'),
-    url('./fonts/SpoqaHanSans_subset/Spoqa Han Sans Regular.woff2') format('woff2'),
-    url('./fonts/SpoqaHanSans_subset/Spoqa Han Sans Regular.woff') format('woff'),
-    url('./fonts/SpoqaHanSans_subset/Spoqa Han Sans Regular.ttf') format('truetype');
 }

@@ -41,8 +41,6 @@ export default function LetterPreviewScreen() {
 
 
     console.log("LetterPrieveiw", letterID,letterID.id, letterID.letterContent, letterID.page);
-
-
     //ok
     while (true) {
         console.log("lin while", temp.length);
@@ -137,22 +135,24 @@ height:${props => props.height};
 `
 const TopicTextField = styled.textarea`
 z-index:2;
-border-style:none;
+border-style:none !important;
 background-color:transparent;
 width:252px;
-height:371px;
-margin: 0 0 0 0;
+height:373px;
+padding:0 0 0 0;
 resize:none;
 
-margin-top:123px;
+margin-top:117px;
 margin-left:57px;
 font-family:${props => props.font};
 font-style: normal;
 font-weight: normal;
 font-size: 9px;
 line-height: ${props => props.font === "MapoFlowerIsland" ? "18px" : "20px"};
-&:hover{
+&:focus, &:hover, &:visited, &:active {
+    border: none;
     border-style:none;
+    border-color:transparent;
 }
 opacity: 0.8;
 `;
